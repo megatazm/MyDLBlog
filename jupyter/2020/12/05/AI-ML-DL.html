@@ -81,7 +81,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      3 min read
+      5 min read
     
 </span></p>
 
@@ -202,7 +202,7 @@ window.onload = wrap_img;
 <li>Lapisan Kedua, Hidden Layer beserta 4 node atau feature</li>
 <li>Lapisan Ketiga, 1 Output node.</li>
 </ul>
-<p>Ini merupakan contoh architecture asas NN yang sekarangnya dipanggil Shallow NN. Pada masa dahulu lebih kurang pada tahun 1950 - 1960, architecture Shallow NN lah sahaja yang mampu di capai, namun kemudiannya idea NN ini terkubur berdekad-dekad lamanya (kita akan bincangkan sejarah DL kemudian). Kini, architecture NN boleh di bina dengan lebih <em>Deep</em>, jumlah node dan lapisan yang lebih banyak dan kompleks. Secara teorinya semakin banyak node dan lapisan architecturenya maka semakin tinggi lah kerumitan masalah yang ia boleh selesaikan, tetapi semakin tinggi pula kuasa pemprosesan yang diperlukan.</p>
+<p>Ini merupakan contoh architecture asas NN yang sekarangnya dipanggil Shallow NN. Pada masa dahulu lebih kurang pada tahun 1950 - 1960, architecture Shallow NN sahaja lah yang mampu di capai, namun kemudiannya idea NN ini terkubur berdekad-dekad lamanya (kita akan bincangkan sejarah DL kemudian). Kini, architecture NN boleh di bina dengan lebih <em>Deep</em>, jumlah node dan lapisan yang lebih banyak dan kompleks. Secara teorinya semakin banyak node dan lapisan architecturenya maka semakin tinggi lah kerumitan masalah yang ia boleh selesaikan, tetapi semakin tinggi pula kuasa pemprosesan yang diperlukan.</p>
 <p>Ok. Sebelum kita menjebakkan diri ke dalam dunia DL, kenali ML terlebih dahulu.</p>
 
 </div>
@@ -212,7 +212,7 @@ window.onload = wrap_img;
 <div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="Machine-Learning">Machine Learning<a class="anchor-link" href="#Machine-Learning"> </a></h1><p>Machine learning jika diterjemahkan secara terus kepada bahasa melayu apa maksudnya? Mesin Belajar? Belajar Mesin? atau mungkin lebih tepat jika ia bermaksud mesin yang boleh di ajar. Mesin yang satu hari nanti boleh mengajar "diri"nya sendiri mungkin kedengaran menakutkan ataupun kelakar, tetapi menurut Elon Musk, jika penggunaan teknologi DL ini tidak di kawal-selia dengan baik ia mungkin bakal menjadi lebih bahaya daripada kepala bom nuklear!</p>
 <p>Ok, kenapa ML adalah teknik AI yang sangat hebat di waktu ini.</p>
-<p>Sebagai contoh, katakan kita nak mengajar computer untuk mengenali haiwan yang dikenali oleh manusia sebagai kucing. Mungkin agak mudah mengajar bayi yang berumur 3 tahun untuk mengenalinya, tetapi bolehkah anda bayangkan bagaimana sukar untuk melakukannya melalui teknik traditional AI? Secara traditionalnya, untuk memberi arahan atau mengajar komputer membuat perbandingan, ia boleh dilaksanakan dengan pendekatan rule-based melalui programming ataupun pengaturcaraan. Seperti contoh, dengan berpandukan pada pixel-pixel gambar seekor kucing seperti di bawah, anda perlu memprogram ribuan kod rule-based yang kompleks untuk membolehkan komputer mengenali kucing tersebut.</p>
+<p>Sebagai contoh, katakan kita nak mengajar komputer untuk mengenali haiwan yang dikenali oleh manusia sebagai kucing. Mungkin agak mudah mengajar bayi yang berumur 3 tahun untuk mengenalinya, tetapi bolehkah anda bayangkan bagaimana sukar untuk melakukannya melalui teknik traditional AI? Secara traditionalnya, untuk memberi arahan atau mengajar komputer membuat perbandingan, ia boleh dilaksanakan dengan pendekatan rule-based melalui programming ataupun pengaturcaraan. Seperti contoh, dengan berpandukan pada pixel-pixel gambar seekor kucing seperti di bawah, anda perlu memprogram ribuan kod rule-based yang kompleks untuk membolehkan komputer mengenali kucing tersebut.</p>
 
 </div>
 </div>
@@ -223,7 +223,7 @@ window.onload = wrap_img;
 <br />
 <figure>
   
-    <img class="docimage" src="/MyDLBlog/images/copied_from_nb/fastcore_imgs/cat.jpg" alt="cats" style="max-width: 80%px" />
+    <img class="docimage" src="/MyDLBlog/images/copied_from_nb/fastcore_imgs/cat.jpg" alt="cat" style="max-width: 75%px" />
     
     
 </figure>
@@ -238,7 +238,7 @@ window.onload = wrap_img;
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Bisa lakukannya? Ya mungkin boleh, berkat ketekunan dan kesabaran anda. Alhamdulillah selesai masalah.</p>
 <p>Tunggu! Tunggu sebentar! Masih awal untuk bergumbira.</p>
-<p>Cuba lihat gambar kucing di bawah. Bagaimana pula dengan kucing-kucing lain? ada ratus ribuan kucing di luar sana malahan berpuluh-pulih spesis kucing wujud di dunia ini. Bagaimana pulak dengan keadaan kucing-kucing itu? yang sedan mengendap di tepi bakul, di urut tengkoknya, mulut mengiau luas, mendukung anaknya, dan sebagainya. Dengan kata lain, bagaimana kita nak "<em>generalize</em>" kod rule-based awak supaya ia dapat mengenali kucing-kucing yang belum di "lihat" oleh komputer. Disinilah kekuatan ML mengatasi teknik traditional AI. Lihat gambarajah di bawah.</p>
+<p>Cuba lihat gambar-gambar kucing di bawah. Bagaimana pula dengan kucing-kucing lain? ada ratus ribuan kucing di luar sana malahan berpuluh-puluh spesis kucing wujud di dunia ini. Bagaimana pula dengan keadaan kucing-kucing itu? ada yang sedang mengendap di tepi bakul, di urut tengkoknya, mulut mengiau luas, mendukung anaknya, dan sebagainya.</p>
 
 </div>
 </div>
@@ -257,6 +257,58 @@ window.onload = wrap_img;
 <br />
 <br /></p>
 
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Dengan kata lain, bagaimana kita nak "<em>generalize</em>" kan kod rule-based ini supaya ia dapat mengenali kucing-kucing yang belum di "lihat" oleh komputer. Disinilah kekuatan ML mengatasi teknik traditional AI. Lihat gambarajah di bawah. Kaedah traditional programming, seperti yang dinyatakan di atas memerlukan manusia membina program berdasarkan pada input data untuk menghasilkan model klasifikasi rule-based. Manakala, ML tidak memerlukan manusia untuk membina program tersebut secara eksplisit. Apa yang ML perlu ialah bantuan manusia melabelkan jawapan betul pada setiap input data, dan menyalurkankannya ke dalam komputer. Seterusnya, algoritma ML memproses data tersebut lalu membina model yang boleh mengklasifikasi data input yang belum di "lihat" sebagai kucing atau bukan kucing. Oleh kerana model klasifikasi tersebut boleh di bina secara automatik dan pantas oleh algoritma ML (dengan sedikit bantuan daripada manusia), kita boleh meningkatkan prestasi "<em>generalization</em>" model tersebut dengan menyumbat masuk pelbagai jenis gambar kucing kepada algoritma ML itu dengan skala yang besar (lebih banyak input data lebih tinggi prestasi <em>generalization</em> sebuah model).</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><br />
+<br />
+<figure>
+  
+    <img class="docimage" src="/MyDLBlog/images/copied_from_nb/fastcore_imgs/traditionalprog.jpg" alt="traditionalprog" style="max-width: 100%px" />
+    
+    
+</figure>
+
+<br />
+<figure>
+  
+    <img class="docimage" src="/MyDLBlog/images/copied_from_nb/fastcore_imgs/mlmodel.jpg" alt="mlmodel" style="max-width: 100%px" />
+    
+    
+</figure>
+
+<br />
+<br /></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Secara informalnya, ML boleh didefinasikan sebagai:-</p>
+<blockquote><p>Teknik AI yang membolehkan machine berupaya belajar tanpa perlu di program secara eksplisit</p>
+</blockquote>
+<p>Secara formalnya pula ia didefinasikan sebagai:-&gt; Suatu program komputer dikatakan belajar dari pengalaman <strong>E</strong> terhadap suatu kelas tugasan <strong>T</strong> dengan prestasinya di ukur dengan <strong>P</strong>. Prestasi pada ukuran <strong>P</strong> terhadap tugasan <strong>T</strong> meningkat melalui pengalaman <strong>E</strong>.</p>
+<p>Dengan frasa mudah:-</p>
+<ul>
+<li>T = Tugasan untuk mengenali kucing di dalam gambar</li>
+<li>E = Pengalaman melihat banyak gambar-gambar kucing</li>
+<li>P = Kebarangkalian program mengenal pasti kucing di dalam gambar</li>
+</ul>
+<p>Sebagai maklumat tambahan, teknik ML terdiri dari beberapa kategori; iaitu Supervised Learning, Unsupervised Learning, Semi-Supervised Learning, Self-Supervised Learning, Reinforcement Learning, dan banyak lagi. Cuma kali ini, kita fokus pada teknik yang saya bincangkan di atas iaitu, Supervised Learning.</p>
+<p>Secara analoginya, Supervised Learning adalah ibarat mengajar kanak-kanak mengenal kucing menggunakan kad flip.</p>
+<blockquote><p>Cikgu:Ini apa? <br />&gt; Murid:Itu ayam. <br />&gt; Cikgu:Bukan, Ini kucing. <br />&gt; Murid:Itu kucing. <br /></p>
+</blockquote>
+<blockquote> ituapa </blockquote>
 </div>
 </div>
 </div>
