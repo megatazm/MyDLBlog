@@ -81,7 +81,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      5 min read
+      9 min read
     
 </span></p>
 
@@ -262,7 +262,7 @@ window.onload = wrap_img;
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Dengan kata lain, bagaimana kita nak "<em>generalize</em>" kan kod rule-based ini supaya ia dapat mengenali kucing-kucing yang belum di "lihat" oleh komputer. Disinilah kekuatan ML mengatasi teknik traditional AI. Lihat gambarajah di bawah. Kaedah traditional programming, seperti yang dinyatakan di atas memerlukan manusia membina program berdasarkan pada input data untuk menghasilkan model klasifikasi rule-based. Manakala, ML tidak memerlukan manusia untuk membina program tersebut secara eksplisit. Apa yang ML perlu ialah bantuan manusia melabelkan jawapan betul pada setiap input data, dan menyalurkankannya ke dalam komputer. Seterusnya, algoritma ML memproses data tersebut lalu membina model yang boleh mengklasifikasi data input yang belum di "lihat" sebagai kucing atau bukan kucing. Oleh kerana model klasifikasi tersebut boleh di bina secara automatik dan pantas oleh algoritma ML (dengan sedikit bantuan daripada manusia), kita boleh meningkatkan prestasi "<em>generalization</em>" model tersebut dengan menyumbat masuk pelbagai jenis gambar kucing kepada algoritma ML itu dengan skala yang besar (lebih banyak input data lebih tinggi prestasi <em>generalization</em> sebuah model).</p>
+<p>Dengan kata lain, bagaimana kita nak "<em>generalize</em>" kan kod rule-based ini supaya ia dapat mengenali kucing-kucing yang belum di "lihat" oleh komputer. Disinilah kekuatan ML mengatasi teknik traditional AI. Lihat gambarajah di bawah. Kaedah traditional programming, seperti yang dinyatakan di atas, ia memerlukan manusia membina program berdasarkan pada input data untuk menghasilkan model klasifikasi rule-based. Manakala, ML tidak memerlukan manusia untuk membina program tersebut secara eksplisit. Apa yang ML perlu ialah bantuan manusia melabelkan jawapan betul pada setiap input data, dan menyalurkankannya ke dalam komputer. Seterusnya, algoritma ML memproses data tersebut lalu membina model yang boleh mengklasifikasi data input yang belum di "lihat" sebagai kucing atau bukan kucing. Oleh kerana model klasifikasi tersebut boleh di bina secara automatik dan pantas oleh algoritma ML (dengan sedikit bantuan daripada manusia), kita boleh meningkatkan prestasi "<em>generalization</em>" model tersebut dengan menyumbat masuk pelbagai jenis gambar kucing kepada algoritma ML itu dengan skala yang besar (lebih banyak input data yang pelbagai, lebih tinggi prestasi <em>generalization</em> sebuah model).</p>
 
 </div>
 </div>
@@ -321,7 +321,7 @@ window.onload = wrap_img;
 <li>Cikgu = Supervisor </li>
 <li>Murid = Komputer</li>
 <li>Input Data = Gambar Kucing</li>
-<li>Input Label = Kapsyen pada kad Flip</li>
+<li>Input Label = Kapsyen pada Kad Flip</li>
 </ul>
 <p>Gambarajah di bawah menunjukkan aliran proses <em>supervised learning</em>.</p>
 
@@ -334,13 +334,70 @@ window.onload = wrap_img;
 <br />
 <figure>
   
-    <img class="docimage" src="/MyDLBlog/images/copied_from_nb/fastcore_imgs/supervisedlearning.png" alt="supervised learning" style="max-width: 90%px" />
+    <img class="docimage" src="/MyDLBlog/images/copied_from_nb/fastcore_imgs/supervisedlearning.png" alt="supervised learning" style="max-width: 100%px" />
     
     
 </figure>
 
 <br />
 <br /></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Langkah pertama untuk menjalankan proses Supervised Learning (SL) adalah mengumpul dan melabel data. Kita bernasib baik sebab gambar-gambar kucing sudah pun ada banyak di google.com, mudah lah untuk kita mencuba ML dan DL nanti. Kita bukan sahaja boleh mendapatkan data daripada google.com dan <a href="https://https://datasetsearch.research.google.com/">Google Dataset Search</a>, ada banyak <em>benchmark data</em> yang telah digunakan oleh penyelidik-penyelidik, ada di internet. Senarai dataset tersebut boleh di perolehi di sini, <a href="https://medium.com/towards-artificial-intelligence/best-datasets-for-machine-learning-data-science-computer-vision-nlp-ai-c9541058cf4f">TowardsAI</a> dan <a href="https://en.wikipedia.org/wiki/List_of_datasets_for_machine-learning_research">Wikipedia</a>.</p>
+<p>Mudah kan? banyak data sudah sedia ada untuk anda terokai menggunakan teknologi ML (Anda masih perlu melakukan sedikit proses penyesuaian data, ianya agak mudah dilakukan). Namun, jika anda ingin mengunakan ML untuk menyelesaikan permasalahan sebenar di luar sana, pengumpulan dan penyediaan datanya tidak lah semudah itu. Anda perlu melalui proses <em>Data Pre-processing</em> terlebih dahulu seperti di bawah.</p>
+<ul>
+<li><p>Data Cleaning</p>
+<ul>
+<li>Missing Data <ul>
+<li>Contohnya, jika ada atribut rekod di dalam data tersebut hilang, padamkan rekod itu.</li>
+<li>Ataupun simpan rekod itu, tetapi nilai pada atribut yang hilang digantikan dengan nilai average atribut. (Rekod dan atribut adalah satu jaluran informasi dalam data)</li>
+</ul>
+</li>
+<li>Jika data tersebut adalah imej, kita boleh membuang data yang tidak sesuai secara visual sebelum atau secara automatik selepas training. <em>Fastai</em> adalah framework deep learning untuk <em>Pytorch</em>, mempunyai fitur untuk menyenaraikan data yang tidak baik secara automatik.</li>
+<li>Noisy Data<ul>
+<li><em>Noisy data</em> adalah data yang dikatakan "<em>meaningless</em>", "<em>tiada maknanya</em>". Macam bunyi noise + muzik, bunyi noise itu kalau tak ada lagi sedap bunyi muziknya. Ia boleh diuruskan secara melalui teknik seperti <em>Binning</em>, <em>Regression</em>, dan <em>Clustering</em> (melandaikan data, mengurangkan zig-zag). Ada juga yang mencadangkan dengan menambahkan lebih banyak data yang berkualiti untuk mengurangkan kesan <em>noisy data</em>. Kaedah-kaedah lain adalah seperti teknik <em>dimension reduction</em> (seperti algoritma PCA), teknik <em>Regularization</em>, dan <em>Cross Validation</em>. Ironinya noise (random noise) merupakan rakan baik untuk algoritma DL. Contohnya, random noise sengaja di suntik masuk ke dalam data (teknik <em>Data Augmentation</em>) sebelum ia disalurkan ke dalam algoritma regression DL untuk meningkatkan tahap <em>generalization</em> modelnya (salah satu teknik <em>regularization</em> dalam DL). Manakala algoritma Generative Adversarial Network (GAN) pula menggunakan random noise itu untuk mencipta "<em>fake face images</em>", muka manusia tiruan.</li>
+</ul>
+</li>
+<li>Outlier Data<ul>
+<li><em>Outlier data</em> adalah data yang berada jauh daripada kelompok data lain dari segi kesamaan dan keberkaitannya. Kebiasaannya <em>outlier data</em> perlu di buang (mungkin disebabkan <em>human error</em>), namun ada ketikanya seperti untuk <em>anomaly detection</em> (mengesan sesuatu di luar kebiasaan seperti aktiviti hacker, penipuan dalam talian), dalam konteks ini <em>outlier data</em> adalah penting.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Data Transformation</p>
+<ul>
+<li>Normalization<ul>
+<li>Normalization menyeragamkan skala nilai pada setiap atribut di rekod. Kebanyakkan algoritma memerlukan semua atribut tersebut diseragamkan di antara julat yang sama. Contohnya, jika julat atribut <em>Harga Rumah</em> adalah 50,000 dan 500,000 dan julat atribut <em>Jumlah Bilik</em> adalah 2 dan 8 (Contoh atribut data berkenaan hartanah), ia perlu diseragamkan di dalam julat yang sama untuk membolehkan algoritma berfungsi dengan baik.  Algoritma seperti NN sebagai contoh, memerlukan input data yang diseragamkan kepada nilai di antara 0 dan 1. </li>
+</ul>
+</li>
+<li>Discretization<ul>
+<li>Menukarkan julat nombor tertentu kepada perkataan. Contohnya, nilai antara 1 dan 17 -&gt; Kanak-Kanak, 18 dan 39 -&gt; Dewasa, 40 dan 59 -&gt; Pertengahan, 60, dan ke atas -&gt; Wargamas.</li>
+</ul>
+</li>
+<li>Encoding Categorical Value<ul>
+<li>mengekod nilai atribut dari perkataan kepada nombor binary. Contoh, Kucing -&gt; 100, Ayam -&gt; 010, dan Monyet -&gt; 001. Ini perlu dilakukan terutamanya untuk algoritma seperti NN yang hanya boleh berfungsi dengan nilai input, outputnya di dalam bentuk nombor sahaja.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Data Dimension Reduction</p>
+<ul>
+<li>Feature Extraction<ul>
+<li>Memilih atribut-atribut yang relevan dan menggabungkannya menjadi satu atribut yang baru.</li>
+</ul>
+</li>
+<li>Feature Selection<ul>
+<li>Memilih atribut yang paling relevan dan membuang atribut yang tidak relevan. </li>
+</ul>
+</li>
+<li>Kedua-dua teknik Ini bukan sahaja mengurangkan dimensi data, ia juga dikatakan akan menjadikan data tersebut lebih bermakna dan mudah di latih oleh algoritma ML. Ada banyak algoritma yang boleh digunakan untuk <em>data dimension reduction</em> ini, tapi saya tak membincangkannya di sini kerana algoritma DL dikatakan mampu beraksi dengan baik tanpa perlu malalui proses ini dilakukan secara manual.</li>
+</ul>
+</li>
+</ul>
 
 </div>
 </div>
