@@ -81,7 +81,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      9 min read
+      10 min read
     
 </span></p>
 
@@ -349,7 +349,7 @@ window.onload = wrap_img;
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Langkah pertama untuk menjalankan proses Supervised Learning (SL) adalah mengumpul dan melabel atau menganotasi data. Kita bernasib baik sebab gambar-gambar kucing sudah pun ada banyak di google.com, mudah lah untuk kita mencuba ML dan DL nanti. Kita bukan sahaja boleh mendapatkan data daripada google.com dan <a href="https://https://datasetsearch.research.google.com/">Google Dataset Search</a>, ada banyak <em>benchmark data</em> yang telah digunakan oleh penyelidik-penyelidik, ada di internet. Senarai dataset tersebut boleh di perolehi di sini, <a href="https://medium.com/towards-artificial-intelligence/best-datasets-for-machine-learning-data-science-computer-vision-nlp-ai-c9541058cf4f">TowardsAI</a> dan <a href="https://en.wikipedia.org/wiki/List_of_datasets_for_machine-learning_research">Wikipedia</a>.</p>
 <p>Ini adalah suatu kemudahan kan? banyak data sudah sedia ada untuk memberi galakan kepada anda menerokai teknologi ini (Anda masih perlu melakukan sedikit proses penyesuaian data, ianya agak mudah dilakukan).</p>
-<h1 id="Data-Preprocessing">Data Preprocessing<a class="anchor-link" href="#Data-Preprocessing"> </a></h1><p>Namun, jika anda ingin mengunakan ML untuk menyelesaikan permasalahan sebenar di luar sana, pengumpulan dan penyediaan datanya tidak lah semudah itu. Anda perlu melalui proses <em>Data Pre-processing</em> terlebih dahulu.</p>
+<h2 id="Data-Preprocessing">Data Preprocessing<a class="anchor-link" href="#Data-Preprocessing"> </a></h2><p>Namun, jika anda ingin mengunakan ML untuk menyelesaikan permasalahan sebenar di luar sana, pengumpulan dan penyediaan datanya tidak lah semudah itu. Anda perlu melalui proses <em>Data Pre-processing</em> terlebih dahulu.</p>
 <ul>
 <li>Data Cleaning<ul>
 <li>Missing Data <ul>
@@ -359,7 +359,7 @@ window.onload = wrap_img;
 </li>
 <li>Jika data tersebut adalah imej, kita boleh membuang data yang tidak sesuai secara visual sebelum atau secara automatik selepas training. <em>Fastai</em> adalah framework deep learning untuk <em>Pytorch</em>, mempunyai fitur untuk menyenaraikan data yang tidak baik secara automatik selepas menjalankan proses <em>training</em>.</li>
 <li>Noisy Data<ul>
-<li><em>Noisy data</em> adalah data yang dikatakan "<em>meaningless</em>", "<em>takda maknanya</em>". Macam bunyi noise + muzik, bunyi noise itu kalau tak ada lagi sedap bunyi muziknya. Ia boleh diuruskan secara melalui teknik seperti <em>Binning</em>, <em>Regression</em>, dan <em>Clustering</em> (melandaikan data, mengurangkan zig-zag). Ada juga yang mencadangkan dengan menambahkan lebih banyak data yang berkualiti untuk mengurangkan kesan <em>noisy data</em>. Kaedah-kaedah lain adalah seperti teknik <em>dimension reduction</em> (seperti algoritma PCA), teknik <em>Regularization</em>, dan <em>Cross Validation</em>. Ironinya noise (random noise) merupakan rakan baik untuk algoritma DL. Contohnya, random noise sengaja di suntik masuk ke dalam data (teknik <em>Data Augmentation</em>) sebelum ia disalurkan ke dalam algoritma regression DL untuk meningkatkan tahap <em>generalization</em> modelnya (salah satu teknik <em>Regularization</em> dalam DL). Manakala algoritma DL Generative Adversarial Network (GAN) pula menggunakan random noise sebagai dasar untuk mencipta "<em>fake face images</em>", muka manusia tiruan.</li>
+<li><em>Noisy data</em> adalah data yang dikatakan "<em>meaningless</em>", "<em>takda maknanya</em>". Macam bunyi noise + muzik, bunyi noise itu kalau tak ada lagi sedap bunyi muziknya. Ia boleh diuruskan melalui teknik seperti <em>Binning</em>, <em>Regression</em>, dan <em>Clustering</em> (melandaikan data, mengurangkan zig-zag). Ada juga yang mencadangkan dengan menambahkan lebih banyak data yang berkualiti untuk mengurangkan kesan <em>noisy data</em>. Kaedah-kaedah lain adalah seperti teknik <em>dimension reduction</em> (seperti algoritma PCA), teknik <em>Regularization</em>, dan <em>Cross Validation</em>. Ironinya noise (random noise) merupakan rakan baik untuk algoritma DL. Contohnya, random noise sengaja di suntik masuk ke dalam data (teknik <em>Data Augmentation</em>) sebelum ia disalurkan ke dalam algoritma DL regression untuk meningkatkan tahap <em>generalization</em> modelnya (salah satu teknik <em>Regularization</em> dalam DL). Manakala algoritma DL Generative Adversarial Network (GAN) pula menggunakan random noise sebagai dasar untuk mencipta "<em>fake face images</em>", muka manusia tiruan.</li>
 </ul>
 </li>
 <li>Outlier Data<ul>
@@ -382,21 +382,21 @@ window.onload = wrap_img;
 </ul>
 </li>
 <li>Data Labeling<ul>
-<li>Data labeling atau annotation yang diperkatakan di atas juga adalah teknik data preprocessing yang mesti dilakukan sebelum proses supervised learning. Jika data tersebut adalah imej, anda perlu menanda pada imej tersebut, objek ingin diklasifikasikan. Bayangkan jika anda perlu menganotasikan pada 50 ribu keping gambar yang mana setiap keping gambar itu ada 1000 orang!</li>
+<li>Data labeling atau annotation yang diperkatakan di atas juga adalah teknik data preprocessing yang mesti dilakukan sebelum proses supervised learning. Jika data tersebut adalah imej, anda perlu menanda pada imej tersebut, objek yang ingin diklasifikasikan. Bayangkan jika anda perlu menganotasikan pada 50 ribu keping gambar yang mana setiap keping gambar itu ada 1000 orang!</li>
 </ul>
 </li>
 </ul>
 </li>
 <li>Data Dimension Reduction<ul>
 <li>Feature Extraction<ul>
-<li>Memilih atribut-atribut yang relevan dan menggabungkannya menjadi satu atribut yang baru.</li>
+<li>Memilih atribut-atribut yang relevan dan menggabungkannya menjadi satu atribut yang baharu.</li>
 </ul>
 </li>
 <li>Feature Selection<ul>
 <li>Memilih atribut yang relevan dan membuang atribut yang tidak relevan. </li>
 </ul>
 </li>
-<li>Kedua-dua teknik Ini bukan sahaja mengurangkan dimensi data, ia juga dikatakan akan menjadikan data tersebut lebih bermakna dan mudah di latih oleh algoritma ML. Ada banyak algoritma yang boleh digunakan untuk <em>data dimension reduction</em> ini, tapi saya tak membincangkannya di sini kerana algoritma DL dikatakan mampu beraksi dengan baik tanpa perlu melalui proses ini dilakukan secara manual.</li>
+<li>Kedua-dua teknik ini bukan sahaja mengurangkan dimensi data, ia juga dikatakan akan menjadikan data tersebut lebih bermakna dan mudah di latih oleh algoritma ML. Ada banyak algoritma yang boleh digunakan untuk <em>data dimension reduction</em> ini, tapi saya tak membincangkannya di sini kerana algoritma DL yang kita akan terokai nanti dikatakan mampu beraksi dengan baik tanpa perlu melalui proses ini dilakukan secara manual.</li>
 </ul>
 </li>
 </ul>
@@ -406,7 +406,33 @@ window.onload = wrap_img;
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Model-Training">Model Training<a class="anchor-link" href="#Model-Training"> </a></h1>
+<h2 id="Model-Training">Model Training<a class="anchor-link" href="#Model-Training"> </a></h2><p>Apakah yang dimaksudkan dengan <em>model training</em>?</p>
+<p>Graf di bawah menunjukkan hubungan antara dua pemboleh ubah X, Y dan garisan persamaan linear di garis melintasi data yang telah diplotkan. Proses ini dikenali sebagai <em>Simple Linear Regression Model</em>, contoh ini adalah yang paling mudah kita gunakan kerana ia hanya melibatkan dua pemboleh ubah. Bulatan kuning adalah training data manakala garisan biru adalah model yang perlu digariskan oleh algoritma ML melalui proses <em>training</em>. Anak panah berwarna merah merupakan jarak atau <em>error</em> antara training data dan garisan model. Melalui proses training, algoritma ML perlu membina garisan model yang minima jumlah <em>error</em>nya (seperti yang ditunjukkan pada graf sebelah kanan).</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><br />
+<br />
+<figure>
+  
+    <img class="docimage" src="/MyDLBlog/images/copied_from_nb/fastcore_imgs/trainingmodel.png" alt="trainingmodel" style="max-width: 100%px" />
+    
+    
+</figure>
+
+<br />
+<br /></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Model-Testing">Model Testing<a class="anchor-link" href="#Model-Testing"> </a></h2><p>Model teasting atau Model inferencing</p>
+
 </div>
 </div>
 </div>
