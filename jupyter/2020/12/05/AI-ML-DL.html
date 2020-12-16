@@ -407,7 +407,7 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Model-Training">Model Training<a class="anchor-link" href="#Model-Training"> </a></h2><p>Apakah yang dimaksudkan dengan <em>model training</em>?</p>
-<p>Graf di bawah menunjukkan hubungan antara dua pemboleh ubah X, Y dan garisan persamaan linear di garis melintasi data yang telah diplotkan. Proses ini dikenali sebagai <em>Simple Linear Regression Model</em>, contoh ini adalah yang paling mudah kita gunakan kerana ia hanya melibatkan dua pemboleh ubah. Bulatan kuning adalah training data manakala garisan biru adalah model yang perlu digariskan oleh algoritma ML melalui proses <em>training</em>. Anak panah berwarna merah merupakan jarak atau <em>error</em> antara training data dan garisan model. Melalui proses training, algoritma ML perlu membina garisan model yang minima jumlah <em>error</em>nya (seperti yang ditunjukkan pada graf sebelah kanan).</p>
+<p>Graf di bawah menunjukkan hubungan antara dua pemboleh ubah X, Y dan garisan persamaan linear di garis melintasi data yang telah diplotkan. Proses ini dikenali sebagai <em>Simple Linear Regression Model</em>, contoh ini adalah yang paling mudah kita gunakan kerana ia hanya melibatkan dua pemboleh ubah (fitur ataupun atribut 2 dimensi). Bulatan kuning adalah training data manakala garisan biru adalah model yang perlu digariskan oleh algoritma ML melalui proses <em>training</em>. Anak panah berwarna merah merupakan jarak atau <em>error</em> antara training data dan garisan model. Melalui proses training, algoritma ML perlu membina garisan model yang minima jumlah <em>error</em>nya (seperti yang ditunjukkan pada graf sebelah kanan).</p>
 
 </div>
 </div>
@@ -431,7 +431,26 @@ window.onload = wrap_img;
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Model-Testing">Model Testing<a class="anchor-link" href="#Model-Testing"> </a></h2><p>Model teasting atau Model inferencing</p>
+\begin{align}
+\dot{x} &amp; = \sigma(y-x) \\
+\dot{y} &amp; = \rho x - y - xz \\
+\dot{z} &amp; = -\beta z + xy
+\end{align}\begin{equation*}
+\left( \sum_{k=1}^n a_k b_k \right)^2 \leq \left( \sum_{k=1}^n a_k^2 \right) \left( \sum_{k=1}^n b_k^2 \right)
+\end{equation*}
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Model-Testing">Model Testing<a class="anchor-link" href="#Model-Testing"> </a></h2><p>Model testing atau Model inferencing</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Model-Tuning">Model Tuning<a class="anchor-link" href="#Model-Tuning"> </a></h1><p>Model parameter dan hyperparameter tuning</p>
 
 </div>
 </div>
