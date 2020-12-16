@@ -81,7 +81,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      10 min read
+      11 min read
     
 </span></p>
 
@@ -407,7 +407,7 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Model-Training">Model Training<a class="anchor-link" href="#Model-Training"> </a></h2><p>Apakah yang dimaksudkan dengan <em>model training</em>?</p>
-<p>Graf di bawah menunjukkan hubungan antara dua pemboleh ubah X, Y dan garisan persamaan linear di garis melintasi data yang telah diplotkan. Proses ini dikenali sebagai <em>Simple Linear Regression Model</em>, contoh ini adalah yang paling mudah kita gunakan kerana ia hanya melibatkan dua pemboleh ubah (fitur ataupun atribut 2 dimensi). Bulatan kuning adalah training data manakala garisan biru adalah model yang perlu digariskan oleh algoritma ML melalui proses <em>training</em>. Anak panah berwarna merah merupakan jarak atau <em>error</em> antara training data dan garisan model. Melalui proses training, algoritma ML perlu membina garisan model yang minima jumlah <em>error</em>nya (seperti yang ditunjukkan pada graf sebelah kanan).</p>
+<p>Graf di bawah menunjukkan hubungan antara dua pemboleh ubah X, Y dan garisan persamaan linear di garis melintasi data yang diplotkan. Proses ini dikenali sebagai <em>Simple Linear Regression Model</em>, contoh ini adalah yang paling mudah kita gunakan kerana ia hanya melibatkan dua pemboleh ubah (fitur ataupun atribut 2 dimensi). Bulatan kuning adalah training data manakala garisan biru adalah model yang digariskan oleh algoritma ML melalui proses <em>training</em>. Anak panah berwarna merah merupakan jarak atau <em>error</em> antara training data dan nilai pada garisan model f(X)-&gt;Y. Melalui proses training, algoritma ML perlu membina garisan model f(X)-&gt;Y yang minima jumlah <em>error</em>nya berbanding dengan point training data (seperti yang ditunjukkan pada graf sebelah kanan).</p>
 
 </div>
 </div>
@@ -431,13 +431,43 @@ window.onload = wrap_img;
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-\begin{align}
-\dot{x} &amp; = \sigma(y-x) \\
-\dot{y} &amp; = \rho x - y - xz \\
-\dot{z} &amp; = -\beta z + xy
-\end{align}\begin{equation*}
-\left( \sum_{k=1}^n a_k b_k \right)^2 \leq \left( \sum_{k=1}^n a_k^2 \right) \left( \sum_{k=1}^n b_k^2 \right)
-\end{equation*}
+<p><img src="https://latex.codecogs.com/png.download?Y%3DaX%20+%20b" alt="equation" /></p>
+<p>Rumus di atas adalah persamaan linear yang merujuk pada garisan yang berwarna biru. Nilai pemboleh ubah <em>a</em> menentukan kecerunan, manakala pemboleh ubah <em>b</em> menentukan ketinggian garisan tersebut pada paksi Y. Graf di sebelah kiri merupakan garisan permulaan model <em>linear regression</em> itu pada ketika <em>a=0</em> dan <em>b=1</em>. Pada ketika ini nilai prediksi model f(X) -&gt; Y berbanding dengan setiap 6 training data point adalah 1. Oleh itu jumlah error ketika ini boleh di hitung dengan menggunakan rumus <em>Mean Square Error (MSE)</em>.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><br />
+<br />
+<figure>
+  
+    <img class="docimage" src="/MyDLBlog/images/copied_from_nb/fastcore_imgs/mse.png" alt="mse" style="max-width: 100%px" />
+    
+    
+</figure>
+
+<br />
+<br /></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Merujuk pada persamaan di atas:</p>
+<ul>
+<li><em>x</em> adalah <em>independant variable</em> ataupun fitur yang digunakan oleh model untuk melakukan prediksi nilai <em>dependant variable</em> ataupun <em>target value</em>, <em>y</em>. </li>
+<li><em>prediction(x)</em> adalah nilai prediksi <em>y</em> berdasarkan model linear regression di input <em>x</em> ketika di suatu nilai <em>a</em> dan <em>b</em>.</li>
+<li><em>D</em> adalah training data yang telah dilabelkan. <em>x</em> ialah input fitur manakala <em>y</em> ialah output labelnya. Contoh graf di atas menunjukkan ada 6 data point dengan input fitur dan label seperti berikut:- <blockquote><p><em>(x1,y1), (x2,y2), (x3,y3), (x4,y4), (x5,y5), (x6,y6)</em></p>
+</blockquote>
+</li>
+<li><p><em>N</em> adalah jumlah training data (contoh di atas ada <em>N</em> = 6).</p>
+<p>Untuk menghitung MSE, pada setiap data point, dapatkan <em>error</em> antara nilai y label dan y prediksi, kemudian kuasa duakannya. Lakukan ini pada setiap data point, kemudian jumlahkan kesemuanya. Akhir sekali, bahagikan hasil jumlah tersebut dengan jumlah training data, N (merujuk pada contoh di atas, N = 6)</p>
+</li>
+</ul>
+
 </div>
 </div>
 </div>
