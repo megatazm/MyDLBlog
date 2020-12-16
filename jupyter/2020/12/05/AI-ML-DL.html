@@ -431,10 +431,13 @@ window.onload = wrap_img;
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><img src="https://latex.codecogs.com/png.download?%5Cdpi%7B120%7D%20%5Clarge%20Y%3DaX+b" alt="equation" />
+<p>Rumus di bawah adalah persamaan linear yang merujuk pada garisan yang berwarna biru. 
 <br />
 <br />
-Rumus di atas adalah persamaan linear yang merujuk pada garisan yang berwarna biru. Nilai pemboleh ubah <em>a</em> menentukan kecerunan, manakala pemboleh ubah <em>b</em> menentukan ketinggian garisan tersebut pada paksi Y. Graf di sebelah kiri merupakan garisan permulaan model <em>linear regression</em> itu pada ketika <em>a=0</em> dan <em>b=1</em>. Pada ketika ini nilai prediksi model f(X) -&gt; Y berbanding dengan setiap 6 training data point adalah 1. Oleh itu jumlah error ketika ini boleh di hitung dengan menggunakan rumus <em>Mean Square Error (MSE)</em>.</p>
+<img src="https://latex.codecogs.com/png.download?%5CLARGE%20Y%3DaX+b" alt="equation" />
+<br />
+<br />
+Nilai pemboleh ubah <em>a</em> menentukan kecerunan, manakala pemboleh ubah <em>b</em> menentukan ketinggian garisan tersebut pada paksi Y. Graf di sebelah kiri merupakan garisan permulaan model <em>linear regression</em> itu pada ketika <em>a=0</em> dan <em>b=1</em>. Pada ketika ini nilai prediksi model f(X) -&gt; Y berbanding dengan setiap 6 training data point adalah 1. Oleh itu jumlah error ketika ini boleh di hitung dengan menggunakan rumus <em>Mean Square Error (MSE)</em>.</p>
 
 </div>
 </div>
@@ -445,7 +448,7 @@ Rumus di atas adalah persamaan linear yang merujuk pada garisan yang berwarna bi
 <br />
 <figure>
   
-    <img class="docimage" src="/MyDLBlog/images/copied_from_nb/fastcore_imgs/mse.png" alt="mse" style="max-width: 50%px" />
+    <img class="docimage" src="/MyDLBlog/images/copied_from_nb/fastcore_imgs/mse.png" alt="mse" style="max-width: 20%px" />
     
     
 </figure>
@@ -458,15 +461,15 @@ Rumus di atas adalah persamaan linear yang merujuk pada garisan yang berwarna bi
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Merujuk pada persamaan di atas:</p>
+<p>Merujuk pada rumus MSE di atas:</p>
 <ul>
-<li><em>x</em> adalah <em>independant variable</em> ataupun fitur yang digunakan oleh model untuk melakukan prediksi nilai <em>dependant variable</em> ataupun <em>target value</em>, <em>y</em>. </li>
+<li><em>x</em> adalah <em>independant variable</em> ataupun input fitur yang digunakan oleh model untuk melakukan prediksi nilai <em>dependant variable</em> ataupun <em>target value</em>, <em>y</em>. </li>
 <li><em>prediction(x)</em> adalah nilai prediksi <em>y</em> berdasarkan model linear regression di input <em>x</em> ketika di suatu nilai <em>a</em> dan <em>b</em>.</li>
 <li><em>D</em> adalah training data yang telah dilabelkan. <em>x</em> ialah input fitur manakala <em>y</em> ialah output labelnya. Contoh graf di atas menunjukkan ada 6 data point dengan input fitur dan label seperti berikut:- <blockquote><p><em>(x1,y1), (x2,y2), (x3,y3), (x4,y4), (x5,y5), (x6,y6)</em></p>
 </blockquote>
 </li>
 <li><p><em>N</em> adalah jumlah training data (contoh di atas ada <em>N</em> = 6).</p>
-<p>Untuk menghitung MSE, pada setiap data point, dapatkan <em>error</em> antara nilai y label dan y prediksi, kemudian kuasa duakannya. Lakukan ini pada setiap data point, kemudian jumlahkan kesemuanya. Akhir sekali, bahagikan hasil jumlah tersebut dengan jumlah training data, N (merujuk pada contoh di atas, N = 6)</p>
+<p>Untuk menghitung MSE, pada setiap data point, dapatkan <em>error</em> antara nilai y label dan y prediksi, kemudian kuasa duakannya. Lakukan ini pada setiap data point, kemudian jumlahkan kesemuanya. Akhir sekali, bahagikan hasil jumlah tersebut dengan jumlah training data, <em>N</em> (merujuk pada contoh di atas, <em>N</em> = 6)</p>
 </li>
 </ul>
 
@@ -482,7 +485,7 @@ Rumus di atas adalah persamaan linear yang merujuk pada garisan yang berwarna bi
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Model-Tuning">Model Tuning<a class="anchor-link" href="#Model-Tuning"> </a></h1><p>Model parameter dan hyperparameter tuning</p>
+<h2 id="Model-Tuning">Model Tuning<a class="anchor-link" href="#Model-Tuning"> </a></h2><p>Model parameter dan hyperparameter tuning</p>
 
 </div>
 </div>
