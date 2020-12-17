@@ -81,7 +81,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      11 min read
+      13 min read
     
 </span></p>
 
@@ -486,7 +486,7 @@ window.onload = wrap_img;
 <br>
 <img src="https://latex.codecogs.com/png.download?%5CLARGE%20Y%3DaX+b" alt="equation">
 <br>
-Nilai pemboleh ubah <em>a</em> menentukan kecerunan, manakala pemboleh ubah <em>b</em> menentukan ketinggian garisan tersebut pada paksi Y. Graf di sebelah kiri merupakan garisan permulaan model <em>linear regression</em> itu pada ketika <em>a=0</em> dan <em>b=1</em>. Pada ketika ini nilai prediksi model f(X) -&gt; Y berbanding dengan setiap 6 training data point adalah 1. Oleh itu jumlah error ketika ini boleh di hitung dengan menggunakan rumus <em>Mean Square Error (MSE)</em>.</p>
+Nilai pemboleh ubah <em>a</em> menentukan kecerunan, manakala pemboleh ubah <em>b</em> menentukan ketinggian garisan tersebut pada paksi Y. Graf di sebelah kiri merupakan garisan permulaan model <em>linear regression</em> itu pada ketika <em>a=0</em> dan <em>b=1</em>. Pada ketika ini nilai prediksi model f(X) -&gt; Y pada setiap titik x training data adalah 1. Jumlah error ketika ini boleh di hitung dengan menggunakan rumus <em>Mean Square Error (MSE)</em>.</p>
 
 </div>
 </div>
@@ -495,15 +495,13 @@ Nilai pemboleh ubah <em>a</em> menentukan kecerunan, manakala pemboleh ubah <em>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><br>
-<br>
 <figure>
   
-    <img class="docimage" src="/MyDLBlog/images/copied_from_nb/fastcore_imgs/mse.png" alt="mse" style="max-width: 20%px">
+    <img class="docimage" src="/MyDLBlog/images/copied_from_nb/fastcore_imgs/mse.png" alt="mse" style="max-width: 10%px">
     
     
 </figure>
 
-<br>
 <br></p>
 
 </div>
@@ -517,17 +515,35 @@ Nilai pemboleh ubah <em>a</em> menentukan kecerunan, manakala pemboleh ubah <em>
 <li>
 <em>x</em> adalah <em>independant variable</em> ataupun input fitur yang digunakan oleh model untuk melakukan prediksi nilai <em>dependant variable</em> ataupun <em>target value</em>, <em>y</em>. </li>
 <li>
-<em>prediction(x)</em> adalah nilai prediksi <em>y</em> berdasarkan model linear regression di input <em>x</em> ketika di suatu nilai <em>a</em> dan <em>b</em>.</li>
+<em>prediction(x)</em> adalah nilai prediksi <em>y</em> di input <em>x</em> berdasarkan model linear regression ketika di suatu nilai <em>a</em> dan <em>b</em>.</li>
 <li>
 <em>D</em> adalah training data yang telah dilabelkan. <em>x</em> ialah input fitur manakala <em>y</em> ialah output labelnya. Contoh graf di atas menunjukkan ada 6 data point dengan input fitur dan label seperti berikut:- <blockquote>
 <p><em>(x1,y1), (x2,y2), (x3,y3), (x4,y4), (x5,y5), (x6,y6)</em></p>
 </blockquote>
 </li>
 <li>
-<p><em>N</em> adalah jumlah training data (contoh di atas ada <em>N</em> = 6).</p>
+<p><em>N</em> adalah jumlah training data (contoh di atas, <em>N</em> = 6).</p>
 <p>Untuk menghitung MSE, pada setiap data point, dapatkan <em>error</em> antara nilai y label dan y prediksi, kemudian kuasa duakannya. Lakukan ini pada setiap data point, kemudian jumlahkan kesemuanya. Akhir sekali, bahagikan hasil jumlah tersebut dengan jumlah training data, <em>N</em> (merujuk pada contoh di atas, <em>N</em> = 6)</p>
 </li>
 </ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Proses yang saya huraikan di atas dikatakan sebagai "<em>initial iteration per 1 epoch</em>". Apa maksudnya?</p>
+<p><em>Initial</em> di sini bermaksud nilai permulaan parameter <em>a</em> dan <em>b</em> bagi mengariskan kedudukan awal garisan model linear tersebut. Nilai <em>a</em> dan <em>b</em> itu boleh ditentukan supaya bermula dengan nilai kosong ataupun nilai random (Untuk architecture NN yang kompleks kita mungkin perlu menggunakan kaedah spesifik).</p>
+<p><em>Iteration</em> adalah frekuensi algoritma ML itu disuapi sebahagian daripada training data. Epoch pula adalah frequency kesemua training data itu di proses oleh algoritma ML tersebut.</p>
+<p>Boleh faham tak? Pening? Macam tak ada beza pun maksud ayat di atas.</p>
+<p>Ok. Dalam keadaan sebenar, kesemua training data tidak di suap masuk ke dalam algoritma secara serentak. Ia di suap mengikut kumpulan atau <em>batch</em>. Contoh, jika jumlah training data adalah 2000 (1 epoch = 2000 data di proses). Jika anda setkan saiz batch = 100, maka setiap 1 epoch = 20 iteration (20 x 100 = 2000). Jika anda setkan training proses sebanyak 250 epoch maka total iterationnya adalah 20 x 250 = 5000. Ingat, pengiraan MSE berlaku pada setiap iteration. Macam mana, Ok?</p>
+<p>Untuk contoh di atas, oleh kerana training datanya cuma ada 6 sahaja, maka setiap 1 epoch ada 1 iteration sahaja (kita setkan saiz batch = jumlah training data, iaitu 6). Oleh itu pada setiap 1 iteration nilai MSE di hitung berdasarkan pada kedudukan garisan linear model. Kedudukan garisan linear model akan berubah pada setiap iteration. Dengan harapan nilai MSEnya semakin kecil.</p>
+<p>Apa yang akan berlaku jika anda setkan training proses sebanyak 250 epoch? Cukup ker?</p>
+<p>Maksudnya, algoritma ML tersebut ada masa sebanyak 250 iteration untuk mengariskan linear regression modelnya (melalui kombinasi nilai parameter <em>a</em> dan <em>b</em>) supaya MSE mencapai nilai seminima yang mungkin. Secara teorinya, lagi lama iteration maka semakin tinggilah peluangnya mencapai nilai MSE yang paling minima. Namun ini bergantung kepada keupayaan algoritma ML menentukan nilai parameter <em>a</em> dan <em>b</em> yang optimum dalam jangkamasa yang singkat. Bayangkan jika ada algoritma itu menggunakan teknik random bagi menentukan nilai parameter <em>a</em> dan <em>b</em> itu. Iteration sebanyak 250 mungkin tidak cukup kan.</p>
+<blockquote>
+<p>Algoritma Deep Learning menggunakan teknik yang di panggil <em>Gradient Decent</em> untuk mencapai nilai MSE yang minima dengan jauh lebih pantas berbanding teknik secara random.</p>
+</blockquote>
 
 </div>
 </div>
