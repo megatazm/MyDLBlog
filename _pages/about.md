@@ -4,8 +4,5 @@ title: About Me
 permalink: /about/
 ---
 
-This website is powered by **[fastpages](https://github.com/fastai/fastpages)** [^1].
+Saya Megat Norulazmi, pensyarah di UniKL MIIT. Bidang teknologi yang saya minati ialah Deep Learning, Cloud Computing, and IoT. Tujuan saya menulis artikel di sini adalah dengan harapan untuk memberi galakan dan pendedahan awal pada pelajar-pelajar sekolah menengah khasnya, juga pada semua pelajar-pelajar universiti yang mungkin berminat untuk menelaah bahan pembelajaran berkaitan teknologi-teknologi ini di dalam Bahasa Melayu. Saya harap blog ini sedikit sebanyak dapat memberi manafaat kepada anda semua.
 
-
-
-[^1]:a blogging platform that natively supports Jupyter notebooks in addition to other formats.
