@@ -533,17 +533,18 @@ Nilai pemboleh ubah <em>a</em> menentukan kecerunan, manakala pemboleh ubah <em>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Proses yang saya huraikan di atas dikatakan sebagai "<em>initial iteration per 1 epoch</em>". Apa maksudnya?</p>
-<p><em>Initial</em> di sini bermaksud nilai permulaan parameter <em>a</em> dan <em>b</em> bagi mengariskan kedudukan awal garisan model linear tersebut. Nilai <em>a</em> dan <em>b</em> itu boleh ditentukan supaya bermula dengan nilai kosong ataupun nilai random (Untuk architecture NN yang kompleks kita mungkin perlu menggunakan kaedah spesifik).</p>
-<p><em>Iteration</em> adalah frekuensi algoritma ML itu disuapi sebahagian daripada training data. Epoch pula adalah frequency kesemua training data itu di proses oleh algoritma ML tersebut.</p>
+<p>Proses yang merujuk pada graf di kiri itu adalah dikatakan sebagai "<em>initial iteration per 1 epoch</em>". Apa maksudnya?</p>
+<p><em>Initial</em> di sini bermaksud nilai permulaan parameter <em>a</em> dan <em>b</em> bagi mengariskan kedudukan awal garisan model linear tersebut. Nilai <em>a</em> dan <em>b</em> itu boleh ditentukan supaya bermula dengan nilai kosong ataupun nilai random (Untuk architecture NN yang kompleks kita mungkin perlu menggunakan kaedah lain yang lebih spesifik).</p>
+<p><em>Iteration</em> adalah frekuensi algoritma ML itu disuapi sebahagian daripada training data. Epoch pula adalah frequency kesemua training data itu selesai di proses oleh algoritma ML tersebut.</p>
 <p>Boleh faham tak? Pening? Macam tak ada beza pun maksud ayat di atas.</p>
 <p>Ok. Dalam keadaan sebenar, kesemua training data tidak di suap masuk ke dalam algoritma secara serentak. Ia di suap mengikut kumpulan atau <em>batch</em>. Contoh, jika jumlah training data adalah 2000 (1 epoch = 2000 data di proses). Jika anda setkan saiz batch = 100, maka setiap 1 epoch = 20 iteration (20 x 100 = 2000). Jika anda setkan training proses sebanyak 250 epoch maka total iterationnya adalah 20 x 250 = 5000. Ingat, pengiraan MSE berlaku pada setiap iteration. Macam mana, Ok?</p>
-<p>Untuk contoh di atas, oleh kerana training datanya cuma ada 6 sahaja, maka setiap 1 epoch ada 1 iteration sahaja (kita setkan saiz batch = jumlah training data, iaitu 6). Oleh itu pada setiap 1 iteration nilai MSE di hitung berdasarkan pada kedudukan garisan linear model. Kedudukan garisan linear model akan berubah pada setiap iteration. Dengan harapan nilai MSEnya semakin kecil.</p>
+<p>Untuk contoh di atas, oleh kerana training datanya cuma ada 6 sahaja, maka setiap 1 epoch ada 1 iteration sahaja (kita setkan saiz batch = jumlah training data, iaitu 6). Oleh itu pada setiap 1 iteration nilai MSE di hitung berdasarkan pada kedudukan terkini garisan linear model. Kedudukan garisan linear model akan berubah pada setiap iteration. Dengan harapan nilai MSEnya semakin kecil.</p>
 <p>Apa yang akan berlaku jika anda setkan training proses sebanyak 250 epoch? Cukup ker?</p>
-<p>Maksudnya, algoritma ML tersebut ada masa sebanyak 250 iteration untuk mengariskan linear regression modelnya (melalui kombinasi nilai parameter <em>a</em> dan <em>b</em>) supaya MSE mencapai nilai seminima yang mungkin. Secara teorinya, lagi lama iteration maka semakin tinggilah peluangnya mencapai nilai MSE yang paling minima. Namun ini bergantung kepada keupayaan algoritma ML menentukan nilai parameter <em>a</em> dan <em>b</em> yang optimum dalam jangkamasa yang singkat. Bayangkan jika ada algoritma itu menggunakan teknik random bagi menentukan nilai parameter <em>a</em> dan <em>b</em> itu. Iteration sebanyak 250 mungkin tidak cukup kan.</p>
+<p>Maksudnya, algoritma ML tersebut ada masa sebanyak 250 iteration untuk mengariskan linear regression modelnya (melalui kombinasi nilai parameter <em>a</em> dan <em>b</em>) supaya MSE mencapai nilai seminima yang mungkin. Secara teorinya, lagi lama iteration maka semakin tinggilah peluangnya mencapai nilai MSE yang paling minima. Namun ini bergantung kepada keupayaan algoritma ML menentukan nilai parameter <em>a</em> dan <em>b</em> yang optimum dalam jangkamasa yang singkat. Bayangkan jika algoritma itu menggunakan teknik random bagi menentukan nilai parameter <em>a</em> dan <em>b</em> itu. Iteration sebanyak 250 mungkin tidak mencukupi kan?</p>
 <blockquote>
-<p>Algoritma Deep Learning menggunakan teknik yang di panggil <em>Gradient Decent</em> untuk mencapai nilai MSE yang minima dengan jauh lebih pantas berbanding teknik secara random.</p>
+<p>Algoritma Deep Learning menggunakan teknik yang di panggil "Gradient Decent" untuk mencapai nilai MSE yang minima, jauh lebih pantas berbanding teknik secara random.</p>
 </blockquote>
+<p>Bayangan bukan 2, tapi ada beribu parameter yang perlu ditentukan? Anda mungkin perlu menunggu selama beribu-ribu tahun!</p>
 
 </div>
 </div>
