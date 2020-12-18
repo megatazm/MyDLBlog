@@ -81,7 +81,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      13 min read
+      14 min read
     
 </span></p>
 
@@ -104,6 +104,7 @@ window.onload = wrap_img;
 <ul>
 <li class="toc-entry toc-h2"><a href="#Data-Preprocessing">Data Preprocessing </a></li>
 <li class="toc-entry toc-h2"><a href="#Model-Training">Model Training </a></li>
+<li class="toc-entry toc-h2"><a href="#Training-dan-Validation">Training dan Validation </a></li>
 <li class="toc-entry toc-h2"><a href="#Model-Testing">Model Testing </a></li>
 <li class="toc-entry toc-h2"><a href="#Model-Tuning">Model Tuning </a></li>
 </ul>
@@ -502,7 +503,7 @@ Nilai pemboleh ubah <em>a</em> menentukan kecerunan, manakala pemboleh ubah <em>
     
 </figure>
 
-<br></p>
+<br><em>italicised text</em></p>
 
 </div>
 </div>
@@ -522,10 +523,9 @@ Nilai pemboleh ubah <em>a</em> menentukan kecerunan, manakala pemboleh ubah <em>
 </blockquote>
 </li>
 <li>
-<p><em>N</em> adalah jumlah training data (contoh di atas, <em>N</em> = 6).</p>
-<p>Untuk menghitung MSE, pada setiap data point, dapatkan <em>error</em> antara nilai y label dan y prediksi, kemudian kuasa duakannya. Lakukan ini pada setiap data point, kemudian jumlahkan kesemuanya. Akhir sekali, bahagikan hasil jumlah tersebut dengan jumlah training data, <em>N</em> (merujuk pada contoh di atas, <em>N</em> = 6)</p>
-</li>
+<em>N</em> adalah jumlah training data (contoh di atas, <em>N</em> = 6).</li>
 </ul>
+<p>Untuk menghitung MSE, pada setiap data point, dapatkan <em>error</em> antara nilai y label dan y prediksi, kemudian kuasa duakannya. Lakukan ini pada setiap data point, kemudian jumlahkan kesemuanya. Akhir sekali, bahagikan hasil jumlah tersebut dengan jumlah training data, <em>N</em> (merujuk pada contoh di atas, <em>N</em> = 6).</p>
 
 </div>
 </div>
@@ -533,18 +533,49 @@ Nilai pemboleh ubah <em>a</em> menentukan kecerunan, manakala pemboleh ubah <em>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Proses yang merujuk pada graf di kiri itu adalah dikatakan sebagai "<em>initial iteration per 1 epoch</em>". Apa maksudnya?</p>
+<p>Proses yang merujuk pada graf di kiri itu adalah dikatakan sebagai "<em>initial iteration per 1 epoch</em>".</p>
+<p>Apa maksudnya?</p>
 <p><em>Initial</em> di sini bermaksud nilai permulaan parameter <em>a</em> dan <em>b</em> bagi mengariskan kedudukan awal garisan model linear tersebut. Nilai <em>a</em> dan <em>b</em> itu boleh ditentukan supaya bermula dengan nilai kosong ataupun nilai random (Untuk architecture NN yang kompleks kita mungkin perlu menggunakan kaedah lain yang lebih spesifik).</p>
 <p><em>Iteration</em> adalah frekuensi algoritma ML itu disuapi sebahagian daripada training data. Epoch pula adalah frequency kesemua training data itu selesai di proses oleh algoritma ML tersebut.</p>
-<p>Boleh faham tak? Pening? Macam tak ada beza pun maksud ayat di atas.</p>
-<p>Ok. Dalam keadaan sebenar, kesemua training data tidak di suap masuk ke dalam algoritma secara serentak. Ia di suap mengikut kumpulan atau <em>batch</em>. Contoh, jika jumlah training data adalah 2000 (1 epoch = 2000 data di proses). Jika anda setkan saiz batch = 100, maka setiap 1 epoch = 20 iteration (20 x 100 = 2000). Jika anda setkan training proses sebanyak 250 epoch maka total iterationnya adalah 20 x 250 = 5000. Ingat, pengiraan MSE berlaku pada setiap iteration. Macam mana, Ok?</p>
-<p>Untuk contoh di atas, oleh kerana training datanya cuma ada 6 sahaja, maka setiap 1 epoch ada 1 iteration sahaja (kita setkan saiz batch = jumlah training data, iaitu 6). Oleh itu pada setiap 1 iteration nilai MSE di hitung berdasarkan pada kedudukan terkini garisan linear model. Kedudukan garisan linear model akan berubah pada setiap iteration. Dengan harapan nilai MSEnya semakin kecil.</p>
+<p>Boleh faham tak maksudnya? Ok, saya jelaskan dengan lebih terperinci.</p>
+<p>Dalam keadaan sebenar, kesemua training data itu tidak di suap masuk ke dalam algoritma secara serentak. Ia di suap mengikut kumpulan atau <em>batch</em>. Contoh, jika jumlah training data adalah 2000 (1 epoch = 2000 data di proses). Jika anda setkan saiz batch = 100, maka setiap 1 epoch = 20 iteration (20 x 100 = 2000). Jika anda setkan training proses sebanyak 250 epoch maka total iterationnya adalah 20 x 250 = 5000. Ingat, pengiraan MSE berlaku pada setiap iteration. Macam mana, Ok?</p>
+<p>Untuk contoh di atas, oleh kerana training datanya cuma ada 6 sahaja, maka setiap 1 epoch ada 1 iteration sahaja (kita setkan saiz batch = jumlah training data, iaitu 6). Oleh itu pada setiap 1 iteration, nilai MSE di hitung berdasarkan pada kedudukan terkini garisan linear model. Kedudukan garisan linear model akan berubah pada setiap iteration. Dengan harapan nilai MSEnya semakin kecil.</p>
 <p>Apa yang akan berlaku jika anda setkan training proses sebanyak 250 epoch? Cukup ker?</p>
 <p>Maksudnya, algoritma ML tersebut ada masa sebanyak 250 iteration untuk mengariskan linear regression modelnya (melalui kombinasi nilai parameter <em>a</em> dan <em>b</em>) supaya MSE mencapai nilai seminima yang mungkin. Secara teorinya, lagi lama iteration maka semakin tinggilah peluangnya mencapai nilai MSE yang paling minima. Namun ini bergantung kepada keupayaan algoritma ML menentukan nilai parameter <em>a</em> dan <em>b</em> yang optimum dalam jangkamasa yang singkat. Bayangkan jika algoritma itu menggunakan teknik random bagi menentukan nilai parameter <em>a</em> dan <em>b</em> itu. Iteration sebanyak 250 mungkin tidak mencukupi kan?</p>
 <blockquote>
-<p>Algoritma Deep Learning menggunakan teknik yang di panggil "Gradient Decent" untuk mencapai nilai MSE yang minima, jauh lebih pantas berbanding teknik secara random.</p>
+<p>Algoritma Deep Learning menggunakan teknik <em>optimization</em> yang di panggil "Gradient Decent" untuk mencapai nilai MSE yang minima, jauh lebih pantas berbanding teknik secara random.</p>
 </blockquote>
-<p>Bayangan bukan 2, tapi ada beribu parameter yang perlu ditentukan? Anda mungkin perlu menunggu selama beribu-ribu tahun!</p>
+<p>Bayangkan, bukan 2, tapi ada beribu parameter yang perlu ditentukan? Dengan <em>Gradient Decent</em>, ia mungkin memakan masa dalam beberapa puluh minit, tapi jika secara random, anda mungkin perlu menunggunya selama beribu-ribu tahun!</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><br>
+<br>
+<figure>
+  
+    <img class="docimage" src="/MyDLBlog/images/copied_from_nb/fastcore_imgs/linear-regression.gif" alt="linear-regression" style="max-width: 100%px">
+    
+    
+</figure>
+
+<br>
+<br>
+Gambarajah di atas adalah contoh linear regression model telah mencapai tahap optimumnya pada iteration yang ke-28 berdasarkan pada jumlah training datanya.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Training-dan-Validation">
+<a class="anchor" href="#Training-dan-Validation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Training dan Validation<a class="anchor-link" href="#Training-dan-Validation"> </a>
+</h2>
+<p>Anda mungkin sudah memperolehi kefahaman berkenaan training model, tapi mungkin anda tertanya-tanya apa perlunya <em>validation data</em>. Sedangkan saya tak melibatkan validation data pun di dalam penerangan berkenaan model training.</p>
 
 </div>
 </div>
