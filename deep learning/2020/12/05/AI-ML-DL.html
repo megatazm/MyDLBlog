@@ -591,19 +591,39 @@ Nilai pemboleh ubah <em>a</em> menentukan kecerunan, manakala pemboleh ubah <em>
 </ul>
 <p>Seperti yang telah saya jelaskan sebelum ini, training data diperlukan untuk membina model classification ataupun regression. Manakala, testing data pula adalah "<em>unseen data</em>" yang telah diasingkan bagi tujuan menguji prestasi model tersebut.</p>
 <p>Sebenarnya fungsi validation data juga adalah sama dengan test data iaitu menguji prestasi model yang telah di bina. Cuma bezanya adalah, validation data digunakan untuk menguji prestasi model ketika di dalam proses model training.</p>
-<p>Ada beberapa kaedah validation iaitu,</p>
+<p>Ada beberapa teknik validation iaitu,</p>
 <ul>
 <li>Holdout Method<ul>
-<li>Sebahagian dari training data diasingkan kepada validation data (mungkin dalam ratio 90% training dan 10% validation data atau 80% dan 20%.</li>
+<li>Sebahagian dari training data diasingkan kepada validation data (mungkin dalam ratio 90% training dan 10% validation data atau 80% dan 20%).</li>
 </ul>
 </li>
-<li>K-Fold Cross Validation<ul>
-<li>Anda tidak perlu mengasingkan sebahagian training data kepada validation data secara manual. Anda cuma perlu menetapkan nilai K (contoh K=10).</li>
+<li>
+<p>K-Fold Cross Validation</p>
+<ul>
+<li>
+<p>Anda tidak perlu mengasingkan sebahagian training data kepada validation data secara manual. Anda cuma perlu menetapkan nilai K (contoh K=10). Jika andan tidak mempunyai training data yang banyak, teknik ini sesuai untuk membolehkan anda mengoptimumkan penggunaan training data.</p>
+</li>
+<li>
+<p><br>
+<br>
+<figure>
+  
+    <img class="docimage" src="/MyDLBlog/images/copied_from_nb/fastcore_imgs/kf-crossval.png" alt="10-fold Cross Validation" style="max-width: 100%px">
+    
+    
+</figure>
+
+<br>
+<br>
+Gambarajah di atas menunjukkan proses <em>10-fold cross validation</em> (K=10).</p>
+</li>
 </ul>
 </li>
-<li>Stratified K-Fold Cross Validation</li>
+<li>
+<p>Stratified K-Fold Cross Validation</p>
+</li>
 </ul>
-<p>Tentu anda ingin tahu apa perlunya menguji prestasi model ketika dalam proses training?</p>
+<p>Tentu anda juga ingin tahu, apa perlunya menguji prestasi model ketika dalam proses training?</p>
 
 </div>
 </div>
