@@ -582,8 +582,8 @@ Nilai pemboleh ubah <em>a</em> menentukan kecerunan, manakala pemboleh ubah <em>
 <h2 id="Model-Validation">
 <a class="anchor" href="#Model-Validation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Model Validation<a class="anchor-link" href="#Model-Validation"> </a>
 </h2>
-<p>Anda mungkin sudah memperolehi kefahaman berkenaan model training, tapi mungkin anda tertanya-tanya, apa kaitannya <em>validation data</em> dengan model training? Saya pun langsung tak melibatkan <em>validation data</em> di dalam penerangan berkenaan <em>model</em> training tadi.</p>
-<p>Jika anda merujuk kembali pada gambarajah aliran proses supervised learning. Ada tiga jenis data yang perlu awak sedia selepas proses labeling data.</p>
+<p>Saya harap anda sudah memperolehi kefahaman asas berkenaan model training, tapi mungkin ada yang tertanya-tanya, apa kaitannya <em>validation data</em> dengan model training? Saya pun langsung tak melibatkan <em>validation data</em> di dalam penerangan berkenaan <em>model training</em> tadi.</p>
+<p>Jika anda merujuk kembali pada gambarajah aliran proses supervised learning. Ada tiga jenis data yang perlu disediakan selepas proses labeling data,</p>
 <ul>
 <li>Training Data</li>
 <li>Validation Data</li>
@@ -594,17 +594,17 @@ Nilai pemboleh ubah <em>a</em> menentukan kecerunan, manakala pemboleh ubah <em>
 <p>Ada beberapa teknik validation iaitu,</p>
 <ul>
 <li>Holdout Method<ul>
-<li>Sebahagian dari training data diasingkan kepada validation data (mungkin dalam ratio 90% training dan 10% validation data atau 80% dan 20%).</li>
+<li>Sebahagian dari training data diasingkan kepada validation data (mungkin dalam nisbah 90% training dan 10% validation data, atau 80% dan 20%).</li>
 </ul>
 </li>
 <li>
 <p>K-Fold Cross Validation</p>
 <ul>
 <li>
-<p>Anda perlu menetapkan nilai K (contoh, K=10). Jika anda tidak mempunyai training data yang banyak, teknik ini sesuai digunakan untuk membolehkan anda mengoptimumkan penggunaan training data.</p>
+<p>Teknik ini sesuai digunakan untuk membolehkan anda mengoptimumkan penggunaan training data. Terutamanya, jika anda tidak mempunyai training data yang cukup banyak.</p>
 </li>
 <li>
-<p>Gambarajah di bawah menunjukkan proses <em>10-fold cross validation</em> (K=10). <br>
+<p>Gambarajah di bawah menunjukkan gambaran proses <em>10-fold cross validation</em> (K=10). <br>
 <br>
 <figure>
   
@@ -640,7 +640,7 @@ Nilai pemboleh ubah <em>a</em> menentukan kecerunan, manakala pemboleh ubah <em>
 <p>Secara signifikan mengurangkan "<em>bias</em>" kerana kita menggunakan sebahagian besar training data yang ada. Ia juga secara signifikannya mengurangi "<em>varians</em>" kerana sebahagian besar data juga digunakan sebagai validation data.</p>
 </blockquote>
 <p><em>Bias</em>? <em>Variance</em>? mungkin ada yang tertanya-tanya akan maksudnya.</p>
-<p>Istilah <em>Bias &amp; Variance</em> ini berkait rapat dengan keperluan untuk mengukur prestasi model ketika dalam proses model training yang kemudiannya dijadikan sebagai rujukan bagi melakukan proses <em>Model Tuning</em>.</p>
+<p>Istilah <em>Bias &amp; Variance</em> ini berkait rapat dengan keperluan untuk mengukur prestasi model ketika dalam proses model training yang kemudiannya dijadikan sebagai rujukan bagi adamelakukan proses <em>Model Tuning</em>.</p>
 
 </div>
 </div>
@@ -651,7 +651,37 @@ Nilai pemboleh ubah <em>a</em> menentukan kecerunan, manakala pemboleh ubah <em>
 <h2 id="Model-Tuning-&amp;-Testing">
 <a class="anchor" href="#Model-Tuning-&amp;-Testing" aria-hidden="true"><span class="octicon octicon-link"></span></a>Model Tuning &amp; Testing<a class="anchor-link" href="#Model-Tuning-&amp;-Testing"> </a>
 </h2>
-<p>Model testing atau Model inferencing</p>
+<p>Berkenaan dengan <em>model tuning</em>, berikut ada beberapa istilah penting yang perlu anda fahami.</p>
+<ol>
+<li>Bias &amp; Variance</li>
+<li>Underfitting &amp; Overfitting</li>
+<li>Robustnes, Generalization &amp; Regularization</li>
+<li>Model Parameter &amp; Hyperparameter Tuning.</li>
+</ol>
+<p>Wow! Banyaknya nak kena hafal.</p>
+<p>Jangan risau, tak banyak mana pun sebenarnya, sebab mereka ni semua saling berkaitan. Yang penting kita jelas dengan maksudnya supaya tak terkeliru dan dikelirukan. Ini kerana, di luar sana ada ramai yang mengamalkan teknik ini,</p>
+<blockquote>
+<p>"If you can't convince them, confused them"</p>
+</blockquote>
+<p>Untuk memudahkan anda faham, gambarajah di bawah mengarap maksud istilah <em>Bias &amp; Variance, Underfitting &amp; Overfitting,</em> dan <em>Generalization</em> sekali gus.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><br>
+<br>
+<figure>
+  
+    <img class="docimage" src="/MyDLBlog/images/copied_from_nb/fastcore_imgs/bias-variance.png" alt="Bias &amp; Variance" style="max-width: 100%px">
+    
+    
+</figure>
+
+<br>
+<br></p>
 
 </div>
 </div>
