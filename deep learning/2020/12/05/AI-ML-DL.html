@@ -81,7 +81,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      16 min read
+      18 min read
     
 </span></p>
 
@@ -106,7 +106,6 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h2"><a href="#Model-Training">Model Training </a></li>
 <li class="toc-entry toc-h2"><a href="#Model-Validation">Model Validation </a></li>
 <li class="toc-entry toc-h2"><a href="#Model-Tuning-&-Testing">Model Tuning &amp; Testing </a></li>
-<li class="toc-entry toc-h2"><a href="#Model-Tuning">Model Tuning </a></li>
 </ul>
 </li>
 </ul><!--
@@ -637,7 +636,7 @@ Nilai pemboleh ubah <em>a</em> menentukan kecerunan, manakala pemboleh ubah <em>
 </ul>
 <p><em>K-fold cross validation</em> dikatakan,</p>
 <blockquote>
-<p>Secara signifikan mengurangkan "<em>bias</em>" kerana menggunakan sebahagian besar training data yang ada. Ia juga secara signifikannya mengurangi "<em>varians</em>" kerana sebahagian besar data juga digunakan sebagai validation data.</p>
+<p>Secara signifikan mengurangkan "<em>bias</em>" kerana menggunakan sebahagian besar training data yang ada. Ia juga secara signifikannya mengurangi "<em>variance</em>" kerana sebahagian besar data juga digunakan sebagai validation data.</p>
 </blockquote>
 <p><em>Bias</em>? <em>Variance</em>? mungkin ada yang tertanya-tanya akan maksudnya.</p>
 <p>Istilah <em>Bias &amp; Variance</em> ini berkait rapat dengan keperluan untuk mengukur prestasi model ketika dalam proses model training yang kemudiannya dijadikan sebagai rujukan bagi melakukan proses <em>Model Tuning</em>.</p>
@@ -655,7 +654,7 @@ Nilai pemboleh ubah <em>a</em> menentukan kecerunan, manakala pemboleh ubah <em>
 <ol>
 <li>Bias &amp; Variance</li>
 <li>Underfitting &amp; Overfitting</li>
-<li>Robustnes, Generalization &amp; Regularization</li>
+<li>Generalization &amp; Regularization</li>
 <li>Model Parameter &amp; Hyperparameter Tuning.</li>
 </ol>
 <p>Wow! Banyaknya nak kena hafal.</p>
@@ -663,7 +662,7 @@ Nilai pemboleh ubah <em>a</em> menentukan kecerunan, manakala pemboleh ubah <em>
 <blockquote>
 <p>"If you can't convince them, confused them"</p>
 </blockquote>
-<p>Untuk memudahkan anda faham, gambarajah di bawah mengarap maksud istilah <em>Bias &amp; Variance, Underfitting &amp; Overfitting,</em> dan <em>Generalization</em> sekali gus.</p>
+<p>Untuk memudahkan anda faham, gambarajah di bawah menggarap maksud istilah <em>Bias &amp; Variance, Underfitting &amp; Overfitting,</em> dan <em>Generalization</em> sekali gus.</p>
 
 </div>
 </div>
@@ -689,10 +688,15 @@ Nilai pemboleh ubah <em>a</em> menentukan kecerunan, manakala pemboleh ubah <em>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Model-Tuning">
-<a class="anchor" href="#Model-Tuning" aria-hidden="true"><span class="octicon octicon-link"></span></a>Model Tuning<a class="anchor-link" href="#Model-Tuning"> </a>
-</h2>
-<p>Model parameter dan hyperparameter tuning</p>
+<p>Gambarajah di atas menunjukkan error rate menurun apabila kompleksiti model meningkat (Peningkatan kompleksiti model adalah berkadar terus dengan frequency iteration atau epoch). Iaitu, lagi lama proses model train berjalan maka lagi kompleks lah model yang terhasil. Memang secara teorinya, makin lama model di train maka semakin kecil lah errornya (menghampiri kosong), namun ini tidak semestinya baik.</p>
+<p>Kenapa pulak? Error model dah <em>zero</em> mesti lah terbaik kan? Tidak!</p>
+<p>Cuba anda lihat tiga graf kecil di bawah gambarajah itu.</p>
+<blockquote>
+<p>Overfitting = High Variance, Underfitting = High Bias, Good Balance = Low Bias, Low Variance.</p>
+</blockquote>
+<p>Apabila training iteration tak mencukupi, model yang dihasilkan adalah simple iaitu garisan linear yang tidak mampu untuk "<em>fit</em>" pada trend data yang <em>non-linear</em>. Sebaliknya, jika terlalu lama di train, model yang terlampau "<em>fit</em>" pada trend data itu akan terhasil. Cuba anda perhatikan, apabila semua garisan model itu "<em>overfit</em>" kerana ia melalui kesemua titik training data. Oleh itu, errornya memanglah menjadi kosongkan kan? (masih ingat pengiraan MSE?). Namun, prestasi model ini hanya baik pada data yang pernah dilihatnya sahaja dan bukan pada "<em>unseen</em>" data.</p>
+<p>Ini dikatakan sebagai "<em>Bias &amp; Variance Tradeoff</em>". Iaitu, mencari <em>Good Balance, Sweet Spot</em> ataupun <em>Generalized Model</em>, mampu memberi prestasi yang baik apabila modelnya di nilai dengan data baharu. Oleh itu, dengan berpandukan pada titik terendah validation dan test error, maka anda boleh menentukan nilai iteration atau epoch yang paling optimum.</p>
+<p>Fuhh! Ok. Sekarang baru lah boleh bercakap tentang Model Tuning &amp; Testing.</p>
 
 </div>
 </div>
