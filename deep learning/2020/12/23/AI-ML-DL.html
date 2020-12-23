@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Pengenalan Kepada AI, ML &amp; DL | fastpages</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="Pengenalan Kepada AI, ML &amp; DL" />
+<meta name="author" content="Megat Norulazmi" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Perbincangan berkenaan Artificial Intelligent, Machine Learning dan Deep Learning." />
+<meta property="og:description" content="Perbincangan berkenaan Artificial Intelligent, Machine Learning dan Deep Learning." />
+<link rel="canonical" href="https://megatazm.github.io/MyDLBlog/deep%20learning/2020/12/23/AI-ML-DL.html" />
+<meta property="og:url" content="https://megatazm.github.io/MyDLBlog/deep%20learning/2020/12/23/AI-ML-DL.html" />
+<meta property="og:site_name" content="fastpages" />
+<meta property="og:image" content="https://megatazm.github.io/MyDLBlog/images/" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-12-23T00:00:00-06:00" />
+<script type="application/ld+json">
+{"description":"Perbincangan berkenaan Artificial Intelligent, Machine Learning dan Deep Learning.","url":"https://megatazm.github.io/MyDLBlog/deep%20learning/2020/12/23/AI-ML-DL.html","@type":"BlogPosting","headline":"Pengenalan Kepada AI, ML &amp; DL","dateModified":"2020-12-23T00:00:00-06:00","datePublished":"2020-12-23T00:00:00-06:00","author":{"@type":"Person","name":"Megat Norulazmi"},"image":"https://megatazm.github.io/MyDLBlog/images/","mainEntityOfPage":{"@type":"WebPage","@id":"https://megatazm.github.io/MyDLBlog/deep%20learning/2020/12/23/AI-ML-DL.html"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/MyDLBlog/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://megatazm.github.io/MyDLBlog/feed.xml" title="fastpages" /><link rel="shortcut icon" type="image/x-icon" href="/MyDLBlog/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/MyDLBlog/">fastpages</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/MyDLBlog/about/">About Me</a><a class="page-link" href="/MyDLBlog/search/">Search</a><a class="page-link" href="/MyDLBlog/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Pengenalan Kepada AI, ML &amp; DL</h1><p class="page-description">Perbincangan berkenaan Artificial Intelligent, Machine Learning dan Deep Learning.</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2020-12-23T00:00:00-06:00" itemprop="datePublished">
+        Dec 23, 2020
+      </time>• 
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name">Megat Norulazmi</span></span>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      20 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/MyDLBlog/categories/#deep learning">deep learning</a>
+        
+      
+      </p>
+    
+
+    
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul class="section-nav">
+<li class="toc-entry toc-h1"><a href="#Machine-Learning">Machine Learning </a></li>
+<li class="toc-entry toc-h1"><a href="#Supervised-Learning">Supervised Learning </a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#Data-Preprocessing">Data Preprocessing </a></li>
+<li class="toc-entry toc-h2"><a href="#Model-Training">Model Training </a></li>
+<li class="toc-entry toc-h2"><a href="#Model-Validation">Model Validation </a></li>
+<li class="toc-entry toc-h2"><a href="#Model-Tuning-&-Testing">Model Tuning &amp; Testing </a></li>
+</ul>
+</li>
+</ul><!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/2020-12-23-AI-ML-DL.ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Salam semua. Kita selalu mendengar perkataan “Artificial Intelligent” atau “AI”. Kalau masa awal-awal dulu kita rasa kembang hidung bila dapat mengguna perkataan ini dalam perbualan atau pun ceramah kita. Tapi, adakah setakat tahu menyebutnya sahaja sudah cukup? Tidak kah teringin untuk mengetahuinya dengan lebih mendalam? Ya, saya mahu! Anda bagaimana? Mari kita lakukan sedikit kajian. Maklumat di hujung jari anda!</p>
+<p>Selain daripada AI, mungkin juga anda pernah dengar terma Machine Learning (ML) atau Deep Learning (DL) kan. Sejak kebelakangan ini kerap sangat kita dengar tiga perkataan ini sinonim dengan terma Data Science lah Data Analytic lah kan? Di sini saya nak bincangkan berkenaan tiga terma yang popular ini. Apa bendanya AI, ML, dan DL ni? Ahh zaman sekarang ni apa pun google jer.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<!-- picture ai-ml-dl 
+![DL is subset of ML and AI](/MyDLBlog/images/copied_from_nb/fastcore_imgs/ai-ml-dl.png)
+-->
+
+<p><br>
+<br>
+<figure>
+  
+    <img class="docimage" src="/MyDLBlog/images/copied_from_nb/fastcore_imgs/ai-ml-dl.png" alt="DL is subset of ML and AI" style="max-width: 80%px">
+    
+    
+</figure>
+
+<br>
+<br></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Ohh! DL adalah subset ML dan subset AI. AI dalam bahasa melayunya “kecerdasan buatan” boleh dicapai melalui pelbagai teknik. ML adalah salah satu tekniknya yang popular di masa kini. Manakala DL adalah salah satu teknik algoritma ML yang sedang hangat diperkatakan. Selain DL ada banyak lagi algoritma-algoritma lain yang popular seperti SVM, XGBoost, Random Forest yang sangat bagus untuk data yang tersusun dalam bentuk tabular data atau pun database. DL pula sangat berkuasa untuk menyelesaikan isu berkaitan “<em>perceptual problem</em>” seperti data yang berkaitan dengan imej, video, suara, dan bahasa.</p>
+<p>Secara teorinya semakin banyak input data yang berkualiti dibekalkan, semakin baik prestasi outputnya. Namun, Gambarajah di bawah menunjukkan, prestasi algoritma tradisional seperti SVM, Random Forest, XGBoost akan mencapai takat tepu mendatar walaupun bekalan data yang di sumbat masuk semakin banyak. Sebaliknya, prestasi NN pula di lihat boleh ditingkatkan sejajar dengan jumlah input data yang semakin banyak.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<!--
+![More data, DL perform better](/MyDLBlog/images/copied_from_nb/fastcore_imgs/moredataDLbetter.png)
+-->
+
+<p><br>
+<br>
+<figure>
+  
+    <img class="docimage" src="/MyDLBlog/images/copied_from_nb/fastcore_imgs/moredataDLbetter.png" alt="More data, DL perform better" style="max-width: 50%px">
+    
+    
+</figure>
+
+<br>
+<br></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Ehh sekejap, ini algoritma NN (Neural Network), bukan DL (Deep Learning)!</p>
+<p>Pada yang tidak tahu, DL ini adalah nama branding terkini untuk NN yang di pelopori oleh Bapa Deep Learning, Geoffry Hinton. Apa tu Neural Network? mungkin anda tertanya-tanya kan. Takpa itu letak di tepi dulu, cuba lihat gambarajah di bawah.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<!-- 
+![shallow nn](/MyDLBlog/images/copied_from_nb/fastcore_imgs/nnshallow.png)
+-->
+
+<p><br>
+<br>
+<figure>
+  
+    <img class="docimage" src="/MyDLBlog/images/copied_from_nb/fastcore_imgs/nnshallow.png" alt="Shallow NN" style="max-width: 100%px">
+    
+    
+</figure>
+
+<br>
+<br></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Gambarajah architecture NN ini terdiri daripada 3 lapisan, iaitu:-</p>
+<ul>
+<li>Lapisan Pertama, Input Layer beserta 3 node atau feature</li>
+<li>Lapisan Kedua, Hidden Layer beserta 4 node atau feature</li>
+<li>Lapisan Ketiga, 1 Output node.</li>
+</ul>
+<p>Ini merupakan contoh architecture asas NN yang sekarangnya dipanggil Shallow NN. Pada masa dahulu lebih kurang pada tahun 1950 - 1960, architecture Shallow NN sahaja lah yang mampu di capai, namun kemudiannya idea NN ini terkubur berdekad-dekad lamanya (kita akan bincangkan sejarah DL kemudian). Kini, architecture NN boleh di bina dengan lebih <em>Deep</em>, jumlah node dan lapisan yang lebih banyak dan kompleks. Secara teorinya semakin banyak node dan lapisan architecturenya maka semakin tinggi lah kerumitan masalah yang ia boleh selesaikan, tetapi semakin tinggi pula kuasa pemprosesan yang diperlukan.</p>
+<p>Ok. Sebelum kita menjebakkan diri ke dalam dunia DL, kenali ML terlebih dahulu.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Machine-Learning">
+<a class="anchor" href="#Machine-Learning" aria-hidden="true"><span class="octicon octicon-link"></span></a>Machine Learning<a class="anchor-link" href="#Machine-Learning"> </a>
+</h1>
+<p>Machine learning jika diterjemahkan secara terus kepada bahasa melayu apa maksudnya? Mesin Belajar? Belajar Mesin? atau mungkin lebih tepat jika ia bermaksud mesin yang boleh di ajar. Mesin yang satu hari nanti boleh mengajar "diri"nya sendiri mungkin kedengaran menakutkan ataupun kelakar, tetapi menurut Elon Musk, jika penggunaan teknologi DL ini tidak di kawal-selia dengan baik ia mungkin bakal menjadi lebih bahaya daripada kepala bom nuklear!</p>
+<p>Ok, kenapa ML adalah teknik AI yang sangat hebat di waktu ini.</p>
+<p>Sebagai contoh, katakan kita nak mengajar komputer untuk mengenali haiwan yang dikenali oleh manusia sebagai kucing. Mungkin agak mudah mengajar bayi yang berumur 3 tahun untuk mengenalinya, tetapi bolehkah anda bayangkan bagaimana sukar untuk melakukannya melalui teknik traditional AI? Secara traditionalnya, untuk memberi arahan atau mengajar komputer membuat perbandingan, ia boleh dilaksanakan dengan pendekatan rule-based melalui programming ataupun pengaturcaraan. Seperti contoh, dengan berpandukan pada pixel-pixel gambar seekor kucing seperti di bawah, anda perlu memprogram ribuan kod rule-based yang kompleks untuk membolehkan komputer mengenali kucing tersebut.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><br>
+<br>
+<figure>
+  
+    <img class="docimage" src="/MyDLBlog/images/copied_from_nb/fastcore_imgs/cat.jpg" alt="cat" style="max-width: 75%px">
+    
+    
+</figure>
+
+<br>
+<br></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Bisa lakukannya? Ya mungkin boleh, berkat ketekunan dan kesabaran anda. Alhamdulillah selesai masalah.</p>
+<p>Tunggu! Tunggu sebentar! Masih awal untuk bergumbira.</p>
+<p>Cuba lihat gambar-gambar kucing di bawah. Bagaimana pula dengan kucing-kucing lain? ada ratus ribuan kucing di luar sana malahan berpuluh-puluh spesis kucing wujud di dunia ini. Bagaimana pula dengan keadaan kucing-kucing itu? ada yang sedang mengendap di tepi bakul, di urut tengkoknya, mulut mengiau luas, mendukung anaknya, dan sebagainya.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><br>
+<br>
+<figure>
+  
+    <img class="docimage" src="/MyDLBlog/images/copied_from_nb/fastcore_imgs/cats.png" alt="cats" style="max-width: 100%px">
+    
+    
+</figure>
+
+<br>
+<br></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Dengan kata lain, bagaimana kita nak "<em>generalize</em>" kan kod rule-based ini supaya ia dapat mengenali kucing-kucing yang belum di "lihat" oleh komputer. Disinilah kekuatan ML mengatasi teknik traditional AI. Lihat gambarajah di bawah. Kaedah traditional programming, seperti yang dinyatakan di atas, ia memerlukan manusia membina program berdasarkan pada input data untuk menghasilkan model klasifikasi rule-based. Manakala, ML tidak memerlukan manusia untuk membina program tersebut secara eksplisit. Apa yang ML perlu ialah bantuan manusia melabelkan jawapan betul pada setiap input data, dan menyalurkankannya ke dalam komputer. Seterusnya, algoritma ML memproses data tersebut lalu membina model yang boleh mengklasifikasi data input yang belum di "lihat" sebagai kucing atau bukan kucing. Oleh kerana model klasifikasi tersebut boleh di bina secara automatik dan pantas oleh algoritma ML (dengan sedikit bantuan daripada manusia), kita boleh meningkatkan prestasi "<em>generalization</em>" model tersebut dengan menyumbat masuk pelbagai jenis gambar kucing kepada algoritma ML itu dengan skala yang besar (lebih banyak input data yang pelbagai, lebih tinggi prestasi <em>generalization</em> sebuah model).</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><br>
+<br>
+<figure>
+  
+    <img class="docimage" src="/MyDLBlog/images/copied_from_nb/fastcore_imgs/traditionalprog.jpg" alt="traditionalprog" style="max-width: 100%px">
+    
+    
+</figure>
+
+<br>
+<figure>
+  
+    <img class="docimage" src="/MyDLBlog/images/copied_from_nb/fastcore_imgs/mlmodel.jpg" alt="mlmodel" style="max-width: 100%px">
+    
+    
+</figure>
+
+<br>
+<br></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Secara informalnya, ML boleh didefinasikan sebagai:-</p>
+<blockquote> Teknik AI yang membolehkan machine berupaya belajar tanpa perlu di program secara eksplisit </blockquote>
+<p>Secara formalnya pula ia didefinasikan sebagai:-</p>
+<blockquote> Suatu program komputer dikatakan belajar dari pengalaman E terhadap suatu kelas tugasan T dengan prestasinya di ukur dengan P. Prestasi pada ukuran P terhadap tugasan T meningkat melalui penambahan pengalaman E. </blockquote>
+<p>Definasi E, T &amp; P dengan frasa lebih mudah:-</p>
+<ul>
+<li>T = Tugasan untuk mengenali kucing di dalam gambar</li>
+<li>E = Pengalaman melihat banyak gambar-gambar kucing</li>
+<li>P = Kebarangkalian program mengenal pasti kucing di dalam gambar</li>
+</ul>
+<p>Untuk pengetahuan anda, ML terdiri dari beberapa kategori; iaitu <em>Supervised Learning, Unsupervised Learning, Semi-Supervised Learning, Self-Supervised Learning, Reinforcement Learning</em>, dan banyak lagi. Cuma kali ini, kita fokus pada teknik yang saya bincangkan di atas iaitu, Supervised Learning. Supervised Learning sangat mustajab digunakan untuk menyelesaikan masalah berkaitan <em>Classification</em> dan <em>Regression</em> (Saya akan jelaskan hal berkenaan regression kemudian).</p>
+<p>Secara analoginya, <em>Supervised Learning Classification</em> adalah ibarat mengajar kanak-kanak mengenal kucing menggunakan kad flip.</p>
+<ul>
+<li>Cikgu: Ini apa? <br>
+</li>
+<li>Murid: Itu ayam. <br>
+</li>
+<li>Cikgu: Bukan, Ini kucing. <br>
+</li>
+<li>Murid: Itu kucing. <br>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Supervised-Learning">
+<a class="anchor" href="#Supervised-Learning" aria-hidden="true"><span class="octicon octicon-link"></span></a>Supervised Learning<a class="anchor-link" href="#Supervised-Learning"> </a>
+</h1>
+<p>Seperti yang dinyatakan sebelum ini, idea <em>supervised learning classification</em> adalah berdasarkan pada konsep mengajar kanak-kanak (murid) menggunakan kad flip.</p>
+<ul>
+<li>Cikgu = Supervisor </li>
+<li>Murid = Komputer</li>
+<li>Input Data = Gambar Kucing</li>
+<li>Input Label = Kapsyen pada Kad Flip</li>
+</ul>
+<p>Gambarajah di bawah menunjukkan aliran proses <em>supervised learning</em>.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><br>
+<br>
+<figure>
+  
+    <img class="docimage" src="/MyDLBlog/images/copied_from_nb/fastcore_imgs/supervisedlearning.png" alt="supervised learning" style="max-width: 100%px">
+    
+    
+</figure>
+
+<br>
+<br></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Langkah pertama untuk menjalankan proses Supervised Learning (SL) adalah mengumpul dan melabel atau menganotasi data. Kita bernasib baik sebab gambar-gambar kucing sudah pun ada banyak di google.com, mudah lah untuk kita mencuba ML dan DL nanti. Kita bukan sahaja boleh mendapatkan data daripada google.com dan <a href="https://https://datasetsearch.research.google.com/">Google Dataset Search</a>, ada banyak <em>benchmark data</em> yang telah digunakan oleh penyelidik-penyelidik, ada di internet. Senarai dataset tersebut boleh di perolehi di sini, <a href="https://medium.com/towards-artificial-intelligence/best-datasets-for-machine-learning-data-science-computer-vision-nlp-ai-c9541058cf4f">TowardsAI</a> dan <a href="https://en.wikipedia.org/wiki/List_of_datasets_for_machine-learning_research">Wikipedia</a>.</p>
+<p>Ini adalah suatu kemudahan kan? banyak data sudah sedia ada untuk memberi galakan kepada anda menerokai teknologi ini (Anda masih perlu melakukan sedikit proses penyesuaian data, ianya agak mudah dilakukan).</p>
+<h2 id="Data-Preprocessing">
+<a class="anchor" href="#Data-Preprocessing" aria-hidden="true"><span class="octicon octicon-link"></span></a>Data Preprocessing<a class="anchor-link" href="#Data-Preprocessing"> </a>
+</h2>
+<p>Namun, jika anda ingin mengunakan ML untuk menyelesaikan permasalahan sebenar di luar sana, pengumpulan dan penyediaan datanya tidak lah semudah itu. Anda perlu melalui proses <em>Data Pre-processing</em> terlebih dahulu.</p>
+<ul>
+<li>Data Cleaning<ul>
+<li>Missing Data <ul>
+<li>Contohnya, jika ada atribut rekod di dalam data tersebut hilang, padamkan rekod itu.</li>
+<li>Ataupun simpan rekod itu, tetapi nilai pada atribut yang hilang digantikan dengan nilai average atribut. (Rekod dan atribut adalah satu jaluran informasi dalam data)</li>
+</ul>
+</li>
+<li>Jika data tersebut adalah imej, kita boleh membuang data yang tidak sesuai secara visual sebelum atau secara automatik selepas training. <em>Fastai</em> adalah framework deep learning untuk <em>Pytorch</em>, mempunyai fitur untuk menyenaraikan data yang tidak baik secara automatik selepas menjalankan proses <em>training</em>.</li>
+<li>Noisy Data<ul>
+<li>
+<em>Noisy data</em> adalah data yang dikatakan "<em>meaningless</em>", "<em>takda maknanya</em>". Macam bunyi noise + muzik, bunyi noise itu kalau tak ada lagi sedap bunyi muziknya. Ia boleh diuruskan melalui teknik seperti <em>Binning</em>, <em>Regression</em>, dan <em>Clustering</em> (melandaikan data, mengurangkan zig-zag). Ada juga yang mencadangkan dengan menambahkan lebih banyak data yang berkualiti untuk mengurangkan kesan <em>noisy data</em>. Kaedah-kaedah lain adalah seperti teknik <em>dimension reduction</em> (seperti algoritma PCA), teknik <em>Regularization</em>, dan <em>Cross Validation</em>. Ironinya noise (random noise) merupakan rakan baik untuk algoritma DL. Contohnya, random noise sengaja di suntik masuk ke dalam data (teknik <em>Data Augmentation</em>) sebelum ia disalurkan ke dalam algoritma DL regression untuk meningkatkan tahap <em>generalization</em> modelnya (salah satu teknik <em>Regularization</em> dalam DL). Manakala algoritma DL Generative Adversarial Network (GAN) pula menggunakan random noise sebagai dasar untuk mencipta "<em>fake face images</em>", muka manusia tiruan.</li>
+</ul>
+</li>
+<li>Outlier Data<ul>
+<li>
+<em>Outlier data</em> adalah data yang berada jauh daripada kelompok data lain dari segi kesamaan dan keberkaitannya. Kebiasaannya <em>outlier data</em> perlu di buang (mungkin disebabkan <em>human error</em>), namun ada ketikanya seperti untuk <em>anomaly detection</em> (mengesan sesuatu di luar kebiasaan seperti aktiviti hacker, network intrusion, dan penipuan dalam talian), dalam konteks ini <em>outlier data</em> adalah penting.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Data Transformation<ul>
+<li>Normalization<ul>
+<li>Normalization menyeragamkan skala nilai pada setiap atribut di rekod. Kebanyakkan algoritma memerlukan semua atribut tersebut diseragamkan di antara julat yang sama. Contohnya, jika julat atribut <em>Harga Rumah</em> adalah 50,000 dan 500,000 dan julat atribut <em>Jumlah Bilik</em> adalah 2 dan 8 (Contoh atribut data berkenaan hartanah), ia perlu diseragamkan di dalam julat yang sama untuk membolehkan algoritma berfungsi dengan baik.  Algoritma seperti NN sebagai contoh, memerlukan input data yang diseragamkan kepada nilai di antara 0 dan 1. </li>
+</ul>
+</li>
+<li>Discretization<ul>
+<li>Menukarkan julat nombor tertentu kepada perkataan. Contohnya, nilai antara 1 dan 17 -&gt; Kanak-Kanak, 18 dan 39 -&gt; Dewasa, 40 dan 59 -&gt; Pertengahan, 60 dan ke atas -&gt; Wargamas.</li>
+</ul>
+</li>
+<li>Encoding Categorical Value<ul>
+<li>mengekod nilai atribut dari perkataan kepada nombor binary. Contoh, Kucing -&gt; 100, Ayam -&gt; 010, dan Monyet -&gt; 001. Ini perlu dilakukan terutamanya untuk algoritma seperti NN yang hanya boleh berfungsi dengan nilai input, outputnya di dalam bentuk nombor sahaja.</li>
+</ul>
+</li>
+<li>Data Labeling<ul>
+<li>Data labeling atau annotation yang diperkatakan di atas juga adalah teknik data preprocessing yang mesti dilakukan sebelum proses supervised learning. Jika data tersebut adalah imej, anda perlu menanda pada imej tersebut, objek yang ingin diklasifikasikan. Bayangkan jika anda perlu menganotasikan pada 50 ribu keping gambar yang mana setiap keping gambar itu ada 1000 orang!</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Data Dimension Reduction<ul>
+<li>Feature Extraction<ul>
+<li>Memilih atribut-atribut yang relevan dan menggabungkannya menjadi satu atribut yang baharu.</li>
+</ul>
+</li>
+<li>Feature Selection<ul>
+<li>Memilih atribut yang relevan dan membuang atribut yang tidak relevan. </li>
+</ul>
+</li>
+<li>Kedua-dua teknik ini bukan sahaja mengurangkan dimensi data, ia juga dikatakan akan menjadikan data tersebut lebih bermakna dan mudah di latih oleh algoritma ML. Ada banyak algoritma yang boleh digunakan untuk <em>data dimension reduction</em> ini, tapi saya tak membincangkannya di sini kerana algoritma DL yang kita akan terokai nanti dikatakan mampu beraksi dengan baik tanpa perlu melalui proses ini dilakukan secara manual.</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Model-Training">
+<a class="anchor" href="#Model-Training" aria-hidden="true"><span class="octicon octicon-link"></span></a>Model Training<a class="anchor-link" href="#Model-Training"> </a>
+</h2>
+<p>Apakah yang dimaksudkan dengan <em>model training</em>?</p>
+<p>Graf di bawah menunjukkan hubungan antara dua pemboleh ubah X, Y dan garisan persamaan linear di garis melintasi data yang diplotkan. Proses ini dikenali sebagai <em>Simple Linear Regression Model</em>, contoh ini adalah yang paling mudah kita gunakan kerana ia hanya melibatkan dua pemboleh ubah (atribut 2 dimensi). Bulatan kuning adalah training data manakala garisan biru adalah model yang digariskan oleh algoritma ML melalui proses <em>training</em>. Anak panah berwarna merah merupakan jarak atau <em>error</em> antara training data dan nilai pada garisan model f(X)-&gt;Y. Melalui proses training, algoritma ML perlu membina garisan model f(X)-&gt;Y yang minima jumlah <em>error</em>nya berbanding dengan point training data (seperti yang ditunjukkan pada graf sebelah kanan).</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><br>
+<br>
+<figure>
+  
+    <img class="docimage" src="/MyDLBlog/images/copied_from_nb/fastcore_imgs/trainingmodel.png" alt="trainingmodel" style="max-width: 100%px">
+    
+    
+</figure>
+
+<br>
+<br></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Rumus di bawah adalah persamaan linear yang merujuk pada garisan yang berwarna biru. 
+<br>
+<br>
+<img src="https://latex.codecogs.com/png.download?%5CLARGE%20Y%3DaX+b" alt="equation">
+<br>
+Nilai pemboleh ubah <em>a</em> menentukan kecerunan, manakala pemboleh ubah <em>b</em> menentukan ketinggian garisan tersebut pada paksi Y. Graf di sebelah kiri merupakan garisan permulaan model <em>linear regression</em> itu pada ketika <em>a=0</em> dan <em>b=1</em>. Pada ketika ini nilai prediksi model f(X) -&gt; Y pada setiap titik x training data adalah 1. Jumlah error ketika ini boleh di hitung dengan menggunakan rumus <em>Mean Square Error (MSE)</em>.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><br>
+<figure>
+  
+    <img class="docimage" src="/MyDLBlog/images/copied_from_nb/fastcore_imgs/mse.png" alt="mse" style="max-width: 10%px">
+    
+    
+</figure>
+
+<br></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Merujuk pada rumus MSE di atas:</p>
+<ul>
+<li>
+<em>x</em> adalah <em>independant variable</em> ataupun input fitur yang digunakan oleh model untuk melakukan prediksi nilai <em>dependant variable</em> ataupun <em>target value</em>, <em>y</em>. </li>
+<li>
+<em>prediction(x)</em> adalah nilai prediksi <em>y</em> di input <em>x</em> berdasarkan model linear regression ketika di suatu nilai <em>a</em> dan <em>b</em>.</li>
+<li>
+<em>D</em> adalah training data yang telah dilabelkan. <em>x</em> ialah input fitur manakala <em>y</em> ialah output labelnya. Contoh graf di atas menunjukkan ada 6 data point dengan input fitur dan label seperti berikut:- <blockquote>
+<p><em>(x1,y1), (x2,y2), (x3,y3), (x4,y4), (x5,y5), (x6,y6)</em></p>
+</blockquote>
+</li>
+<li>
+<em>N</em> adalah jumlah training data (contoh di atas, <em>N</em> = 6).</li>
+</ul>
+<p>Untuk menghitung MSE, pada setiap data point, dapatkan <em>error</em> antara nilai y label dan y prediksi, kemudian kuasa duakannya. Lakukan ini pada setiap data point, kemudian jumlahkan kesemuanya. Akhir sekali, bahagikan hasil jumlah tersebut dengan jumlah training data, <em>N</em> (merujuk pada contoh di atas, <em>N</em> = 6).</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Proses yang merujuk pada graf di kiri itu adalah dikatakan sebagai "<em>initial iteration per 1 epoch</em>".</p>
+<p>Apa maksudnya?</p>
+<p><em>Initial</em> di sini bermaksud nilai permulaan parameter <em>a</em> dan <em>b</em> bagi mengariskan kedudukan awal garisan model linear tersebut. Nilai <em>a</em> dan <em>b</em> itu boleh ditentukan supaya bermula dengan nilai kosong ataupun nilai random (Untuk architecture NN yang kompleks kita mungkin perlu menggunakan kaedah lain yang lebih spesifik).</p>
+<p><em>Iteration</em> adalah frekuensi algoritma ML itu disuapi sebahagian daripada training data. Epoch pula adalah frequency kesemua training data itu selesai di proses oleh algoritma ML tersebut.</p>
+<p>Boleh faham tak maksudnya? Ok, saya jelaskan dengan lebih terperinci.</p>
+<p>Dalam keadaan sebenar, kesemua training data itu tidak di suap masuk ke dalam algoritma secara serentak. Ia di suap mengikut kumpulan atau <em>batch</em>. Contoh, jika jumlah training data adalah 2000 (1 epoch = 2000 data di proses). Jika anda setkan saiz batch = 100, maka setiap 1 epoch = 20 iteration (20 x 100 = 2000). Jika anda setkan training proses sebanyak 250 epoch maka total iterationnya adalah 20 x 250 = 5000. Ingat, pengiraan MSE berlaku pada setiap iteration. Macam mana, Ok?</p>
+<p>Untuk contoh di atas, oleh kerana training datanya cuma ada 6 sahaja, maka setiap 1 epoch ada 1 iteration sahaja (kita setkan saiz batch = jumlah training data, iaitu 6). Oleh itu pada setiap 1 iteration, nilai MSE di hitung berdasarkan pada kedudukan terkini garisan linear model. Kedudukan garisan linear model akan berubah pada setiap iteration. Dengan harapan nilai MSEnya semakin kecil.</p>
+<p>Apa yang akan berlaku jika anda setkan training proses sebanyak 250 epoch? Cukup ker?</p>
+<p>Maksudnya, algoritma ML tersebut ada masa sebanyak 250 iteration untuk mengariskan linear regression modelnya (melalui kombinasi nilai parameter <em>a</em> dan <em>b</em>) supaya MSE mencapai nilai seminima yang mungkin. Secara teorinya, lagi lama iteration maka semakin tinggilah peluangnya mencapai nilai MSE yang paling minima. Namun ini bergantung kepada keupayaan algoritma ML menentukan nilai parameter <em>a</em> dan <em>b</em> yang optimum dalam jangkamasa yang singkat. Bayangkan jika algoritma ini menggunakan teknik random atau <em>brute-force</em> bagi menentukan nilai parameter <em>a</em> dan <em>b</em> itu. Iteration sebanyak 250 mungkin tidak mencukupi kan?</p>
+<blockquote>
+<p>Algoritma Deep Learning menggunakan teknik <em>optimization</em> yang di panggil "Gradient Decent" untuk mencapai nilai MSE yang minima, jauh lebih pantas berbanding teknik secara random.</p>
+</blockquote>
+<p>Bayangkan jikalau bukan 2, tapi ada beribu parameter yang perlu ditentukan? Dengan <em>Gradient Decent</em>, ia mungkin memakan masa dalam beberapa puluh minit, tapi jika secara random, anda mungkin perlu menunggunya selama beribu-ribu tahun!</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><br>
+<br>
+<figure>
+  
+    <img class="docimage" src="/MyDLBlog/images/copied_from_nb/fastcore_imgs/linear-regression.gif" alt="linear-regression" style="max-width: 100%px">
+    
+    
+</figure>
+
+<br>
+<br></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Gambarajah di atas adalah contoh linear regression model yang mencapai tahap optimum pada iteration yang ke-28 berdasarkan pada jumlah training datanya.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Model-Validation">
+<a class="anchor" href="#Model-Validation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Model Validation<a class="anchor-link" href="#Model-Validation"> </a>
+</h2>
+<p>Saya harap anda sudah memperolehi kefahaman asas berkenaan model training, tapi mungkin ada yang tertanya-tanya, apa kaitannya <em>validation data</em> dengan model training? Saya pun langsung tak melibatkan <em>validation data</em> di dalam penerangan berkenaan <em>model training</em> tadi.</p>
+<p>Jika anda merujuk kembali pada gambarajah aliran proses supervised learning. Ada tiga jenis data yang perlu disediakan selepas proses labeling data,</p>
+<ul>
+<li>Training Data</li>
+<li>Validation Data</li>
+<li>Testing Data</li>
+</ul>
+<p>Seperti yang telah saya jelaskan sebelum ini, training data diperlukan untuk membina model classification ataupun regression. Manakala, testing data pula adalah "<em>unseen data</em>" yang telah diasingkan bagi tujuan mengukur prestasi model tersebut.</p>
+<p>Sebenarnya fungsi validation data juga adalah sama dengan test data iaitu mengukur prestasi model yang telah di bina. Cuma bezanya adalah, validation data digunakan untuk mengukur prestasi model ketika di dalam proses model training.</p>
+<p>Ada beberapa teknik validation iaitu,</p>
+<ul>
+<li>Holdout Method<ul>
+<li>Sebahagian dari training data diasingkan kepada validation data (mungkin dalam nisbah 90% training dan 10% validation data, atau 80% dan 20%).</li>
+</ul>
+</li>
+<li>
+<p>K-Fold Cross Validation</p>
+<ul>
+<li>
+<p>Teknik ini sesuai digunakan untuk membolehkan anda mengoptimumkan penggunaan training data. Terutamanya, jika anda tidak mempunyai training data yang cukup banyak.</p>
+</li>
+<li>
+<p>Gambarajah di bawah menunjukkan gambaran proses <em>10-fold cross validation</em> (K=10). <br>
+<br>
+<figure>
+  
+    <img class="docimage" src="/MyDLBlog/images/copied_from_nb/fastcore_imgs/kf-crossval.png" alt="10-fold Cross Validation" style="max-width: 100%px">
+    
+    
+</figure>
+
+<br>
+<br></p>
+</li>
+<li>
+<p>Berikut adalah langkah-langkah proses <em>10-fold cross-validation</em>,</p>
+<ol>
+<li>Asingkan data kepada 10 bahagian yang sama atau "<em>folds</em>".</li>
+<li>Train model anda menggunakan 9 <em>folds</em> data yang pertama.</li>
+<li>Buat penilaian prestasi model itu menggunakan baki ataupun "<em>hold-out</em>" data <em>fold</em> yang ke-10 tadi.</li>
+<li>Ulangi langkah (2) dan (3) sebanyak 10 kali, di mana setiap ulangan menggunakan <em>hold-out</em> data <em>fold</em> yang berbeza.</li>
+<li>Hitungkan purata prestasi model daripada kesemua <em>10 hold-out data folds</em> tersebut.</li>
+</ol>
+</li>
+</ul>
+</li>
+<li>
+<p>Stratified K-Fold Cross Validation</p>
+<ul>
+<li>Teknik ini masih menggunakan langkah yang sama seperti di atas. <em>Stratified</em> adalah nama teknik sampling data yang digunakan untuk memilih data ketika mengasingkan data kepada training dan validation. Teknik sampling data yang digunakan oleh dua teknik validation sebelum ini adalah <em>random data sampling</em>. Teknik <em>stratified data sampling</em> digunakan jika data yang anda perolehi itu tidak seimbang. Contohnya, training data untuk harga rumah yang mahal lebih banyak daripada harga rumah yang murah, ataupun training data gambar kucing ada lebih banyak daripada gambar anjing dan monyet.</li>
+</ul>
+</li>
+</ul>
+<p><em>K-fold cross validation</em> dikatakan,</p>
+<blockquote>
+<p>Secara signifikan mengurangkan "<em>bias</em>" kerana menggunakan sebahagian besar training data yang ada. Ia juga secara signifikannya mengurangi "<em>variance</em>" kerana sebahagian besar data juga digunakan sebagai validation data.</p>
+</blockquote>
+<p><em>Bias</em>? <em>Variance</em>? mungkin ada yang tertanya-tanya akan maksudnya.</p>
+<p>Istilah <em>Bias &amp; Variance</em> ini berkait rapat dengan keperluan untuk mengukur prestasi model ketika dalam proses model training yang kemudiannya dijadikan sebagai rujukan bagi melakukan proses <em>Model Tuning</em>.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Model-Tuning-&amp;-Testing">
+<a class="anchor" href="#Model-Tuning-&amp;-Testing" aria-hidden="true"><span class="octicon octicon-link"></span></a>Model Tuning &amp; Testing<a class="anchor-link" href="#Model-Tuning-&amp;-Testing"> </a>
+</h2>
+<p>Berkenaan dengan <em>model tuning</em>, berikut adalah beberapa istilah penting yang perlu anda fahami.</p>
+<ol>
+<li>Bias &amp; Variance</li>
+<li>Underfitting &amp; Overfitting</li>
+<li>Generalization</li>
+<li>Hyperparameter Tuning, Regularization &amp; Optimization .</li>
+</ol>
+<p>Wow! Banyaknya nak kena hafal.</p>
+<p>Jangan risau, tak banyak mana pun sebenarnya, sebab mereka ni semua saling berkaitan. Yang penting kita jelas dengan maksudnya supaya tak terkeliru dan dikelirukan. Ini kerana, di luar sana ada ramai yang mengamalkan teknik ini,</p>
+<blockquote>
+<p>"If you can't convince them, confused them"</p>
+</blockquote>
+<p>Untuk memudahkan anda faham, gambarajah di bawah menggarap maksud istilah <em>Bias &amp; Variance, Underfitting &amp; Overfitting,</em> dan <em>Generalization</em> sekali gus.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><br>
+<br>
+<figure>
+  
+    <img class="docimage" src="/MyDLBlog/images/copied_from_nb/fastcore_imgs/bias-variance.png" alt="Bias &amp; Variance" style="max-width: 50%px">
+    
+    
+</figure>
+
+<br>
+<br></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Gambarajah di atas menunjukkan <em>error rate</em> menurun apabila kompleksiti model meningkat (Peningkatan kompleksiti model adalah berkadar terus dengan frequency iteration atau epoch). Iaitu, lagi lama proses model training berjalan maka lagi kompleks lah model yang terhasil. Secara teorinya, semakin lama model di train maka semakin kecil lah errornya (menghampiri kosong), namun ini tidak semestinya baik.</p>
+<p>Kenapa pulak? Error model dah <em>zero</em>, mesti lah terbaik kan? Tidak!</p>
+<p>Cuba anda lihat tiga graf kecil di bawah gambarajah itu.</p>
+<blockquote>
+<p>Overfitting = High Variance, Underfitting = High Bias, Good Balance = Low Bias, Low Variance.</p>
+</blockquote>
+<p>Apabila training iteration tak mencukupi, model yang dihasilkan adalah simple iaitu garisan linear yang tidak mampu untuk "<em>fit</em>" pada trend data yang <em>non-linear</em>. Sebaliknya, jika terlalu lama di train, model yang terlampau "<em>fit</em>" pada trend data itu akan terhasil. Cuba anda perhatikan, apabila semua garisan model itu "<em>overfit</em>" kerana ia melalui kesemua titik training data. Oleh itu, errornya memanglah menjadi kosong kan? (masih ingat pengiraan MSE?). Namun, prestasi model ini hanya baik pada data yang pernah dilihatnya sahaja dan bukan pada "<em>unseen</em>" data.</p>
+<p>Inilah yang dikatakan sebagai "<em>Bias &amp; Variance Tradeoff</em>". Iaitu, mencari <em>Good Balance, Sweet Spot</em> ataupun <em>Generalized Model</em>, mampu memberi prestasi yang baik apabila modelnya di nilai dengan data baharu. Oleh itu, dengan berpandukan pada titik <em>error rate</em> terendah validation dan test error, maka anda boleh menentukan nilai iteration atau epoch yang paling optimum.</p>
+<p>Ok. Sekarang baru lah saya boleh bercakap tentang Model Tuning &amp; Testing.</p>
+<p>Jika sudah selesai melakukan model training dengan tetapan nilai epoch yang optimum, maka anda telah bersedia untuk mengukur prestasi model anda dengan <em>unseen</em> test data (anda boleh melakukannya pada beberapa model terpilih). Jika anda bernasib baik, nilai ketepatannya mungkin lebih baik daripada validation error, atau mungkin sebaliknya.</p>
+<p>Jangan cepat berpuas hati! Masih ada ruang untuk "<em>tune up</em>" prestasi model anda melalui <em>Hyperparameter Tuning, Regularization &amp; Optimization</em> (dalam konteks deep learning).</p>
+<p>Hyperparameter adalah parameter pada algoritma yang boleh di ubah-ubah settingnya untuk mencari kombinasi yang optimum. Ibarat macam amplifier audio, kita pusing-pusing tombol-tombolnya untuk mencari bunyi yang paling enak. Hyperparameter juga dikatakan sebagai "<em>non-learnable</em>" parameter manakala "<em>learnable</em>" parameter hanyalah pada model parameter. Contoh model parameter ialah nilai parameter <em>a</em> dan <em>b</em> untuk simple linear regression <em>y = Ax + b</em>. Ini adalah kerana nilai <em>a</em> dan <em>b</em> itu ditentukan (<em>learned</em>) oleh algoritma dan training data ketika proses model training. <em>Regularization</em> adalah teknik atau setting yang boleh meningkatkan tahap <em>generalization</em> model. <em>Optimization</em> adalah jenis algoritma Gradient Decent (GD) dan setting parameternya.</p>
+<p>Senarai hyperparameter pada DL algoritma adalah seperti berikut:-</p>
+<ul>
+<li>Jumlah NN Hidden Layer (NN Parameter)</li>
+<li>Jumlah Node di setiap NN layer (NN Parameter)</li>
+<li>Pemilihan Activation Function di setiap NN layer seperti RELU, TanH, Sigmoid, etc (NN parameter)</li>
+<li>Batch Normalization (Regularization)</li>
+<li>Setting Learning Rate (GD Optimization)</li>
+<li>Early stopping (Regularization)</li>
+<li>L2 &amp; L1 norm (Regularizatioan)</li>
+<li>Tambah lagi training data (Regularization)</li>
+<li>NN node Drop-out (Regularization)</li>
+<li>Data Augmentation (Regularization)</li>
+<li>Mini-batch size (GD Optimization)</li>
+<li>Momentum (GD Optimization)</li>
+<li>RMSprop (GD Optimization)</li>
+<li>ADAM (GD Optimization)</li>
+<li>Learning Rate Decay (GD Optimization)</li>
+</ul>
+<p>Banyak kan? Sebenarnya ada banyak lagi! 눈_눈</p>
+<p>Ini kalau nak diceritakan teori dan matematik merujuk pada semua di atas ni, Mau pecah la kepala otak saya. Tapi jangan risau, kita guna jer kod implementasinya di librari Tensorflow/Keras. Tapi kalau nak tune semua ni satu persatu, penat laa! lecehnya!. Ya betul memang lecah, tapi nasib baik ada librari automation untuk tujuan hyperparameter tuning ni. Antara yang popular untuk Tensorflow/Keras dan Pytorch ialah,</p>
+<ul>
+<li>AutoML</li>
+<li>Keras Tuner</li>
+<li>T-PoT</li>
+<li>Hyperas</li>
+<li>Talos</li>
+<li>Hypersearch</li>
+<li>Optuna</li>
+<li>Determined</li>
+<li>Ray Tune</li>
+</ul>
+<p>Banyak kan? Sebenarnya ada banyak lagi! 눈_눈</p>
+<p>Saya rasa cukuplah sampai di sini. Di artikel yang seterusnya InsyaAllah saya akan cuba menulis yang lebih spesifik pada Deep Learning pula.</p>
+<p>Harapan saya semoga artikel ini dapat memberi manafaat kepada pembaca yang berminat meneroka di dalam teknologi ini. Jika anda ingin mengetahui dengan lebih lanjut, ada banyak bahan-bahan pembelajaran DL di google.com dan youtube. Tapi hampir kesemuanya adalah dalam bahasa inggeris lah. Mungkin tak menjadi masalah sangat rata-rata orang kita mahir berbahasa inggeris, yang pentingnya adalah minat dan kesabaran.</p>
+<p>Assalamualaikum!</p>
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+  </div><!-- from https://github.com/utterance/utterances -->
+<script src="https://utteranc.es/client.js"
+        repo="megatazm/MyDLBlog"
+        issue-term="title"
+        label="blogpost-comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script><a class="u-url" href="/MyDLBlog/deep%20learning/2020/12/23/AI-ML-DL.html" hidden></a>
+</article>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/MyDLBlog/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/MyDLBlog/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/MyDLBlog/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>An easy to use blogging platform with support for Jupyter Notebooks.</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/fastai" title="fastai"><svg class="svg-icon grey"><use xlink:href="/MyDLBlog/assets/minima-social-icons.svg#github"></use></svg></a></li><li><a rel="me" href="https://twitter.com/fastdotai" title="fastdotai"><svg class="svg-icon grey"><use xlink:href="/MyDLBlog/assets/minima-social-icons.svg#twitter"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
