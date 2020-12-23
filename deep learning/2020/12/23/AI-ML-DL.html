@@ -699,17 +699,17 @@ Nilai pemboleh ubah <em>a</em> menentukan kecerunan, manakala pemboleh ubah <em>
 <p>Ok. Sekarang baru lah saya boleh bercakap tentang Model Tuning &amp; Testing.</p>
 <p>Jika sudah selesai melakukan model training dengan tetapan nilai epoch yang optimum, maka anda telah bersedia untuk mengukur prestasi model anda dengan <em>unseen</em> test data (anda boleh melakukannya pada beberapa model terpilih). Jika anda bernasib baik, nilai ketepatannya mungkin lebih baik daripada validation error, atau mungkin sebaliknya.</p>
 <p>Jangan cepat berpuas hati! Masih ada ruang untuk "<em>tune up</em>" prestasi model anda melalui <em>Hyperparameter Tuning, Regularization &amp; Optimization</em> (dalam konteks deep learning).</p>
-<p>Hyperparameter adalah parameter pada algoritma yang boleh di ubah-ubah settingnya untuk mencari kombinasi yang optimum. Ibarat macam amplifier audio, kita pusing-pusing tombol-tombolnya untuk mencari bunyi yang paling enak. Hyperparameter juga dikatakan sebagai "<em>non-learnable</em>" parameter manakala "<em>learnable</em>" parameter hanyalah pada model parameter. Contoh model parameter ialah nilai parameter <em>a</em> dan <em>b</em> untuk simple linear regression <em>y = Ax + b</em>. Ini adalah kerana nilai <em>a</em> dan <em>b</em> itu ditentukan (<em>learned</em>) oleh algoritma dan training data ketika proses model training. <em>Regularization</em> adalah teknik atau setting yang boleh meningkatkan tahap <em>generalization</em> model. <em>Optimization</em> adalah jenis algoritma Gradient Decent (GD) dan setting parameternya.</p>
+<p>Hyperparameter adalah parameter pada algoritma yang boleh di ubah-ubah settingnya untuk mencari kombinasi yang optimum. Ibarat macam amplifier audio, kita pusing-pusing tombol-tombolnya untuk mencari bunyi yang paling enak. Hyperparameter juga dikatakan sebagai "<em>non-learnable</em>" parameter manakala "<em>learnable</em>" parameter hanyalah pada model parameter. Contoh model parameter ialah nilai parameter <em>a</em> dan <em>b</em> untuk <em>simple linear regression mode</em>l <em>y = Ax + b</em>. Ini adalah kerana nilai <em>a</em> dan <em>b</em> itu ditentukan (<em>learned</em>) oleh algoritma dan training data ketika proses model training. <em>Regularization</em> adalah teknik atau setting yang boleh meningkatkan tahap <em>generalization</em> model. <em>Optimization</em> adalah pemilihan jenis algoritma Gradient Decent (GD) dan setting parameternya.</p>
 <p>Senarai hyperparameter pada DL algoritma adalah seperti berikut:-</p>
 <ul>
 <li>Jumlah NN Hidden Layer (NN Parameter)</li>
-<li>Jumlah Node di setiap NN layer (NN Parameter)</li>
-<li>Pemilihan Activation Function di setiap NN layer seperti RELU, TanH, Sigmoid, etc (NN parameter)</li>
+<li>Jumlah Nod di setiap NN layer (NN Parameter)</li>
+<li>Pemilihan Activation Function di setiap NN layer seperti RELU, Tanh, Sigmoid, etc (NN parameter)</li>
 <li>Batch Normalization (Regularization)</li>
 <li>Setting Learning Rate (GD Optimization)</li>
 <li>Early stopping (Regularization)</li>
 <li>L2 &amp; L1 norm (Regularizatioan)</li>
-<li>Tambah lagi training data (Regularization)</li>
+<li>Tambah training data (Regularization)</li>
 <li>NN node Drop-out (Regularization)</li>
 <li>Data Augmentation (Regularization)</li>
 <li>Mini-batch size (GD Optimization)</li>
@@ -719,7 +719,7 @@ Nilai pemboleh ubah <em>a</em> menentukan kecerunan, manakala pemboleh ubah <em>
 <li>Learning Rate Decay (GD Optimization)</li>
 </ul>
 <p>Banyak kan? Sebenarnya ada banyak lagi! 눈_눈</p>
-<p>Ini kalau nak diceritakan teori dan matematik merujuk pada semua di atas ni, Mau pecah la kepala otak saya. Tapi jangan risau, kita guna jer kod implementasinya di librari Tensorflow/Keras. Tapi kalau nak tune semua ni satu persatu, penat laa! lecehnya!. Ya betul memang lecah, tapi nasib baik ada librari automation untuk tujuan hyperparameter tuning ni. Antara yang popular untuk Tensorflow/Keras dan Pytorch ialah,</p>
+<p>Ini kalau nak diceritakan teori dan matematik merujuk pada semua di atas ni, Mau pecah la kepala otak saya. Tapi jangan risau, kita guna jer kod implementasinya di library Tensorflow/Keras dan Pytorch. Tapi kalau nak tune semua ni satu persatu, penat laa! lecehnya!. Ya betul memang leceh, tapi nasib baik ada library automation untuk tujuan hyperparameter tuning ni. Antara yang popular untuk Tensorflow/Keras dan Pytorch ialah,</p>
 <ul>
 <li>AutoML</li>
 <li>Keras Tuner</li>
@@ -732,8 +732,8 @@ Nilai pemboleh ubah <em>a</em> menentukan kecerunan, manakala pemboleh ubah <em>
 <li>Ray Tune</li>
 </ul>
 <p>Banyak kan? Sebenarnya ada banyak lagi! 눈_눈</p>
-<p>Saya rasa cukuplah sampai di sini. Di artikel yang seterusnya InsyaAllah saya akan cuba menulis yang lebih spesifik pada Deep Learning pula.</p>
-<p>Harapan saya semoga artikel ini dapat memberi manafaat kepada pembaca yang berminat meneroka di dalam teknologi ini. Jika anda ingin mengetahui dengan lebih lanjut, ada banyak bahan-bahan pembelajaran DL di google.com dan youtube. Tapi hampir kesemuanya adalah dalam bahasa inggeris lah. Mungkin tak menjadi masalah sangat rata-rata orang kita mahir berbahasa inggeris, yang pentingnya adalah minat dan kesabaran.</p>
+<p>Saya rasa cukuplah sampai di sini. Di artikel yang seterusnya InsyaAllah saya akan cuba menulis yang lebih spesifik pada teori berkaitan deep learning dan implementasinya pula.</p>
+<p>Dengan ini, harapan saya semoga artikel ini dapat memberi manafaat kepada pembaca yang berminat meneroka di dalam teknologi ini. Jika anda ingin mengetahui dengan lebih lanjut, memanglah ada berlambak-lambak bahan-bahan pembelajaran berkenaan DL di google.com dan youtube. Tapi hampir kesemuanya adalah dalam bahasa inggeris lah, dan adalah juga sedikit dalam bahasa Indonesia. Mungkin tak menjadi masalah sangat pada rata-rata orang kita, kerana ramai orang Malaysia mahir berbahasa inggeris, pokoknya adalah minat dan kesabaran yang mendalam.</p>
 <p>Assalamualaikum!</p>
 
 </div>
