@@ -115,7 +115,7 @@ window.onload = wrap_img;
 <p>Assalamualaikum. Selamat berjumpa kembali.</p>
 <p>Seperti yang saya maklumkan pada <a href="https://megatazm.github.io/MyDLBlog/deep%20learning/2020/12/23/AI-ML-DL.html">artikel yang lepas</a>, saya telah berjanji untuk cuba memberikan sedikit penerangan asas berkenaan teori DL ini. Kalau nak diikutkan, jika kita menggunakan library tensorflow atau pytorch nanti, kesemua yang kita bincang ini akan diabstrakkan implementasinya.</p>
 <p>Dengan kata lain, "Tak payah tau pun, pakai jer".</p>
-<p>Tapi saya rasa anda perlu tahu juga konsep asasnya terlebih dahulu sebab ini akan membantu anda untuk majukan ke tahap penggunaan DL yang lebih kompleks. Lagipun, tak kanlah nak pakai jer library tensorflow atau pytorch membuta tuli kan?</p>
+<p>Tapi saya rasa anda perlu tahu juga konsep asasnya terlebih dahulu, sebab ini akan membantu anda untuk majukan ke tahap penggunaan DL yang lebih kompleks. Lagipun, tak kanlah nak pakai jer library tensorflow atau pytorch membuta tuli kan?</p>
 
 </div>
 </div>
@@ -126,7 +126,18 @@ window.onload = wrap_img;
 <h1 id="Perceptron">
 <a class="anchor" href="#Perceptron" aria-hidden="true"><span class="octicon octicon-link"></span></a>Perceptron<a class="anchor-link" href="#Perceptron"> </a>
 </h1>
-<p><em>Perceptron</em> adalah salah satu <em>architecture ANN</em> termudah, dicipta pada tahun 1957 oleh Frank Rosenblatt. Ia berdasarkan <em>neuron</em> (lihat Gambar di bawah) yang disebut Treshold Logic Unit (TLU), ataupun <em>Logic Treshold Unit</em> (LTU). Nilai input dan output adalah nombor (bukan nilai on / off binari), dan setiap sambungan di antara input nod dan output nod diberikan pemberat atau <em>weight</em> Secara analoginya, lagi besar weight maka lagi tebal lah wayar sambungannya.</p>
+<p><strong><em>Perceptron</em></strong> adalah salah satu <em>architecture</em> <strong><em>ANN</em></strong>   yang paling asas, dicipta pada tahun 1957 oleh Frank Rosenblatt. Ia berdasarkan pada konsep <em>neuron</em> (lihat gambar di bawah) yang disebut <strong><em>Treshold Logic Unit</em></strong> (TLU), ataupun <strong><em>Logic Treshold Unit</em></strong> (LTU). Nilai input dan outputnya adalah nombor (bukan nilai on/off binari), dan setiap sambungan di antara input nod dan output nod itu diberikan nilai pemberat atau <strong><em>weight</em></strong>. Secara analoginya, lagi besar <em>weight</em> maka lagi tebal lah wayar sambungannya (Lagi besar pengaruhnya). 
+TLU menghitung jumlah <em>weight</em> beserta dengan inputnya seperti yang ditunjukkan oleh rumus di bawah,
+<br>
+<br>
+<img src="https://latex.codecogs.com/png.download?%5Cdpi%7B100%7D%20%5Cfn_phv%20z%3Dw_%7B1%7Dx_%7B1%7D+w_%7B2%7Dx_%7B2%7D+..+w_%7Bn%7Dx_%7Bn%7D%3Dx%5E%7BT%7Dw" alt="equation">
+<br></p>
+<p>kemudian hasil <strong><em>z</em></strong> itu diaplikasikan kepada fungsi <strong><em>step(z)</em></strong> untuk menhasilkan nilai output yang baharu,
+<br>
+<br>
+<img src="https://latex.codecogs.com/png.download?%5Cdpi%7B100%7D%20%5Cfn_phv%20hw%28x%29%3Dstep%28z%29%2C%20where%5C%20z%3Dx%5E%7BT%7Dw" alt="equation">
+<br></p>
+<p>Menyingkap kembali pada artikel yang <a href="https://megatazm.github.io/MyDLBlog/deep%20learning/2020/12/23/AI-ML-DL.html">sebelum ini</a>, ia masih menggunakan rumus yang sama iaitu <strong><em>y = Ax + b</em></strong> tanpa pembolehubah <strong><em>b</em></strong>. Bezanya kali ini adalah nilai output adalah hasil dari 3 input fitur <strong><em>x</em></strong> dengan nilai pengaruh weight <strong><em>w</em></strong> (dahulunya <strong><em>a</em></strong>) pada setiap fitur tersebut. Apa yang membezakannya adalah peranan <strong><em>Step Function</em></strong> ataupun "<strong><em>Activation Function</em></strong>" (terma yang digunakan dalam DL) tersebut. Idea <em>activation function</em> ini penting untuk membolehkan kita membina model yang <strong><em>non-linear</em></strong>. Kenapa kita perlukan model <em>non-linear</em>? Cuba ingat balik fakta dari artikel yang lepas, garisan <strong><em>linear</em></strong> hanya mampu menghasilkan suatu model yang <strong><em>underfit</em></strong> atau <strong><em>high bias</em></strong>. Ini bukan suatu model yang kita inginkan untuk menyelesaikan masalah yang kompleks.</p>
 
 </div>
 </div>
