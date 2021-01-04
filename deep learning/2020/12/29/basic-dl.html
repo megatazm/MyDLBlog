@@ -81,7 +81,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      3 min read
+      4 min read
     
 </span></p>
 
@@ -162,7 +162,7 @@ window.onload = wrap_img;
 <br>
 <img src="https://latex.codecogs.com/png.download?%5Cdpi%7B100%7D%20%5Cfn_phv%20%5Clarge%20h_%7Bw%7D%28x%29%20%3D%20step%28z%29%2C%20where%20%5C%20z%20%3D%20x%5E%7BT%7Dw" alt="equation">
 <br></p>
-<p>Menyingkap kembali pada artikel yang <a href="https://megatazm.github.io/MyDLBlog/deep%20learning/2020/12/23/AI-ML-DL.html">sebelum ini</a>, ia masih menggunakan rumus yang sama iaitu <strong><em>y = ax + b</em></strong> tanpa pembolehubah <strong><em>b</em></strong>. Merujuk pada ini, ada sedikit perbezaan iaitu nilai output adalah hasil dari 3 input fitur <strong><em>x</em></strong> dengan nilai pengaruh weight <strong><em>w</em></strong> (dahulunya <strong><em>a</em></strong>) pada setiap fitur tersebut. Perbezaan yang paling utama adalah peranan <strong><em>Step Function</em></strong> ataupun "<strong><em>Activation Function</em></strong>" (terma yang digunakan dalam DL) tersebut. Idea <em>activation function</em> ini penting untuk membolehkan kita membina model yang <strong><em>non-linear</em></strong>. Kenapa kita perlukan model <em>non-linear</em>? Cuba ingat balik fakta dari artikel yang lepas, garisan <strong><em>linear</em></strong> hanya mampu menghasilkan suatu model yang <strong><em>underfit</em></strong> atau <strong><em>high bias</em></strong>. Ini bukan suatu model yang kita inginkan untuk menyelesaikan masalah yang kompleks.</p>
+<p>Menyingkap kembali pada artikel yang <a href="https://megatazm.github.io/MyDLBlog/deep%20learning/2020/12/23/AI-ML-DL.html">sebelum ini</a>, ia masih menggunakan rumus yang sama iaitu <strong><em>y = ax + b</em></strong> tanpa pembolehubah <strong><em>b</em></strong>. Merujuk pada ini, ada sedikit perbezaan iaitu nilai output adalah hasil dari 3 input fitur <strong><em>x</em></strong> dengan nilai pengaruh weight <strong><em>w</em></strong> (dahulunya <strong><em>a</em></strong>) pada setiap fitur tersebut. Perbezaan yang paling utama adalah peranan <strong><em>Step Function</em></strong> sebagai "<strong><em>Activation Function</em></strong>". Idea <em>activation function</em> ini penting untuk membolehkan kita membina model yang <strong><em>non-linear</em></strong> (perceptron adalah algoritma linear untuk klasifikasi binari kerana nilai aktivasinya adalah 1 atau 0). Kenapa kita perlukan model <em>non-linear</em>? Cuba ingat balik fakta dari artikel yang lepas, garisan <strong><em>linear</em></strong> hanya mampu menghasilkan suatu model yang <strong><em>underfit</em></strong> atau <strong><em>high bias</em></strong>. Ini bukan suatu model yang kita inginkan untuk menyelesaikan masalah yang kompleks.</p>
 
 </div>
 </div>
@@ -194,7 +194,7 @@ window.onload = wrap_img;
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Ok. Bagaimana pula dengan Step Function?</p>
-<p>Cuba lihat notasi matematik di bawah. Ia merujuk kepada dua jenis fungsi Step bernama <strong><em>Heaviside</em></strong> dan <strong><em>Sign</em></strong>. Dulu saya cukup fobia bila melihat notasi matematik dengan simbol macam cacing ni. Tapi sebenarnya jika anda cuba amati notasi tersebut ia sebenarnya adalah merupakan satu "bahasa" simbolik. Jika anda hafal simbol-simbolnya maka mudahlah memahami maksudnya.</p>
+<p>Cuba lihat notasi matematik di bawah. Ia merujuk kepada dua jenis fungsi Step bernama <strong><em>Heaviside</em></strong> dan <strong><em>Sign</em></strong>. Dulu saya cukup fobia bila melihat notasi matematik dengan simbol macam cacing ni. Tapi sebenarnya jika anda cuba amati notasi tersebut ia sebenarnya adalah merupakan satu "bahasa" simbolik. Jika anda hafal maksud simbol-simbolnya maka mudahlah memahami maksudnya.</p>
 <p>Fungsi <strong><em>heaviside</em></strong> akan mengeluarkan nilai <strong><em>0</em></strong> jika nilai <strong><em>z</em></strong> adalah lebih kecil daripada <strong><em>0</em></strong>. Sebaliknya, ia mengeluarkan nilai <strong><em>1</em></strong> jika nilai <strong><em>z</em></strong> adalah sama atau lebih besar daripada <strong><em>0</em></strong>.</p>
 <p><br>
 <br></p>
@@ -212,7 +212,38 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><em>Architecture</em> <strong>TLU</strong> tunggal ini boleh digunakan untuk klasifikasi binari yang mudah seperti <strong>Hujan (1)</strong> atau <strong>Tidak (0)</strong>. Ia menghitung kombinasi linear dari 3 input <strong><em>x</em></strong> (dengan nilai weight masing-masing), dan jika hasil <strong><em>z</em></strong> melebihi nilai <strong><em>treshold</em></strong> (<strong><em>z &gt;= 0</em></strong>) seperti yang ditetapkan oleh contohnya fungsi <strong><em>heaviside</em></strong>, ia akan menghasilkan prediksi kelas <strong>positif (1)</strong>. Jika sebaliknya, ia menghasilkan prediksi kelas <strong>negatif (0)</strong>. Melatih <strong>TLU</strong> dalam kes ini bermaksud mencari nilai yang optimum untuk <em>weight</em> <strong><em>w0</em></strong>, <strong><em>w1</em></strong>, dan <strong><em>w2</em></strong> itu.</p>
+<p><em>Architecture</em> <strong>TLU</strong> tunggal ini boleh digunakan untuk klasifikasi binari yang mudah seperti <strong>Hujan (1)</strong> atau <strong>Tidak (0)</strong>. Ia menghitung kombinasi linear dari 3 input <strong><em>x</em></strong> (dengan nilai weight masing-masing), dan jika hasil <strong><em>z</em></strong> melebihi nilai <strong><em>treshold</em></strong> (<strong><em>z &gt;= 0</em></strong>) seperti yang ditetapkan oleh contohnya fungsi <strong><em>heaviside</em></strong>, ia akan menghasilkan prediksi kelas <strong>positif (1)</strong>. Jika sebaliknya, ia menghasilkan prediksi kelas <strong>negatif (0)</strong>. Melatih <strong>TLU</strong> dalam kes ini bermaksud mencari nilai yang optimum untuk <em>weight</em> <strong><em>w1</em></strong>, <strong><em>w2</em></strong>, dan <strong><em>w3</em></strong> itu.</p>
+<p>Perceptron hanya terdiri daripada satu lapisan TLU, dengan setiap TLU disambungkan ke semua input. Apabila semua neuron dalam lapisan disambungkan ke setiap neuron pada lapisan sebelumnya (iaitu, neuron inputnya), lapisan tersebut disebut <strong><em>fully connected layer</em></strong>, atau <strong><em>dense layer</em></strong>. Input fitur yang memasuki lapisan TLU itu dianggap sebagai lapisan input neuron ( tiada pemprosesan berlaku di neuron ini). Kebiasaannya, input fitur <strong><em>bias</em></strong> (seperti nilai <strong><em>b</em></strong> pada <strong><em>y=ax+b</em></strong> untuk linear regression, tetapi tujuannya untuk DL berbeza) ditambahkan menggunakan neuron khas yang disebut <strong>neuron bias</strong> (Ia ditetapkan dengan nilai 1). Gambarajah di bawah menunjukkan perceptron dengan dua input dan tiga output.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><br>
+<br>
+<figure>
+  
+    <img class="docimage" src="/MyDLBlog/images/copied_from_nb/fastcore_imgs/perceptron-2i-3o-1b.png" alt="perceptron-2i-3o-1b" style="max-width: 80%px">
+    
+    
+</figure>
+
+<br>
+<br></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Apa keperluan bias disetkan dengan nilai 1?</p>
+<p>Anda tahu bahawa nilai output neuron ditentukan oleh input, weight dan activation function step seperti berikut,</p>
+<p><strong><em> y = f (x₀ × w₀) </em></strong></p>
+<p>Sekiranya input adalah <strong><em>x₀ = 0</em></strong> maka <strong><em>y = f (0) = 1</em></strong>.</p>
+<p>Ini menyebabkan neutron tersebut sentiasa menghasilkan output yang sama (1) walaupun nilai weight <strong><em>w₀</em></strong> berubah-ubah. Ia menyebabkan neuron itu berhenti belajar.</p>
 
 </div>
 </div>
