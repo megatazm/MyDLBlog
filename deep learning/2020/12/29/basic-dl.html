@@ -213,7 +213,7 @@ window.onload = wrap_img;
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><em>Architecture</em> <strong>TLU</strong> tunggal ini boleh digunakan untuk klasifikasi binari yang mudah seperti <strong>Hujan (1)</strong> atau <strong>Tidak (0)</strong>. Ia menghitung kombinasi linear dari 3 input <strong><em>x</em></strong> (dengan nilai weight masing-masing), dan jika hasil <strong><em>z</em></strong> melebihi nilai <strong><em>treshold</em></strong> (<strong><em>z &gt;= 0</em></strong>) seperti yang ditetapkan oleh contohnya fungsi <strong><em>heaviside</em></strong>, ia akan menghasilkan prediksi kelas <strong>positif (1)</strong>. Jika sebaliknya, ia menghasilkan prediksi kelas <strong>negatif (0)</strong>. Melatih <strong>TLU</strong> dalam kes ini bermaksud mencari nilai yang optimum untuk <em>weight</em> <strong><em>w1</em></strong>, <strong><em>w2</em></strong>, dan <strong><em>w3</em></strong> itu.</p>
-<p>Perceptron hanya terdiri daripada satu lapisan TLU, dengan setiap TLU disambungkan ke semua input. Apabila semua neuron dalam lapisan disambungkan ke setiap neuron pada lapisan sebelumnya (iaitu, neuron inputnya), lapisan tersebut disebut <strong><em>fully connected layer</em></strong>, atau <strong><em>dense layer</em></strong>. Input fitur yang memasuki lapisan TLU itu dianggap sebagai lapisan input neuron ( tiada pemprosesan berlaku di neuron ini). Kebiasaannya, input <strong><em>bias</em></strong>  di tambah (seperti nilai <strong><em>b</em></strong> pada <strong><em>y=ax+b</em></strong> untuk linear regression model bergerak ke atas dan bawah paksi y, tetapi untuk DL ada tujuan tambahan)menggunakan neuron khas yang disebut <strong>neuron bias</strong> (Ia ditetapkan dengan nilai 1). Gambarajah di bawah menunjukkan perceptron dengan dua input, satu input bias dan tiga output.</p>
+<p>Perceptron hanya terdiri daripada satu lapisan TLU, dengan setiap TLU disambungkan ke semua input. Apabila semua neuron dalam lapisan disambungkan ke setiap neuron pada lapisan sebelumnya (iaitu, neuron inputnya), lapisan tersebut disebut <strong><em>fully connected layer</em></strong>, atau <strong><em>dense layer</em></strong>. Input fitur yang memasuki lapisan TLU itu dianggap sebagai lapisan input neuron ( tiada pemprosesan berlaku di neuron ini). Kebiasaannya, input <strong><em>bias</em></strong>  di tambah (seperti nilai <strong><em>b</em></strong> pada <strong><em>y=ax+b</em></strong> untuk linear regression model bergerak ke atas dan bawah paksi y, tetapi untuk DL ada tujuan tambahan) menggunakan neuron khas yang disebut <strong>neuron bias</strong> (Ia ditetapkan dengan nilai 1). Gambarajah di bawah menunjukkan perceptron dengan dua input, satu input bias dan tiga output.</p>
 
 </div>
 </div>
@@ -250,7 +250,7 @@ window.onload = wrap_img;
 <p>Bias juga adalah <em>learnable</em> parameter seperti <em>weight</em> parameter. Nilai 1 itu adalah tetapan permulaannya sahaja. Merujuk kepada gambarajah perceptron di atas, rumus untuk menghitung output lapisan <strong><em>fully connected </em></strong> adalah seperti berikut.
 <br>
 <br>
-<img src="https://latex.codecogs.com/gif.download?%5Clarge%20h_%7Bw%2Cb%7D%5Cleft%20%28%20X%20%5Cright%20%29%20%3D%5Cphi%20%5Cleft%20%28%20XW+b%20%5Cright%20%29" alt="equation"><br></p>
+<img src="https://latex.codecogs.com/png.download?%5Clarge%20h_%7Bw%2Cb%7D%5Cleft%20%28%20X%20%5Cright%20%29%3D%5Cphi%20%5Cleft%20%28%20XW+b%20%5Cright%20%29" alt="equation"><br></p>
 
 </div>
 </div>
@@ -279,23 +279,23 @@ window.onload = wrap_img;
 <br>
 <img src="https://latex.codecogs.com/gif.download?%5Clarge%20%5C%7Bx_%7B1%7D%2Cx_%7B2%7D%2Ctarget%5C%7D%5Crightarrow%20%5C%7B32%2C25%2C1%5C%7D%2C%5C%7B31%2C24%2C1%5C%7D%5Ccdots%20%5C%7B50%2C45%2C0%5C%7D%2C%5C%7B51%2C44%2C0%5C%7D" alt="equation">
 <br>
-<br>
 Dalam proses training, hanya satu instance atau sample di sumbat masuk pada satu masa. Namun hanya input fitur <strong><em>x</em></strong> (tanpa nilai target) sahaja yang akan disambungkan pada neuron TLU. Manakala nilai target daripada instance itu akan digunakan untuk mengukur error (nilai ramalan - target label). Output TLU neuron menghasilkan (melalui fungsi step) nilai ramalan sama ada <strong><em>1</em></strong> atau <strong><em>0</em></strong> berdasarkan pada variasi nilai weight <strong><em>w</em></strong>. Pada setiap kali (melalui proses iteration) neuron output itu menghasilkan ramalan yang salah, ia akan mempertingkatkan nilai weight <strong><em>w</em></strong> antara neuron input dan TLU tersebut sehingga ramalannya menjadi betul. Iaitu pada setiap iteration, nilai weight <strong><em>w</em></strong> akan diupdatekan (lihat rumus di bawah) mengikut error sama ada ke arah 1 atau 0.
 <br>
 <br>
 <img src="https://latex.codecogs.com/gif.download?%5Clarge%20w_%7Bij%7D%3Dw_%7Bij%7D+%5CDelta%20w_%7Bij%7D" alt="equation">
 <br>
+Tetapi macam mana nak dikaitkan nilai 
 <br>
-Tetapi macam mana nak dikaitkan nilai</p>
-<blockquote>
-<p><img src="https://latex.codecogs.com/gif.download?%5Clarge%20%5CDelta%20w_%7Bij%7D" alt="equation">
+<br>
+<img src="https://latex.codecogs.com/gif.download?%5Clarge%20%5CDelta%20w_%7Bij%7D" alt="equation">
+<br>
 dengan nilai error (ramalan - target label)? Secara logiknya adalah untuk mengurangkan weight <strong><em>w</em></strong> jika neuron diaktifkan (1) walaupun ia sepatutnya tidak (0)diaktifkan, (ramalan: y = 1 dan target: t = 0). Sebaliknya dengan meningkatkan weight <strong><em>w</em></strong> jika neuron tidak (0) diaktifkan walaupun seharusnya diaktifkan (1), (ramalan: y = 0 dan target: t = 1).</p>
-</blockquote>
-<p>Oleh itu kita boleh gantikan dengan</p>
-<blockquote>
-<p><img src="https://latex.codecogs.com/gif.download?%5Clarge%20%5CDelta%20w_%7Bij%7D%3D-%28y-t%29" alt="equation">
+<p>Oleh itu kita boleh gantikan dengan
+<br>
+<br>
+<img src="https://latex.codecogs.com/gif.download?%5Clarge%20%5CDelta%20w_%7Bij%7D%3D-%28y-t%29" alt="equation">
+<br>
 Iaitu, jika sepatutnya aktif (1): Δw(i,j)=-(0–1)=1 (tingkatkan weight <strong><em>w</em></strong>) dan jika tidak sepatutnya aktif (0): Δw(i,j)=-(1–0)=-1 (kurangkan weight <strong><em>w</em></strong>). Kita masih lagi satu masalah, bagaimana kalau nilai input adalah negative?</p>
-</blockquote>
 
 </div>
 </div>
