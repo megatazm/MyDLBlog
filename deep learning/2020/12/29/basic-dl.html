@@ -289,13 +289,18 @@ Tetapi macam mana nak dikaitkan nilai
 <br>
 <img src="https://latex.codecogs.com/gif.download?%5Clarge%20%5CDelta%20w_%7Bij%7D" alt="equation">
 <br>
-dengan nilai error (ramalan - target label)? Secara logiknya adalah untuk mengurangkan weight <strong><em>w</em></strong> jika neuron diaktifkan (1) walaupun ia sepatutnya tidak (0)diaktifkan, (ramalan: y = 1 dan target: t = 0). Sebaliknya dengan meningkatkan weight <strong><em>w</em></strong> jika neuron tidak (0) diaktifkan walaupun seharusnya diaktifkan (1), (ramalan: y = 0 dan target: t = 1).</p>
+dengan nilai error (ramalan - target label)? Secara logiknya adalah untuk mengurangkan weight <strong><em>w</em></strong> jika neuron diaktifkan (1) walaupun ia sepatutnya tidak (0) diaktifkan, (ramalan: y = 1 dan target: t = 0). Sebaliknya dengan meningkatkan weight <strong><em>w</em></strong> jika neuron tidak (0) diaktifkan walaupun seharusnya diaktifkan (1), (ramalan: y = 0 dan target: t = 1).</p>
 <p>Oleh itu kita boleh gantikan dengan
 <br>
 <br>
 <img src="https://latex.codecogs.com/gif.download?%5Clarge%20%5CDelta%20w_%7Bij%7D%3D-%28y-t%29" alt="equation">
 <br>
-Iaitu, jika sepatutnya aktif (1): Δw(i,j)=-(0–1)=1 (tingkatkan weight <strong><em>w</em></strong>) dan jika tidak sepatutnya aktif (0): Δw(i,j)=-(1–0)=-1 (kurangkan weight <strong><em>w</em></strong>). Kita masih lagi satu masalah, bagaimana kalau nilai input adalah negative?</p>
+Iaitu, jika sepatutnya aktif (1):</p>
+<blockquote>
+<p><em>Δw(i,j)=-(0–1)=1</em> (tingkatkan weight <strong><em>w</em></strong>)</p>
+</blockquote>
+<p>dan jika tidak sepatutnya aktif (0):&gt;<em>Δw(i,j)=-(1–0)=-1</em> (kurangkan weight <strong><em>w</em></strong>). 
+Kita masih lagi satu masalah, bagaimana kalau nilai input adalah negative?</p>
 
 </div>
 </div>
