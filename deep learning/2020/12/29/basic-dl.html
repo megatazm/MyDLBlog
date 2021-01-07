@@ -323,11 +323,11 @@ dengan nilai error (ramalan - target label)?</p>
 <p><strong><em>Δw(i,j)=-(1–0)=-1 (kurangkan weight w)</em></strong>
 <br></p>
 </blockquote>
-<p>Kita masih lagi satu masalah, bagaimana kalau nilai input X adalah negative? Ini akan menyebabkan nilai output neuron menjadi terbalik</p>
+<p>Kita masih lagi ada satu masalah, bagaimana kalau nilai input X adalah negative? Ini akan menyebabkan nilai output neuron menjadi terbalik</p>
 <blockquote>
 <p><strong><em>output TLU = h(-XW + b)</em></strong></p>
 </blockquote>
-<p>Keadaan ini akan menyebabkan neuron tidak diaktifkan walaupun sepatutnya ia perlu diaktifkan (t=1, y=0). Begitu juga sebaliknya (t=0, y=1). Oleh itu rumus ini diperbaiki seperti berikut,
+<p>Keadaan ini akan menyebabkan neuron tidak diaktifkan walaupun sepatutnya ia perlu diaktifkan (t=1, y=0). Begitu juga sebaliknya (t=0, y=1). Oleh itu rumus ini diperbaiki menjadi seperti berikut,
 <br>
 <br>
 <img src="https://latex.codecogs.com/png.download?%5Clarge%20%5CDelta%20w_%7Bij%7D%3Dw_%7Bij%7D-%5Cmu%20%28y_%7Bj%7D-t_%7Bj%7D%29%5Ctimes%20x_%7Bi%7D" alt="equation"><br></p>
@@ -353,7 +353,7 @@ dengan nilai error (ramalan - target label)?</p>
 </ul>
 <p>Apa keperluannya untuk set nilai <em>learning rate</em>? Tujuannya adalah untuk memperlahankan sedikit kadar kelajuan neuron itu belajar.</p>
 <p>Aiik! kenapa nak diperlahankan pulak? Bukan lagi cepat lagi bagus ker? Tidak!</p>
-<p>Macam ni lah. Ia ibarat macam anda nak memasukkan benang ke dalam lubang di jarum. Cucuk masuk cepat-cepat bagus ke? Masih ingat di artikel sebelum ni? <em>Learning rate</em> adalah salah satu <em>hyperparameter tuning</em> yang anda perlu lakukan.</p>
+<p>Macam ni lah. Ia ibarat macam anda nak memasukkan benang ke dalam lubang di jarum. Cucuk masuk cepat-cepat bagus ke? Masih ingat di artikel sebelum ni? <em>Learning rate</em> juga adalah salah satu <em>hyperparameter tuning</em> yang anda perlu lakukan.</p>
 <p>Di bawah adalah contoh mudah penggunaan perceptron. Anda perlulah mempunyai ilmu asas dalam programming untuk memahami kod python itu.</p>
 <p>Sebelum itu. Mungkin ada yang tak pasti macam mana nak setup environment untuk menjalankan aktiviti ini? Ikut langkah di bawah</p>
 <ol>
@@ -390,10 +390,12 @@ dengan nilai error (ramalan - target label)?</p>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Apa yang anda perlu buat dengan kod ini. Anda cuma tekan butang run sahaja. Kemudian cubalah baca komen-komen di "#", yang telah saya coretkan pada kod tersebut untuk memahami fungsinya. Cuba main-main dengan kod itu. Tukarlah apa-apa sahaja yang tersetus di hati anda.</p>
+<p>Apa yang anda perlu buat dengan kod ini? Anda cuma perlu tekan butang run sahaja. Kemudian cubalah baca komen-komen di "#", yang telah saya coretkan pada kod tersebut untuk memahami fungsinya. Cuba main-main dengan kod itu. Jangan takut, tukarlah apa-apa sahaja yang tercetus di hati anda.</p>
 <blockquote>
 <p>"Belajar melalui pengalaman, Belajar melalui kesilapan"</p>
 </blockquote>
+<p><br>
+<br></p>
 
 </div>
 </div>
@@ -409,7 +411,7 @@ dengan nilai error (ramalan - target label)?</p>
 
 <span class="c1"># 1. Kita guna IRIS data download daripada sklearn library</span>
 <span class="c1"># Apa itu IRIS Data:-&gt; https://en.wikipedia.org/wiki/Iris_flower_data_set</span>
-<span class="c1"># 2. Kita guna Perceptron daripada library sklearn (kita tak KERAS Tensorflow atau Pytorch buat masa ini)</span>
+<span class="c1"># 2. Kita guna Perceptron daripada library sklearn (kita tak guna KERAS Tensorflow atau Pytorch buat masa ini)</span>
 <span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">load_iris</span>        
 <span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">Perceptron</span>    
 
@@ -442,7 +444,7 @@ dengan nilai error (ramalan - target label)?</p>
 <span class="c1">#Train Model Perceptron dengan Data input X dan Data Target Label y</span>
 <span class="n">per_clf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
 
-<span class="c1">#Gunakan model untuk membuat ramal klasifikasi menggunakan Test Data [5.1,1.8]</span>
+<span class="c1">#Gunakan model untuk membuat ramalan klasifikasi menggunakan Test Data [5.1,1.8]</span>
 <span class="n">y_pred</span> <span class="o">=</span> <span class="n">per_clf</span><span class="o">.</span><span class="n">predict</span><span class="p">([[</span><span class="mf">5.1</span><span class="p">,</span> <span class="mf">1.8</span><span class="p">]])</span>
 
 <span class="c1">#Paparkan Hasil Prediksi (1-&gt;Setosa atau 0-&gt;Bukan Setosa)</span>
@@ -473,7 +475,9 @@ dengan nilai error (ramalan - target label)?</p>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Ok. Saya rasa kita berhenti di sini dahulu. Untuk artikel seterusnya, saya akan cuba untuk mengimplementasikan satu contoh lengkap penggunaan perceptron bagi tujuan klasifikasi binari.</p>
+<p><br>
+<br>
+Ok. Saya rasa kita berhenti di sini dahulu. Untuk artikel seterusnya, saya akan cuba untuk mengimplementasikan satu contoh lengkap penggunaan perceptron bagi tujuan klasifikasi binari.</p>
 <p>Assalamualaikum dan InsyAllah kita bertemu lagi.</p>
 
 </div>
