@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Mengaplikasikan Perceptron Dengan Scikit-learn Library | fastpages</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="Mengaplikasikan Perceptron Dengan Scikit-learn Library" />
+<meta name="author" content="Megat Norulazmi" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Perbincangan berkenaan penggunaan perceptron menggunakan sklearn library dan python" />
+<meta property="og:description" content="Perbincangan berkenaan penggunaan perceptron menggunakan sklearn library dan python" />
+<link rel="canonical" href="https://megatazm.github.io/MyDLBlog/deep%20learning/2021/01/11/perceptron-ml-sklearn.html" />
+<meta property="og:url" content="https://megatazm.github.io/MyDLBlog/deep%20learning/2021/01/11/perceptron-ml-sklearn.html" />
+<meta property="og:site_name" content="fastpages" />
+<meta property="og:image" content="https://megatazm.github.io/MyDLBlog/images/" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-01-11T00:00:00-06:00" />
+<script type="application/ld+json">
+{"description":"Perbincangan berkenaan penggunaan perceptron menggunakan sklearn library dan python","url":"https://megatazm.github.io/MyDLBlog/deep%20learning/2021/01/11/perceptron-ml-sklearn.html","@type":"BlogPosting","headline":"Mengaplikasikan Perceptron Dengan Scikit-learn Library","dateModified":"2021-01-11T00:00:00-06:00","datePublished":"2021-01-11T00:00:00-06:00","author":{"@type":"Person","name":"Megat Norulazmi"},"image":"https://megatazm.github.io/MyDLBlog/images/","mainEntityOfPage":{"@type":"WebPage","@id":"https://megatazm.github.io/MyDLBlog/deep%20learning/2021/01/11/perceptron-ml-sklearn.html"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/MyDLBlog/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://megatazm.github.io/MyDLBlog/feed.xml" title="fastpages" /><link rel="shortcut icon" type="image/x-icon" href="/MyDLBlog/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/MyDLBlog/">fastpages</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/MyDLBlog/about/">About Me</a><a class="page-link" href="/MyDLBlog/search/">Search</a><a class="page-link" href="/MyDLBlog/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Mengaplikasikan Perceptron Dengan Scikit-learn Library</h1><p class="page-description">Perbincangan berkenaan penggunaan perceptron menggunakan sklearn library dan python</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2021-01-11T00:00:00-06:00" itemprop="datePublished">
+        Jan 11, 2021
+      </time>• 
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name">Megat Norulazmi</span></span>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      7 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/MyDLBlog/categories/#deep learning">deep learning</a>
+        
+      
+      </p>
+    
+
+    
+      
+        <div class="pb-5 d-flex flex-wrap flex-justify-end">
+          <div class="px-2">
+
+    <a href="https://github.com/megatazm/MyDLBlog/tree/master/_notebooks/2021-01-11-perceptron-ml-sklearn.ipynb" role="button" target="_blank">
+<img class="notebook-badge-image" src="/MyDLBlog/assets/badges/github.svg" alt="View On GitHub">
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://mybinder.org/v2/gh/megatazm/MyDLBlog/master?filepath=_notebooks%2F2021-01-11-perceptron-ml-sklearn.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/MyDLBlog/assets/badges/binder.svg" alt="Open In Binder"/>
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://colab.research.google.com/github/megatazm/MyDLBlog/blob/master/_notebooks/2021-01-11-perceptron-ml-sklearn.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/MyDLBlog/assets/badges/colab.svg" alt="Open In Colab"/>
+    </a>
+</div>
+        </div>
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/2021-01-11-perceptron-ml-sklearn.ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Assalamualaikum dan selamat berjumpa kembali.</p>
+<p>Seperti yang telah saya nukilkan pada <a href="https://megatazm.github.io/MyDLBlog/deep%20learning/2020/12/29/basic-dl.html">artikel yang lepas</a>, saya telah menerangkan dengan serba ringkas berkenaan mekanisma perceptron dan menunjukkan contoh penggunaan mudah perceptron menggunakan sklearn library (ataupun scikit-learn). Di artikel ini, saya akan menulis penggunaan perceptron dengan aturan proses machine learning yang lebih lengkap daripada sebelum ini.</p>
+<p>Untuk kali ini, saya masih menggunakan sklearn library. Mungkin ada yang berkata-kata,</p>
+<blockquote><p>"Asyik sebut-sebut keras, tensorflow dan pytorch jer sebelum ini, tapi tak pakai-pakai pun".</p>
+</blockquote>
+<p>InsyaAllah saya cuba perkenalkan asas penggunaanya di artikel yang seterusnya ya.</p>
+<p>Berikut adalah pecahan proses yang kita akan lakukan pada kali ini:-</p>
+<ol>
+<li>Import library sklearn yang diperlukan</li>
+<li>Menghasilkan data buatan menggunakan library sklearn <strong>make_classification</strong></li>
+<li>Bina perceptron menggunakan library sklearn <strong>Perceptron</strong></li>
+<li>Melakukan model validation dengan stratified k-fold cross validation menggunakan library sklearn <strong>RepeatedStratifiedKFold</strong></li>
+<li>Train model perceptron menggunakan data buatan tersebut </li>
+<li>Melakukan hyperparameter tuning untuk learning rate dan kekerapan iteration melalui sklearn library <strong>GridSearchCV</strong></li>
+<li>Memaparkan prestasi validation model tersebut berdasarkan pada kombinasi beberapa nilai learning rate dan iteration yang berbeza.</li>
+<li>Menguji prestasi model menggunakan test data dengan kombinasi learning rate dan kekerapan iteration pilihan yang terbaik, kemudian memaparkan nilai ketepatannya.</li>
+</ol>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Pertama sekali, import library yang bakal kita gunakan,</p>
+<ul>
+<li>make_classification - Fungsi untuk menghasilkan data buatan</li>
+<li>GridSearchCV - Fungsi untuk melakukan hyperparameter tuning</li>
+<li>RepeatedStratifiedKfold - Fungsi untuk menjalankan stratified k-fold cross validation yang boleh ditentukan kekerapan ulangan.</li>
+<li>Perceptron - Fungsi untuk membina architecture algoritma perceptron</li>
+</ul>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">make_classification</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">GridSearchCV</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">RepeatedStratifiedKFold</span>
+<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">Perceptron</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Tujuan kita menggunakan fungsi make_classification ini adalah menghasilkan data yang sesuai untuk perceptron melakukan klasifikasi binari. Ini kerana perceptron hanya mampu melakukan klasifikasi pada data yang "<strong><em>linearly separable</em></strong>", iaitu data yang mudah diasingkan kepada dua kelas dengan menggunakan satu garisan linear. Fungsi make_classification ini juga boleh digunakan untuk menghasilkan pelbagai jenis data klasifikasi yang kompleks. Ia sangat berguna untuk menguji prestasi dan melakukan perbandingan di antara pelbagai jenis algoritma yang lama dan baharu. Penerangan berkenaan penggunaan fungsi ini boleh di rujuk di <a href="https://scikit-learn.org/stable/modules/generated/sklearn.datasets.make_classification.html">sini</a>. Bagi tujuan contoh ini, kita hanya akan menggunakan parameternya yang berikut,</p>
+<ul>
+<li><strong>n_samples</strong> - Untuk menentukan jumlah instance atau rekod. Di sini saya setkan dengan nilai n_samples=1000.</li>
+<li><strong>n_feature</strong> - Untuk menentukan jumlah input fitur. Di sini saya setkan n_feature=10</li>
+<li><strong>n_informative</strong> - Untuk menentukan samada input fitur yang telah ditetapkan jumlahnya sebentar tadi adalah berinformatif. Nilai tetapannya mestilah tidak melebihi dengan nilai n_feature. Di sini saya setkan nilai n_informative = 10</li>
+<li><strong>n_redundant</strong> - Oleh kerana kita telah menetapkan kesemua 10 feature kita adalah informatif maka di sini n_redundant = 0. Jika contohnya kita setkan n_redundant = 5, maka mestilah nilai n_informative=5 kerana total fitur adalah 10 (jika n_informative=4, n_redundant = 5, maka fitur selebihnya disetkan sebagai noise). Lagi tinggi fitur informatif maka lagi mudahlah model perceptron itu di latih dan memperolehi ketepatan ramalan yang tinggi.</li>
+<li><strong>random_state</strong> - Jujukan data instance atau rekod yang akan dihasilkan nanti adalah random. Namun, untuk memastikan data random ini adalah "<em>reproducible</em>", maksudnya untuk memastikan data ini sentiasa sama jika kita menghasilkannya berulang kali. Oleh itu, anda perlu setkan nilai integer yang sama pada random_state itu. Seperti contoh, di sini saya setkan random_state = 1.</li>
+</ul>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># tetap sama kan? Cuba tukar nilai random_state=2, kemudian run. Sama juga ker?</span>
+<span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">make_classification</span><span class="p">(</span><span class="n">n_samples</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">n_features</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">n_informative</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">n_redundant</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1">#uncomment ini untuk lihat data yang terhasil</span>
+<span class="c1">#print (X, y)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Untuk membina architecture NN perceptron, kita menggunakan fungsi perceptron dari library sklearn (tak perlu bina "<em>from scratch</em>"). Fungsi ini juga ada banyak setting parameternya. Anda boleh rujuk di <a href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.Perceptron.html?highlight=perceptron#sklearn.linear_model.Perceptron">sini</a>. Tapi, untuk contoh ini kita gunakan setting default sahaja. Setting parameter learning rate dan iteration pada fungsi perceptron ini akan kita lakukan melalui fungsi GridSearchCV. Hasilnya di simpan di dalam variable <strong><em>model</em></strong>.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="n">Perceptron</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Sebelum menjalankan proses training dengan stratified k-fold cross validation (Saya ada berikan penerangan berkenaan proses ini di <a href="https://megatazm.github.io/MyDLBlog/deep%20learning/2020/12/23/AI-ML-DL.html">artikel</a> yang pertama), kita perlu tetapkan nilai parameter pada fungsi RepeatedStratifiedKFold terlebih dahulu. Fungsi ini hanya ada 3 parameter sahaja yang perlu ditentukan nilainya. Penerangan lengkapnya ada di <a href="https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.RepeatedStratifiedKFold.html?highlight=repeatedstratifiedkfold#sklearn.model_selection.RepeatedStratifiedKFold">sini</a>. Setting parameternya adalah seperti berikut,</p>
+<ul>
+<li>n_splits - Adalah untuk menentukan nilai k. Dalam contoh ini, saya setkan k=10 (n_splits=10), bermaksud data ini akan diasingkan sebanyak 10 bahagian (9 data training dan 1 data testing)</li>
+<li>n_repeats - Berapa kali anda nak proses 10-fold cross validation ini di ulangi. Saya setkan n_repeats=3.</li>
+<li>random_state - Saya rasa anda boleh agak tujuan parameter ini kan? Bagus! anda memang bijak.</li>
+</ul>
+<p>Hasil tetapan ini kemudiannya di simpan di variable <strong><em>cv</em></strong>.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">cv</span> <span class="o">=</span> <span class="n">RepeatedStratifiedKFold</span><span class="p">(</span><span class="n">n_splits</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">n_repeats</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Di sini kita tetapkan hyperparameter tuning parameter yang ingin dijalankan ke dalam variable <strong><em>grid</em></strong>. Di contoh ini, saya hanya tetapkan parameter '<strong>max_iter</strong>' untuk iteration dan '<strong>eta0</strong>' untuk learning rate sahaja, setiap satunya dengan 5 nilai-nilai yang berbeza (parameter 'max_iter dan 'eta0' ini adalah berdasarkan pada tetapan parameter yang di sokong oleh fungsi perceptron( )). Akhir sekali, di fungsi GridSearchCV, masukkan variable <strong>model</strong>, <strong>grid</strong> dan <strong>cv</strong> yang telah kita konfigurasikan tadi ke tempat yang betul dengan tetapan parameter yang lain seperti <strong>scoring='accuracy'</strong> untuk memaparkan ketepatan prestasinya dan parameter <strong>n_jobs=-1</strong> supaya pemprosesan ini menggunakan kesemua cpu yang ada di komputer. Hasil tetapan fungsi GridSearchCV ini kemudiannya di simpan ke dalam variable <strong><em>search</em></strong>.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">grid</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+<span class="n">grid</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;max_iter&#39;</span><span class="p">:(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="mi">10000</span><span class="p">),</span><span class="s1">&#39;eta0&#39;</span><span class="p">:(</span><span class="mf">0.0001</span><span class="p">,</span> <span class="mf">0.001</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)}</span>
+<span class="c1"># Jalankan training melalui proses cross validation setting cv</span>
+<span class="c1"># dan melalui kombinasi 5 nilai pada max_iter dan eta0 tersebut</span>
+<span class="n">search</span> <span class="o">=</span> <span class="n">GridSearchCV</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">grid</span><span class="p">,</span> <span class="n">scoring</span><span class="o">=</span><span class="s1">&#39;accuracy&#39;</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="n">cv</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Melalui variable <strong><em>search</em></strong>, train model klasifikasi perceptron ini menggunakan data buatan yang telah di jana. Hasil dapatan dari proses trainig ini akan di simpan di dalam variable <strong><em>results</em></strong>.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># nilai learning rate dan iteration dan pulangkan hasil dapatan</span>
+<span class="c1"># di variable results</span>
+<span class="n">results</span> <span class="o">=</span> <span class="n">search</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Melalui variable results tadi, dengan mudahnya kita boleh mempamirkan maklumat,</p>
+<ul>
+<li>Purata prestasi ketepatan ramalan terbaik</li>
+<li>Kombinasi learning rate &amp; iteration terbaik</li>
+<li>Senarai lengkap purata prestasi ketepatan ramalan dengan setiap kombinasi learning &amp; iteration. </li>
+</ul>
+<p>Merujuk pada maklumat yang dipaparkan di bawah, ketepatan tertinggi adalah <strong>85.7%</strong> manakala kombinasi parameter learning rate &amp; iteration terbaik yang dicadangkan adalah <strong>eta0=0.0001</strong> (lagi besar learning rate lagi cepat proses training selesai) &amp;  <strong>max_iter=10</strong> (lagi kurang iteration, lagi cepat proses training selesai).</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Mean Accuracy: </span><span class="si">%.3f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">results</span><span class="o">.</span><span class="n">best_score_</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Config: </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">results</span><span class="o">.</span><span class="n">best_params_</span><span class="p">)</span>
+<span class="c1"># summarize all</span>
+<span class="n">means</span> <span class="o">=</span> <span class="n">results</span><span class="o">.</span><span class="n">cv_results_</span><span class="p">[</span><span class="s1">&#39;mean_test_score&#39;</span><span class="p">]</span>
+<span class="n">params</span> <span class="o">=</span> <span class="n">results</span><span class="o">.</span><span class="n">cv_results_</span><span class="p">[</span><span class="s1">&#39;params&#39;</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">mean</span><span class="p">,</span> <span class="n">param</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">means</span><span class="p">,</span> <span class="n">params</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&gt;</span><span class="si">%.3f</span><span class="s2"> with: </span><span class="si">%r</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">mean</span><span class="p">,</span> <span class="n">param</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Mean Accuracy: 0.857
+Config: {&#39;eta0&#39;: 0.0001, &#39;max_iter&#39;: 10}
+&gt;0.850 with: {&#39;eta0&#39;: 0.0001, &#39;max_iter&#39;: 1}
+&gt;0.857 with: {&#39;eta0&#39;: 0.0001, &#39;max_iter&#39;: 10}
+&gt;0.857 with: {&#39;eta0&#39;: 0.0001, &#39;max_iter&#39;: 100}
+&gt;0.857 with: {&#39;eta0&#39;: 0.0001, &#39;max_iter&#39;: 1000}
+&gt;0.857 with: {&#39;eta0&#39;: 0.0001, &#39;max_iter&#39;: 10000}
+&gt;0.850 with: {&#39;eta0&#39;: 0.001, &#39;max_iter&#39;: 1}
+&gt;0.857 with: {&#39;eta0&#39;: 0.001, &#39;max_iter&#39;: 10}
+&gt;0.857 with: {&#39;eta0&#39;: 0.001, &#39;max_iter&#39;: 100}
+&gt;0.857 with: {&#39;eta0&#39;: 0.001, &#39;max_iter&#39;: 1000}
+&gt;0.857 with: {&#39;eta0&#39;: 0.001, &#39;max_iter&#39;: 10000}
+&gt;0.850 with: {&#39;eta0&#39;: 0.01, &#39;max_iter&#39;: 1}
+&gt;0.846 with: {&#39;eta0&#39;: 0.01, &#39;max_iter&#39;: 10}
+&gt;0.853 with: {&#39;eta0&#39;: 0.01, &#39;max_iter&#39;: 100}
+&gt;0.853 with: {&#39;eta0&#39;: 0.01, &#39;max_iter&#39;: 1000}
+&gt;0.853 with: {&#39;eta0&#39;: 0.01, &#39;max_iter&#39;: 10000}
+&gt;0.850 with: {&#39;eta0&#39;: 0.1, &#39;max_iter&#39;: 1}
+&gt;0.836 with: {&#39;eta0&#39;: 0.1, &#39;max_iter&#39;: 10}
+&gt;0.847 with: {&#39;eta0&#39;: 0.1, &#39;max_iter&#39;: 100}
+&gt;0.847 with: {&#39;eta0&#39;: 0.1, &#39;max_iter&#39;: 1000}
+&gt;0.847 with: {&#39;eta0&#39;: 0.1, &#39;max_iter&#39;: 10000}
+&gt;0.850 with: {&#39;eta0&#39;: 1.0, &#39;max_iter&#39;: 1}
+&gt;0.836 with: {&#39;eta0&#39;: 1.0, &#39;max_iter&#39;: 10}
+&gt;0.847 with: {&#39;eta0&#39;: 1.0, &#39;max_iter&#39;: 100}
+&gt;0.847 with: {&#39;eta0&#39;: 1.0, &#39;max_iter&#39;: 1000}
+&gt;0.847 with: {&#39;eta0&#39;: 1.0, &#39;max_iter&#39;: 10000}
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Ok. Mari kita cuba train model ini semula dengan kombinasi learning rate &amp; iteration yang terbaik, kemudian mengujinya dengan test data. Bagaimana? boleh dapat prestasi yang lebih kurang macam masa training tadi?</p>
+<p>Cuba main-main dengan setting parameter. Tukar nilai parameter pada fungsi make_classification (n_samples, n_feature, n_informative, n_redundant, dan random_state) dan juga pada fungsi-fungsi lain seperti pada parameter test_size, max_iter, eta0. Kemudian buat kesimpulan hasil daripada penyelidikan anda ini.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">make_classification</span>
+<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">Perceptron</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+
+<span class="c1"># Jana data buatan untuk training data &amp; testing data. Pastikan guna nilai </span>
+<span class="c1"># random_state yang sama dengan sebelum ini.</span>
+<span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">make_classification</span><span class="p">(</span><span class="n">n_samples</span><span class="o">=</span><span class="mi">1250</span><span class="p">,</span> <span class="n">n_features</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">n_informative</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">n_redundant</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># Asingkan training data &amp; testing data (testing data = 0.2 x 1250 total data =&gt; Train Data = 1000, Test Data = 250)</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.20</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+
+<span class="c1"># Bina architecture perceptron algoritma</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">Perceptron</span><span class="p">(</span><span class="n">max_iter</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span><span class="n">eta0</span><span class="o">=</span><span class="mf">0.0001</span><span class="p">)</span>
+
+<span class="c1"># Train model dengan training data</span>
+<span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<span class="c1"># Paparkan prestasi ketepatan ramalan dengan testing data</span>
+<span class="n">results</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span><span class="n">y_test</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>0.804</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+</div>
+
+
+
+  </div><!-- from https://github.com/utterance/utterances -->
+<script src="https://utteranc.es/client.js"
+        repo="megatazm/MyDLBlog"
+        issue-term="title"
+        label="blogpost-comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script><a class="u-url" href="/MyDLBlog/deep%20learning/2021/01/11/perceptron-ml-sklearn.html" hidden></a>
+</article>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/MyDLBlog/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/MyDLBlog/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/MyDLBlog/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>An easy to use blogging platform with support for Jupyter Notebooks.</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/fastai" title="fastai"><svg class="svg-icon grey"><use xlink:href="/MyDLBlog/assets/minima-social-icons.svg#github"></use></svg></a></li><li><a rel="me" href="https://twitter.com/fastdotai" title="fastdotai"><svg class="svg-icon grey"><use xlink:href="/MyDLBlog/assets/minima-social-icons.svg#twitter"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
