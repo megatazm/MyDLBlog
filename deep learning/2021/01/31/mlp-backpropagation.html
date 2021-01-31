@@ -121,7 +121,7 @@ window.onload = wrap_img;
 <p>Di artikel yang sebelum ini saya ada menunjukkan pengiraan multilayer perceptron menyelesaikan masalah XOR bermula dari input layer, hidden layer, dan output layer kan? Ini adalah dinamakan neural network dengan proses feedforward sebab ia hanya melibatkan process yang maju kehadapan sahaja. Dengan adanya algoritma backpropagation, neural network ini berfungsi dengan dua arah iaitu ke depan dan ke belakang berulang kali.</p>
 <blockquote><p>"Melatih model dengan algoritma Gradient Decent (GD) menggunakan Backpropagation (BP) sebagai teknik pengkomputeran gradien ataupun kecerunan"</p>
 </blockquote>
-<p>Frasa di atas mengambarkan hubungan antara kedua-dua algoritma tersebut iaitu GD adalah algoritma bagi mencapai kecerunan <strong>K=0</strong> dalam masa <strong>T</strong>, manakala BP adalah algoritma yang penting untuk menjalankan proses pengiraan kecerunan tersebut dari setiap lapisan depan hingga ke lapisan belakang neuron dengan efisien.</p>
+<p>Frasa di atas mengambarkan hubungan antara kedua-dua algoritma tersebut iaitu GD adalah algoritma bagi mencapai kecerunan <strong>K=0</strong> dalam masa <strong>T</strong>, manakala BP adalah algoritma yang penting untuk menjalankan proses pengiraan kecerunan tersebut dari setiap lapisan, dari depan hinggalah ke lapisan belakang neuron dengan efisien.</p>
 
 </div>
 </div>
@@ -247,7 +247,7 @@ window.onload = wrap_img;
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Bagi membolehkan algoritma ini dapat berfungsi seperti yang diharapkan, fungsi acivation step pada MLP itu perlu digantikan fungsi yang lain. Ini penting kerana fungsi step hanya mempunyai garisan menegak dan mendatar, jadi tidak ada kecerunan yang dihasilkan untuk kegunaan algoritma gradient descent. Oleh itu kita memerlukan fungsi activation yang "<strong><em>continuous &amp; differentiable</em></strong>" iaitu fungsi yang boleh menghasilkan gradien atau kecerunan disepanjang garisan melalui perubahan error terhadap perubahan parameter weight. Ini membolehkan  algoritma gradient descent bergerak menuju ke arah titik minimum pada setiap iteration. Berikut adalah beberapa fungsi activation yang biasa digunakan,</p>
+<p>Bagi membolehkan algoritma ini dapat berfungsi seperti yang diharapkan, fungsi activation step pada MLP itu perlu digantikan fungsi yang lain. Ini penting kerana fungsi step hanya mempunyai garisan menegak dan mendatar, jadi tidak ada kecerunan yang dihasilkan untuk kegunaan algoritma gradient descent. Oleh itu kita memerlukan fungsi activation yang "<strong><em>continuous &amp; differentiable</em></strong>" iaitu fungsi yang boleh menghasilkan gradien atau kecerunan disepanjang garisan melalui perubahan error terhadap perubahan parameter weight. Ini membolehkan  algoritma gradient descent bergerak menuju ke arah titik minimum pada setiap iteration. Berikut adalah beberapa fungsi activation yang biasa digunakan,</p>
 
 </div>
 </div>
@@ -338,12 +338,13 @@ window.onload = wrap_img;
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Oh ya, anda masih ingat satu lagi tujuan penting activation function yang pernah saya nyatakan sebelum ini? Ya! untuk membolehkan kita membina model non-linear bagi menyelesaikan permasalahan yang kompleks, kita menggunakan activation function seperti ini untuk menukarnya dari dunia linear ke dunia non-liner.</p>
+<p>Oh ya, anda masih ingat satu lagi tujuan penting activation function yang pernah saya nyatakan sebelum ini? Ya! untuk membolehkan kita membina model non-linear bagi menyelesaikan permasalahan yang kompleks, kita menggunakan activation function seperti ini untuk menukarnya dari dunia linear ke dunia non-linear.</p>
 <p>Kenapa? sebab jikalau ianya masih lagi dalam bentuk linear, maka takda maknanya pun kalau kita tambah hidden layer tu berlapis-lapis bagi tujuan untuk membina suatu model yang kompleks. Sebagai contoh, jika</p>
 <p><strong><em>f (x) = 2x + 3, dan g (x) = 5x - 1</em></strong></p>
-<p>Kemudian kita sambungkan kedua-dua fungsi linear itu (menjadi dua lapisan network), ia sebenarnya akan hanya menghasilkan satu lapis fungsi linear juga.</p>
+<p>Kemudian kita sambungkan kedua-dua fungsi linear itu (menjadi dua lapisan network), ia sebenarnya hanya menghasilkan satu lapisan fungsi linear sahaja.</p>
 <p><strong><em>f (g (x)) = 2 (5x - 1) + 3 = 10x + 1</em></strong></p>
 <p>Oleh itu, tak kiralah berapa ribu hidden layer pun yang anda tambah, akhirnya ia cuma menjadi satu fungsi linear yang berbeza nilai kecerunan dan ketinggiannya.</p>
+<p>Ok lah, cukup di sini sahaja buat masa ini. Di artikel yang akan datang, insyaAllah saya akan tunjukkan satu contoh implementasi MLP Classification menggunakan Keras.  ᕕ( ᐛ )ᕗ</p>
 
 </div>
 </div>
