@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Multilayer Perceptron dan Backpropagation &amp; Gradient Decent | fastpages</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="Multilayer Perceptron dan Backpropagation &amp; Gradient Decent" />
+<meta name="author" content="Megat Norulazmi" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Perbincangan berkenaan kelemahan perceptron dan bagaimana multilayer perceptron memperbaiki kelemahan tersebut dengan bantuan backpropagation dan gradient decent." />
+<meta property="og:description" content="Perbincangan berkenaan kelemahan perceptron dan bagaimana multilayer perceptron memperbaiki kelemahan tersebut dengan bantuan backpropagation dan gradient decent." />
+<link rel="canonical" href="https://megatazm.github.io/MyDLBlog/deep%20learning/2021/01/31/mlp-backpropagation.html" />
+<meta property="og:url" content="https://megatazm.github.io/MyDLBlog/deep%20learning/2021/01/31/mlp-backpropagation.html" />
+<meta property="og:site_name" content="fastpages" />
+<meta property="og:image" content="https://megatazm.github.io/MyDLBlog/images/" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-01-31T00:00:00-06:00" />
+<script type="application/ld+json">
+{"description":"Perbincangan berkenaan kelemahan perceptron dan bagaimana multilayer perceptron memperbaiki kelemahan tersebut dengan bantuan backpropagation dan gradient decent.","url":"https://megatazm.github.io/MyDLBlog/deep%20learning/2021/01/31/mlp-backpropagation.html","@type":"BlogPosting","headline":"Multilayer Perceptron dan Backpropagation &amp; Gradient Decent","dateModified":"2021-01-31T00:00:00-06:00","datePublished":"2021-01-31T00:00:00-06:00","author":{"@type":"Person","name":"Megat Norulazmi"},"image":"https://megatazm.github.io/MyDLBlog/images/","mainEntityOfPage":{"@type":"WebPage","@id":"https://megatazm.github.io/MyDLBlog/deep%20learning/2021/01/31/mlp-backpropagation.html"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/MyDLBlog/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://megatazm.github.io/MyDLBlog/feed.xml" title="fastpages" /><link rel="shortcut icon" type="image/x-icon" href="/MyDLBlog/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/MyDLBlog/">fastpages</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/MyDLBlog/about/">About Me</a><a class="page-link" href="/MyDLBlog/search/">Search</a><a class="page-link" href="/MyDLBlog/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Multilayer Perceptron dan Backpropagation &amp; Gradient Decent</h1><p class="page-description">Perbincangan berkenaan kelemahan perceptron dan bagaimana multilayer perceptron memperbaiki kelemahan tersebut dengan bantuan backpropagation dan gradient decent.</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2021-01-31T00:00:00-06:00" itemprop="datePublished">
+        Jan 31, 2021
+      </time>• 
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name">Megat Norulazmi</span></span>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      7 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/MyDLBlog/categories/#deep learning">deep learning</a>
+        
+      
+      </p>
+    
+
+    
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/2021-01-31-mlp-backpropagation.ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Assalamualaikum dan selamat berjumpa kembali.</p>
+<p>Pada <a href="https://megatazm.github.io/MyDLBlog/deep%20learning/2021/01/19/ml-perceptron.html">artikel yang lepas</a>, saya telah memberi penerangan yang ringkas berkenaan kelemahan perceptron merujuk kepada <strong>masalah XOR</strong> dan bagaimana multilayer perceptron dapat menyelesaikannya. Saya juga ada melontarkan persoalan, "Mengapa algoritma yang berasaskan pada neural network ini terkubur selama hampir dua dekad ?", walaupun permasalahan XOR itu boleh diselesaikan oleh multilayer perceptron.</p>
+<p>Permasalahan besar muncul apabila multilayer perceptron (MLP) itu ingin digunakan untuk di latih dengan data <strong><em>non-linearly separable</em></strong> yang sebenar, bukan setakat data yang sangat asas seperti masalah XOR itu. Mungkin anda terfikir, (ー_ーゞ</p>
+<blockquote><p>"Jika datanya kompleks seperti itu maka tambahkanlah dengan lebih banyak neuron dan lapisan hidden layer"</p>
+</blockquote>
+<p>Bijak! memang tepat sekali jangkaan anda, tetapi sanggupkah anda menunggu proses training model itu selama beribu-ribu tahun? Tak berbaloi kan? Oleh kerana kegagalan para penyelidik ketika itu mencari kaedah melatih MLP dalam satu jangka masa yang munasabah lah yang menjadi punca utama mengapa neural network terkubur sekian lama.</p>
+<p>Akhirnya pada tahun 1986, David Rumelhart, Geoffrey Hinton, and Ronald Williams telah memecah kebuntuan dengan memperkenalkan algoritma backpropagation yang berkait rapat dengan algoritma Gradient Decent (ini pernah di sebut di <a href="https://megatazm.github.io/MyDLBlog/deep%20learning/2020/12/23/AI-ML-DL.html">artikel pertama</a> saya). Mungkin timbul beberapa persoalan di minda anda, ʕ ʘ̅͜ʘ̅ ʔ</p>
+<blockquote><p>"Kenapa namanya Backpropagation, takda nama lain ker? Apa kaitannya pulak dengan Gradient Decent? Benda yang sama jer kot nama sajer yang lain"</p>
+</blockquote>
+<p>Di artikel yang sebelum ini saya ada menunjukkan pengiraan multilayer perceptron menyelesaikan masalah XOR bermula dari input layer, hidden layer, dan output layer kan? Ini adalah dinamakan neural network dengan proses feedforward sebab ia hanya melibatkan process yang maju kehadapan sahaja. Dengan adanya algoritma backpropagation, neural network ini berfungsi dengan dua arah iaitu ke depan dan ke belakang berulang kali.</p>
+<blockquote><p>"Melatih model dengan algoritma Gradient Decent (GD) menggunakan Backpropagation (BP) sebagai teknik pengkomputeran gradien ataupun kecerunan"</p>
+</blockquote>
+<p>Frasa di atas mengambarkan hubungan antara kedua-dua algoritma tersebut iaitu GD adalah algoritma bagi mencapai kecerunan <strong>K=0</strong> dalam masa <strong>T</strong>, manakala BP adalah algoritma yang penting untuk menjalankan proses pengiraan kecerunan tersebut dari setiap lapisan depan hingga ke lapisan belakang neuron dengan efisien.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Kecerunan apa? mungkin ada yang tertanya-tanya. Ia adalah kecerunan ataupun slop yang terhasil oleh perubahan error terhadap perubahan parameter weight (<strong><em>k=de/dw</em></strong>). Dengan kata lain, berapakah nilai perubahan pada error jika nilai parameter weight berubah pada sesuatu nilai tertentu. Jika kecerunannya adalah 0 (zero) ataupun mendatar ia di anggap sebagai di mana nilai error <strong><em>e</em></strong> yang paling minimum telah di temui (pada satu titik nilai parameter weight <strong><em>w</em></strong>).</p>
+<p>Secara analoginya, ia juga boleh di anggap seperti anda sedang mencuba turun dari atas bukit ke bawah  kaki bukit dalam keadaan gelap. Anda terus menuruni cerun selagi anda merasakan kaki dan kepala menunduk ke bawah. Sebaliknya, anda akan berpatah ke belakang apabila anda merasakan kaki dan kepala anda mendongak ke atas. Anda terus-menerus mengulangi proses turun dan naik cerun itu sehinggalah anda yakin yang anda sudah berada di kawasan tanah rata. Proses GD ini boleh digambarkan seperti di bawah (<strong>Y</strong> adalah fungsi error atau cost manakala <strong>X</strong> adalah parameter weight).</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><br />
+<br />
+<figure>
+  
+    <img class="docimage" src="/MyDLBlog/images/copied_from_nb/fastcore_imgs/gradient-decent.png" alt="gradient decent" style="max-width: 100%px" />
+    
+    
+</figure>
+
+<br />
+<br /></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Anda masih ingat lagi pada artikel yang lepas, <a href="https://megatazm.github.io/MyDLBlog/deep%20learning/2020/12/29/basic-dl.html">Pengenalan Kepada Perceptron</a>?, saya ada menyatakan yang kita perlu "<strong><em>tune</em></strong>" kelajuan training model melalui <strong><em>learning rate</em></strong>. Supaya ia tidak terlalu laju dan tidak lah pula terlalu perlahan. Saya juga ada memberi analogi, "Seperti memasukkan benang ke dalam lubang di jarum" kan? Gambarajah di bawah memberikan gambaran yang lebih jelas mengapa kita perlu melakukan <em>hyperparameter tuning</em> pada <em>learning rate</em> setiap kali melakukan proses training model.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><br />
+<br />
+<figure>
+  
+    <img class="docimage" src="/MyDLBlog/images/copied_from_nb/fastcore_imgs/lr-too-small.png" alt="lr too small" style="max-width: 100%px" />
+    
+    
+</figure>
+
+<br />
+<br /></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Gambarajah di atas menunjukkan nilai setting <em>learning rate</em> yang terlalu kecil. Walaupun ini memberi kebarangkalian yang lebih kepada algoritma GD untuk sampai ke titik paling rendah, tetapi ianya akan mengambil masa yang lama. Manakala gambarajah di bawah pula menunjukkan reaksi algoritma GD yang terpantul-pantul di sekitar cerunan tanpa berjaya sampai ke titik paling rendah apabila setting <em>learning rate</em>nya terlampau besar.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><br />
+<br />
+<figure>
+  
+    <img class="docimage" src="/MyDLBlog/images/copied_from_nb/fastcore_imgs/lr-too-big.png" alt="lr too big" style="max-width: 100%px" />
+    
+    
+</figure>
+
+<br />
+<br /></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Namun, tidak semestinya bentuk cerun yang dihasilkan oleh fungsi <strong>error</strong> ataupun <strong>cost</strong> ini cantik bentuknya seperti di atas. Kemungkinan besar bentuk cerunannya adalah seperti gambarajah di bawah, terdapat lubang, lereng, dataran tinggi, dan segala macam permukaan yang tidak sekata, sehingga sukar untuk mencapai titik yang paling minimum.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><br />
+<br />
+<figure>
+  
+    <img class="docimage" src="/MyDLBlog/images/copied_from_nb/fastcore_imgs/gd-pitfalls.png" alt="gd pitfalls" style="max-width: 100%px" />
+    
+    
+</figure>
+
+<br />
+<br /></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Seperti contoh, sekiranya algoritma GD bermula dengan nilai permulaan parameter weight di sebelah kiri (seperti di gambarajah), maka ia akan tersangkut di titik minimum yang di panggil <strong><em>local minimum</em></strong>, yang sebenarnya bukanlah titik paling minimum (<strong><em>global minimum</em></strong> ialah titik minimum yang sepatutnya di capai). Sebaliknya, jika nilai permulaan parameter weight bermula di sebelah kanan, ia akan memakan masa yang sangat lama untuk menyeberangi kawasan dataran tinggi. Jika anda berhenti iteration training terlalu awal, anda tidak akan sempat mencapai ke tahap global minimum itu. Untuk pengetahuan anda, ada banyak jenis  algoritma optimization untuk algoritma GD ini yang boleh digunakan mengikut kesesuaian fungsi cost dan dataset, seperti RMSprop, Adam, AdaMax, AdaGrad, Momentum dan banyak lagi.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Berikut adalah penerangan yang lebih tersusun berkenaan proses feedforward dan backpropogation.</p>
+<ul>
+<li>Proses ini berlaku pada setiap batch atau kumpulan kecil data. Misalnya, jika setiap batch adalah terdiri daripada 20 rekod data (1 batch = 20 rekod) dan jumlah kesemua rekod data adalah 1000 (1 epoch = 1000 rekod), maka proses ini berlaku sebanyak 1000/20 = 50 batch pada setiap epoch.</li>
+<li>Feedforward bermula dari input layer, dan ke hidden layer pertama dan seterusnya. Feedforward mengira output di semua neuron pada setiap lapisan berdasarkan pada setiap batch data tersebut sehinggalah ke lapisan terakhir iaitu output layer, di mana nilai ramalan dihasilkan. Semua hasil pengiraan pada batch di setiap lapisan neuron tersebut disimpan kerana ia diperlukan untuk kegunaan proses backpropagation (1 batch = 1 iteration = 1 Feedforward + 1 Backpropogation).</li>
+<li>Seterusnya, algoritma mengukur error di output layer (ia menggunakan fungsi error atau cost yang membandingkan output yang telah dilabelkan dan output ramalan) dan nilai error ini akan digunakan oleh backpropagation.</li>
+<li>Kemudian ia menghitung berapa besarkah setiap sambungan weight output menyumbang kepada error tersebut (mengukur kecerunan <em>k=de/dw</em>). Ini dilakukan secara analitik dengan menggunakan "<strong><em>chain-rule</em></strong>" (salah satu ilmu asas matematik kalkulus dalam silibus SPM), yang menjadikan proses mengiraan ini cepat dan tepat.</li>
+<li>Algoritma kemudian mengukur berapa banyak sumbangan error yang datang dari setiap sambungan weight di setiap lapisan neural network bergerak ke arah belakang sehinggalah ke lapisan input layer dengan menggunakan teknik <strong><em>chain-rule</em></strong> itu. Seperti yang dijelaskan sebelumnya, backpropagation ini mengukur kecerunan error terhadapan sambungan weight dengan efisen pada semua sambungan weight dalam setiap lapisan neural network dengan menyebarkan nilai kecerunan tersebut ke belakang.</li>
+<li>Akhirnya, algoritma Gradient Descent beraksi dengan mengubah semua nilai weight di dalam setiap lapisan neural network berdasarkan pada nilai kecerunan atau gradien error yang dikira sebelum ini. Proses feedforward &amp; backpropagation ini berlaku berulang-ulang kali berdasarkan pada jumlah epoch yang anda tetapkan.</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Bagi membolehkan algoritma ini dapat berfungsi seperti yang diharapkan, fungsi acivation step pada MLP itu perlu digantikan fungsi yang lain. Ini penting kerana fungsi step hanya mempunyai garisan menegak dan mendatar, jadi tidak ada kecerunan yang dihasilkan untuk kegunaan algoritma gradient descent. Oleh itu kita memerlukan fungsi activation yang "<strong><em>continuous &amp; differentiable</em></strong>" iaitu fungsi yang boleh menghasilkan gradien atau kecerunan disepanjang garisan melalui perubahan error terhadap perubahan parameter weight. Ini membolehkan  algoritma gradient descent bergerak menuju ke arah titik minimum pada setiap iteration. Berikut adalah beberapa fungsi activation yang biasa digunakan,</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>Fungsi sigmoid, σ (z) = 1 / (1 + exp (–z) ). 
+<br />
+<br />
+<figure>
+  
+    <img class="docimage" src="/MyDLBlog/images/copied_from_nb/fastcore_imgs/sigmoid.png" alt="sigmoid" style="max-width: 100%px" />
+    
+    
+</figure>
+
+<br />
+<br /></li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>Fungsi tangen hiperbolik: tanh (z) = 2σ (2z) - 1 
+<br />
+<br />
+<figure>
+  
+    <img class="docimage" src="/MyDLBlog/images/copied_from_nb/fastcore_imgs/htan.png" alt="htangent" style="max-width: 100%px" />
+    
+    
+</figure>
+
+<br />
+<br /></li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>Fungsi Rectified Linear Unit, ReLU (z) = max (0, z)
+<br />
+<br />
+<figure>
+  
+    <img class="docimage" src="/MyDLBlog/images/copied_from_nb/fastcore_imgs/relu.png" alt="relu" style="max-width: 100%px" />
+    
+    
+</figure>
+
+<br />
+<br /></li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Gambarajah di bawah menunjukkan fungsi activation dan derivatifnya (di sebalah kanan). Kita akan bincangkan berkenaan fungsi-fungsi ini di artikel yang akan datang.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><br />
+<br />
+<figure>
+  
+    <img class="docimage" src="/MyDLBlog/images/copied_from_nb/fastcore_imgs/activation-functions.png" alt="activation functions" style="max-width: 100%px" />
+    
+    
+</figure>
+
+<br />
+<br /></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Oh ya, anda masih ingat satu lagi tujuan penting activation function yang pernah saya nyatakan sebelum ini? Ya! untuk membolehkan kita membina model non-linear bagi menyelesaikan permasalahan yang kompleks, kita menggunakan activation function seperti ini untuk menukarnya dari dunia linear ke dunia non-liner.</p>
+<p>Kenapa? sebab jikalau ianya masih lagi dalam bentuk linear, maka takda maknanya pun kalau kita tambah hidden layer tu berlapis-lapis bagi tujuan untuk membina suatu model yang kompleks. Sebagai contoh, jika</p>
+<p><strong><em>f (x) = 2x + 3, dan g (x) = 5x - 1</em></strong></p>
+<p>Kemudian kita sambungkan kedua-dua fungsi linear itu (menjadi dua lapisan network), ia sebenarnya akan hanya menghasilkan satu lapis fungsi linear juga.</p>
+<p><strong><em>f (g (x)) = 2 (5x - 1) + 3 = 10x + 1</em></strong></p>
+<p>Oleh itu, tak kiralah berapa ribu hidden layer pun yang anda tambah, akhirnya ia cuma menjadi satu fungsi linear yang berbeza nilai kecerunan dan ketinggiannya.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+  </div><!-- from https://github.com/utterance/utterances -->
+<script src="https://utteranc.es/client.js"
+        repo="megatazm/MyDLBlog"
+        issue-term="title"
+        label="blogpost-comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script><a class="u-url" href="/MyDLBlog/deep%20learning/2021/01/31/mlp-backpropagation.html" hidden></a>
+</article>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/MyDLBlog/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/MyDLBlog/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/MyDLBlog/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>An easy to use blogging platform with support for Jupyter Notebooks.</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/fastai" title="fastai"><svg class="svg-icon grey"><use xlink:href="/MyDLBlog/assets/minima-social-icons.svg#github"></use></svg></a></li><li><a rel="me" href="https://twitter.com/fastdotai" title="fastdotai"><svg class="svg-icon grey"><use xlink:href="/MyDLBlog/assets/minima-social-icons.svg#twitter"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
