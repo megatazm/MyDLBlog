@@ -111,7 +111,7 @@ window.onload = wrap_img;
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Assalamualaikum dan selamat berjumpa kembali.</p>
 <p>Pada <a href="https://megatazm.github.io/MyDLBlog/deep%20learning/2021/01/19/ml-perceptron.html">artikel yang lepas</a>, saya telah memberi penerangan yang ringkas berkenaan kelemahan perceptron merujuk kepada <strong>masalah XOR</strong> dan bagaimana multilayer perceptron dapat menyelesaikannya. Saya juga ada melontarkan persoalan, "Mengapa algoritma yang berasaskan pada neural network ini terkubur selama hampir dua dekad ?", walaupun permasalahan XOR itu boleh diselesaikan oleh multilayer perceptron.</p>
-<p>Permasalahan besar muncul apabila multilayer perceptron (MLP) itu ingin digunakan untuk di latih dengan data <strong><em>non-linearly separable</em></strong> yang sebenar, bukan setakat data yang sangat asas seperti masalah XOR itu. Mungkin anda terfikir, (ー_ーゞ</p>
+<p>Permasalahan besar muncul apabila multilayer perceptron (MLP) itu ingin digunakan untuk di latih dengan data <strong><em>non-linearly separable</em></strong> yang sebenar, bukan setakat data yang sangat asas seperti masalah XOR itu. Mungkin anda terfikir,   (ー_ーゞ</p>
 <blockquote><p>"Jika datanya kompleks seperti itu maka tambahkanlah dengan lebih banyak neuron dan lapisan hidden layer"</p>
 </blockquote>
 <p>Bijak! memang tepat sekali jangkaan anda, tetapi sanggupkah anda menunggu proses training model itu selama beribu-ribu tahun? Tak berbaloi kan? Oleh kerana kegagalan para penyelidik ketika itu mencari kaedah melatih MLP dalam satu jangka masa yang munasabah lah yang menjadi punca utama mengapa neural network terkubur sekian lama.</p>
@@ -225,7 +225,7 @@ window.onload = wrap_img;
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Seperti contoh, sekiranya algoritma GD bermula dengan nilai permulaan parameter weight di sebelah kiri (seperti di gambarajah), maka ia akan tersangkut di titik minimum yang di panggil <strong><em>local minimum</em></strong>, yang sebenarnya bukanlah titik paling minimum (<strong><em>global minimum</em></strong> ialah titik minimum yang sepatutnya di capai). Sebaliknya, jika nilai permulaan parameter weight bermula di sebelah kanan, ia akan memakan masa yang sangat lama untuk menyeberangi kawasan dataran tinggi. Jika anda berhenti iteration training terlalu awal, anda tidak akan sempat mencapai ke tahap global minimum itu. Untuk pengetahuan anda, ada banyak jenis  algoritma optimization untuk algoritma GD ini yang boleh digunakan mengikut kesesuaian fungsi cost dan dataset, seperti RMSprop, Adam, AdaMax, AdaGrad, Momentum dan banyak lagi.</p>
+<p>Seperti contoh, sekiranya algoritma GD bermula dengan nilai permulaan parameter weight di sebelah kiri (seperti di gambarajah), maka ia akan tersangkut di titik minimum yang di panggil <strong><em>local minimum</em></strong>, yang sebenarnya bukanlah titik paling minimum ( <strong><em>global minimum</em></strong> ialah titik minimum yang sepatutnya di capai ). Sebaliknya, jika nilai permulaan parameter weight bermula di sebelah kanan, ia akan memakan masa yang sangat lama untuk menyeberangi kawasan dataran tinggi. Jika anda berhenti iteration training terlalu awal, anda tidak akan sempat mencapai ke tahap global minimum itu. Untuk pengetahuan anda, ada banyak jenis  algoritma optimization untuk algoritma GD ini yang boleh digunakan mengikut kesesuaian fungsi cost dan dataset, seperti RMSprop, Adam, AdaMax, AdaGrad, Momentum dan banyak lagi.</p>
 
 </div>
 </div>
@@ -237,7 +237,7 @@ window.onload = wrap_img;
 <li>Proses ini berlaku pada setiap batch atau kumpulan kecil data. Misalnya, jika setiap batch adalah terdiri daripada 20 rekod data (1 batch = 20 rekod) dan jumlah kesemua rekod data adalah 1000 (1 epoch = 1000 rekod), maka proses ini berlaku sebanyak 1000/20 = 50 batch pada setiap epoch.</li>
 <li>Feedforward bermula dari input layer, dan ke hidden layer pertama dan seterusnya. Feedforward mengira output di semua neuron pada setiap lapisan berdasarkan pada setiap batch data tersebut sehinggalah ke lapisan terakhir iaitu output layer, di mana nilai ramalan dihasilkan. Semua hasil pengiraan pada batch di setiap lapisan neuron tersebut disimpan kerana ia diperlukan untuk kegunaan proses backpropagation (1 batch = 1 iteration = 1 Feedforward + 1 Backpropogation).</li>
 <li>Seterusnya, algoritma mengukur error di output layer (ia menggunakan fungsi error atau cost yang membandingkan output yang telah dilabelkan dan output ramalan) dan nilai error ini akan digunakan oleh backpropagation.</li>
-<li>Kemudian ia menghitung berapa besarkah setiap sambungan weight output menyumbang kepada error tersebut (mengukur kecerunan <em>k=de/dw</em>). Ini dilakukan secara analitik dengan menggunakan "<strong><em>chain-rule</em></strong>" (salah satu ilmu asas matematik kalkulus dalam silibus SPM), yang menjadikan proses mengiraan ini cepat dan tepat.</li>
+<li>Kemudian ia menghitung berapa besarkah setiap sambungan weight output menyumbang kepada error tersebut (mengukur kecerunan <em>k=de/dw</em>). Ini dilakukan secara analitik dengan menggunakan "<strong><em>chain-rule</em></strong>" (salah satu ilmu asas matematik kalkulus dalam silibus SPM), yang menjadikan proses pengiraan ini cepat dan tepat.</li>
 <li>Algoritma kemudian mengukur berapa banyak sumbangan error yang datang dari setiap sambungan weight di setiap lapisan neural network bergerak ke arah belakang sehinggalah ke lapisan input layer dengan menggunakan teknik <strong><em>chain-rule</em></strong> itu. Seperti yang dijelaskan sebelumnya, backpropagation ini mengukur kecerunan error terhadapan sambungan weight dengan efisen pada semua sambungan weight dalam setiap lapisan neural network dengan menyebarkan nilai kecerunan tersebut ke belakang.</li>
 <li>Akhirnya, algoritma Gradient Descent beraksi dengan mengubah semua nilai weight di dalam setiap lapisan neural network berdasarkan pada nilai kecerunan atau gradien error yang dikira sebelum ini. Proses feedforward &amp; backpropagation ini berlaku berulang-ulang kali berdasarkan pada jumlah epoch yang anda tetapkan.</li>
 </ul>
@@ -314,7 +314,7 @@ window.onload = wrap_img;
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Gambarajah di bawah menunjukkan fungsi activation dan derivatifnya (di sebalah kanan). Kita akan bincangkan berkenaan fungsi-fungsi ini di artikel yang akan datang.</p>
+<p>Gambarajah di bawah menunjukkan fungsi activation dan derivatifnya (di sebelah kanan). Kita akan bincangkan berkenaan fungsi-fungsi ini di artikel yang akan datang.</p>
 
 </div>
 </div>
